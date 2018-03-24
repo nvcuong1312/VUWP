@@ -1,0 +1,995 @@
+﻿<UserControl
+    x:Class="vozForums_Universal.CommonControl.Emoticon"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:vozForums_Universal.CommonControl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="400">
+    <Pivot x:Name="rootPivot" Title="Emoticon" Width="400">
+        <PivotItem Header="Popo">
+            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":adore:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/adore.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":aboom:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/after_boom.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":ah:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/ah.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":amazed:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/amazed.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":angry:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/angry.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":badsmell:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/bad_smelly.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":baffle:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/baffle.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":beated:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/beated.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":brick:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/beat_brick.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":plaster:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/beat_plaster.png"/>
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":shot:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/beat_shot.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":beauty:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/beauty.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":D" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/big_smile.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":boss:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/boss.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":stick:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/burn_joss_stick.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":byebye:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/byebye.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":canny:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/canny.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":choler:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/choler.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":confident:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/confident.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":confuse:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/confuse.png"/>
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":cool:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/cool.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":cry:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/cry.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":doubt:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/doubt.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":dribble:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/dribble.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":embarrassed:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/embarrassed.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":sogood:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/feel_good.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":go:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/go.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":haha:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/haha.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":hell_boy:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/hell_boy.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":hungry:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/hungry.png"/>
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":look_down:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/look_down.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":matrix:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/matrix.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":misdoubt:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/misdoubt.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":nosebleed:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/nosebleed.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":oh:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/oh.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":ops:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/ops.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":pudency:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/pudency.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":rap:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/rap.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":sad:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/sad.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":sexy:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/sexy_girl.png"/>
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":shame:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/shame.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":)" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/smile.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":spiderman:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/spiderman.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":dreaming:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/still_dreaming.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":sure:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/sure.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":surrender:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/surrender.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":sweat:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/sweat.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":*" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/sweet_kiss.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":tire:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/tire.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag="sad" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/too_sad.png"/>
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":waaaht:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/waaaht.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="Uniform" Margin="2" Width="40" Height="40" Tag=":what:" Tapped="Image_Tap" RightTapped="Image_RightTapped" Source="ms-appx:///Assets/iconvoz/what.png"/>
+                        </Button>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+        <PivotItem Header="Smile">
+            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":bang:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/bang.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":biggrin:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/biggrin.gif"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":bye:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/bye.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":capture:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/capture.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":confused:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/confused.gif"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":cool:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/cool.gif"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":doublegun:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/doublegun.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":eek:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/eek.gif"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":fix:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/fix.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":frown:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/frown.gif"/>
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":hehe:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/hehe.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":hug:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/hug.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":lay:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/lay.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":mad:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/mad.gif"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":mage:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/mage.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":no:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/no.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":phone:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/phone.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":puke:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/puke.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":redface:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/redface.gif"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":rofl:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/rofl.png"/>
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":rolleyes:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/rolleyes.gif"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":runrun:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/runrun.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":shoot1:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/shoot1.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":sleep:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/sleep.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":smoke:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/smoke.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":sos:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/sos.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":theft:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/theft.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":tongue:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/tongue.gif"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":wink:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/wink.gif"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="35" Height="35" Tag=":yes:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/yes.png"/>
+                        </Button>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+        <PivotItem Header="Gif">
+            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":band:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/band.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":ban:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/bann.gif"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":bike:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/bike.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":Birthday:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/Birthday.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":boom:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/boom.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":cheers:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/cheers.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":flame:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/flame.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":hang:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/hang.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":lmao:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/lmao.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":lol:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/lol.png"/>
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":lovemachine:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/lovemachine.gif"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":loveyou:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/loveyou.gif"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":ot:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/ot.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":please:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/please.gif"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":shit:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/shit.gif"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":shitty:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/shit_002.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":spam:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/spam.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":stupid:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/stupid.gif"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":welcome:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/welcome.png"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Stretch="None" RightTapped="Image_RightTapped" Margin="2" Width="70" Height="70" Tag=":winner:" Tapped="Image_Tap" Source="ms-appx:///Assets/iconvoz/pauseGif/winner.png"/>
+                        </Button>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+        <PivotItem Header="Namek">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Width="400">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/adore.png" Height="40" Width="40" Tag=":namek_adore:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/ah.png" Height="40" Width="40" Tag=":namek_ah:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/amazed.png" Height="40" Width="40" Tag=":namek_amazed:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/angry.png" Height="40" Width="40" Tag=":namek_angry:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/bad_smelly.png" Height="40" Width="40" Tag=":namek_bad_smelly:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/baffle.png" Height="40" Width="40" Tag=":namek_baffle:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/beated.png" Height="40" Width="40" Tag=":namek_beated:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/beat_brick.png" Height="40" Width="40" Tag=":namek_beat_brick:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/beat_plaster.png" Height="40" Width="40" Tag=":namek_beat_plaster:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/beat_shot.png" Height="40" Width="40" Tag=":namek_beat_shot:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/beauty.png" Height="40" Width="40" Tag=":namek_beauty:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/big_smile.png" Height="40" Width="40" Tag=":namek_big_smile:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/boss.png" Height="40" Width="40" Tag=":namek_boss:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/burn_joss_stick.png" Height="40" Width="40" Tag=":namek_burn_joss_stick:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/byebye.png" Height="40" Width="40" Tag=":namek_byebye:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/byebye_money.png" Height="40" Width="40" Tag=":namek_byebye_money:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/canny.png" Height="40" Width="40" Tag=":namek_canny:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/choler.png" Height="40" Width="40" Tag=":namek_choler:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/confident.png" Height="40" Width="40" Tag=":namek_confident:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/confuse.png" Height="40" Width="40" Tag=":namek_confuse:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/cry.png" Height="40" Width="40" Tag=":namek_cry:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/doubt.png" Height="40" Width="40" Tag=":namek_doubt:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/dribble.png" Height="40" Width="40" Tag=":namek_dribble:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/embarrassed.png" Height="40" Width="40" Tag=":namek_embarrassed:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/extreme_sexy_girl.png" Height="40" Width="40" Tag=":namek_extreme_sexy_girl:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/feel_good.png" Height="40" Width="40" Tag=":namek_feel_good:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/go.png" Height="40" Width="40" Tag=":namek_go:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/haha.png" Height="40" Width="40" Tag=":namek_haha:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/hungry.png" Height="40" Width="40" Tag=":namek_hungry:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/look_down.png" Height="40" Width="40" Tag=":namek_look_down:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/misdoubt.png" Height="40" Width="40" Tag=":namek_misdoubt:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/nosebleed.png" Height="40" Width="40" Tag=":namek_nosebleed:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/oh.png" Height="40" Width="40" Tag=":namek_oh:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/ops.png" Height="40" Width="40" Tag=":namek_ops:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/pudency.png" Height="40" Width="40" Tag=":namek_pudency:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/sad.png" Height="40" Width="40" Tag=":namek_sad:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/sexy_girl.png" Height="40" Width="40" Tag=":namek_sexy_girl:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/shame.png" Height="40" Width="40" Tag=":namek_shame:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/smile.png" Height="40" Width="40" Tag=":namek_smile:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/still_dreaming.png" Height="40" Width="40" Tag=":namek_still_dreaming:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/sure.png" Height="40" Width="40" Tag=":namek_sure:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/surrender.png" Height="40" Width="40" Tag=":namek_surrender:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/sweat.png" Height="40" Width="40" Tag=":namek_sweat:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/sweet_kiss.png" Height="40" Width="40" Tag=":namek_sweet_kiss:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/tire.png" Height="40" Width="40" Tag=":namek_tire:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/too_sad.png" Height="40" Width="40" Tag=":namek_too_sad:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/waaaht.png" Height="40" Width="40" Tag=":namek_waaaht:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/Namek/what.png" Height="40" Width="40" Tag=":namek_what:" />
+                        </Button>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+        <PivotItem Header="30 Shades">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Width="400">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/2GJcq.jpg" Height="40" Width="40" Tag=":shades_2GJcq:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/adore_sweet_kiss.png" Height="40" Width="40" Tag=":shades_adore_sweet_kiss:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/ahihihihi.png" Height="40" Width="40" Tag=":shades_ahihihihi:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/amazed_sweet_kiss.png" Height="40" Width="40" Tag=":shades_amazed_sweet_kiss:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/big_smile_surender.png" Height="40" Width="40" Tag=":shades_big_smile_surender:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/byebye_big_smile.png" Height="40" Width="40" Tag=":shades_byebye_big_smile:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/byebye_smile.png" Height="40" Width="40" Tag=":shades_byebye_smile:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/confident_boss.png" Height="40" Width="40" Tag=":shades_confident_boss:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/double_brick.png" Height="40" Width="40" Tag=":shades_double_brick:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/doubt_kiss.png" Height="40" Width="40" Tag=":shades_doubt_kiss:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/fap_dreaming.png" Height="40" Width="40" Tag=":shades_fap_dreaming:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/fap_fap.png" Height="40" Width="40" Tag=":shades_fap_fap:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/growing_horn.png" Height="40" Width="40" Tag=":shades_growing_horn:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/haha_angry.png" Height="40" Width="40" Tag=":shades_haha_angry:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/hey_hey.png" Height="40" Width="40" Tag=":shades_hey_hey:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/jummy_girl.png" Height="40" Width="40" Tag=":shades_jummy_girl:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/kiss.png" Height="40" Width="40" Tag=":shades_kiss:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/look_down_confuse.png" Height="40" Width="40" Tag=":shades_look_down_confuse:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/look_down_haha.png" Height="40" Width="40" Tag=":shades_look_down_haha:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/moaaa.png" Height="40" Width="40" Tag=":shades_moaaa:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/nooo.png" Height="40" Width="40" Tag=":shades_nooo:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/oh_beauty.png" Height="40" Width="40" Tag=":shades_oh_beauty:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/oh_sexy_girl.png" Height="40" Width="40" Tag=":shades_oh_sexy_girl:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/one_punch.png" Height="40" Width="40" Tag=":shades_one_punch:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/ops_confident.png" Height="40" Width="40" Tag=":shades_ops_confident:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/rXaZ0vK.png" Height="40" Width="40" Tag=":shades_rXaZ0vK:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/sad_smile.png" Height="40" Width="40" Tag=":shades_sad_smile:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/surrender_sexygirl.png" Height="40" Width="40" Tag=":shades_surrender_sexygirl:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/surrender_sexy_girl_byebye.png" Height="40" Width="40" Tag=":shades_surrender_sexy_girl_byebye:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/UyaA5.jpg" Height="40" Width="40" Tag=":shades_UyaA5:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/vote_ban.png" Height="40" Width="40" Tag=":shades_vote_ban:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/whats_that_trick.png" Height="40" Width="40" Tag=":shades_whats_that_trick:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/what_the_heck.png" Height="40" Width="40" Tag=":shades_what_the_heck:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/wtf.png" Height="40" Width="40" Tag=":shades_wtf:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/ZMDkt.jpg" Height="40" Width="40" Tag=":shades_ZMDkt:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/30shades/Znuor.jpg" Height="40" Width="40" Tag=":shades_Znuor:" />
+                        </Button>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+        <PivotItem Header="IS_ER">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Width="400">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/adore.png" Height="40" Width="40" Tag=":is_adore:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/ah.png" Height="40" Width="40" Tag=":is_ah:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/ak_boss.png" Height="40" Width="40" Tag=":is_ak_boss:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/ak_doubt.png" Height="40" Width="40" Tag=":is_ak_doubt:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/alahu_akbar.png" Height="40" Width="40" Tag=":is_alahu_akbar:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/amazed.png" Height="40" Width="40" Tag=":is_amazed:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/angry.png" Height="40" Width="40" Tag=":is_angry:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/bad_smelly.png" Height="40" Width="40" Tag=":is_bad_smelly:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/baffle.png" Height="40" Width="40" Tag=":is_baffle:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/beat_brick.png" Height="40" Width="40" Tag=":is_beat_brick:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/beauty.png" Height="40" Width="40" Tag=":is_beauty:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/big_smile.png" Height="40" Width="40" Tag=":is_big_smile:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/boss.png" Height="40" Width="40" Tag=":is_boss:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/brick.png" Height="40" Width="40" Tag=":is_brick:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/burn_joss_stick.png" Height="40" Width="40" Tag=":is_burn_joss_stick:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/byebye.png" Height="40" Width="40" Tag=":is_byebye:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/canny.png" Height="40" Width="40" Tag=":is_canny:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/choler.png" Height="40" Width="40" Tag=":is_choler:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/confuse.png" Height="40" Width="40" Tag=":is_confuse:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/cry.png" Height="40" Width="40" Tag=":is_cry:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/doubt.png" Height="40" Width="40" Tag=":is_doubt:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/dribble.png" Height="40" Width="40" Tag=":is_dribble:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/embarrassed.png" Height="40" Width="40" Tag=":is_embarrassed:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/feel_good.png" Height="40" Width="40" Tag=":is_feel_good:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/female_angry.png" Height="40" Width="40" Tag=":is_female_angry:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/female_beauty.png" Height="40" Width="40" Tag=":is_female_beauty:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/female_brick.png" Height="40" Width="40" Tag=":is_female_brick:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/female_byebye.png" Height="40" Width="40" Tag=":is_female_byebye:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/female_choler.png" Height="40" Width="40" Tag=":is_female_choler:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/female_doubt.png" Height="40" Width="40" Tag=":is_female_doubt:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/female_feel_good.png" Height="40" Width="40" Tag=":is_female_feel_good:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/female_haha.png" Height="40" Width="40" Tag=":is_female_haha:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/female_look_down.png" Height="40" Width="40" Tag=":is_female_look_down:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/female_sexy_girl.png" Height="40" Width="40" Tag=":is_female_sexy_girl:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/female_sure.png" Height="40" Width="40" Tag=":is_female_sure:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/female_surrender.png" Height="40" Width="40" Tag=":is_female_surrender:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/female_sweat.png" Height="40" Width="40" Tag=":is_female_sweat:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/female_sweet_kiss.png" Height="40" Width="40" Tag=":is_female_sweet_kiss:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/female_too_sad.png" Height="40" Width="40" Tag=":is_female_too_sad:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/go.png" Height="40" Width="40" Tag=":is_go:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/haha.png" Height="40" Width="40" Tag=":is_haha:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/hungry.png" Height="40" Width="40" Tag=":is_hungry:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/look_down.png" Height="40" Width="40" Tag=":is_look_down:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/misdoubt.png" Height="40" Width="40" Tag=":is_misdoubt:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/nosebleed.png" Height="40" Width="40" Tag=":is_nosebleed:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/oh.png" Height="40" Width="40" Tag=":is_oh:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/ops.png" Height="40" Width="40" Tag=":is_ops:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/pudency.png" Height="40" Width="40" Tag=":is_pudency:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/sad.png" Height="40" Width="40" Tag=":is_sad:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/sexy_girl.png" Height="40" Width="40" Tag=":is_sexy_girl:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/shame.png" Height="40" Width="40" Tag=":is_shame:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/smile.png" Height="40" Width="40" Tag=":is_smile:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/spiderman.png" Height="40" Width="40" Tag=":is_spiderman:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/still_dreaming.png" Height="40" Width="40" Tag=":is_still_dreaming:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/sure.png" Height="40" Width="40" Tag=":is_sure:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/surrender.png" Height="40" Width="40" Tag=":is_surrender:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/sweat.png" Height="40" Width="40" Tag=":is_sweat:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/sweet_kiss.png" Height="40" Width="40" Tag=":is_sweet_kiss:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/tire.png" Height="40" Width="40" Tag=":is_tire:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/too_sad.png" Height="40" Width="40" Tag=":is_too_sad:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/waaaht.png" Height="40" Width="40" Tag=":is_waaaht:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/is/what.png" Height="40" Width="40" Tag=":is_what:" />
+                        </Button>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+        <PivotItem Header="Vozer love Pink">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Width="400">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/adore.png" Height="40" Width="40" Tag=":bow_adore:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/amazed.png" Height="40" Width="40" Tag=":bow_amazed:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/angry.png" Height="40" Width="40" Tag=":bow_angry:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/baffle.png" Height="40" Width="40" Tag=":bow_baffle:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/beated.png" Height="40" Width="40" Tag=":bow_beated:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/beat_plaster.png" Height="40" Width="40" Tag=":bow_beat_plaster:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/beauty.png" Height="40" Width="40" Tag=":bow_beauty:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/boss.png" Height="40" Width="40" Tag=":bow_boss:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/brick.png" Height="40" Width="40" Tag=":bow_brick:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/byebye.png" Height="40" Width="40" Tag=":bow_byebye:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/canny.png" Height="40" Width="40" Tag=":bow_canny:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/choler.png" Height="40" Width="40" Tag=":bow_choler:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/confident.png" Height="40" Width="40" Tag=":bow_confident:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/doubt.png" Height="40" Width="40" Tag=":bow_doubt:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/dribble.png" Height="40" Width="40" Tag=":bow_dribble:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/embarrassed.png" Height="40" Width="40" Tag=":bow_embarrassed:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/extreme_sexy_girl.png" Height="40" Width="40" Tag=":bow_extreme_sexy_girl:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/go.png" Height="40" Width="40" Tag=":bow_go:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/haha.png" Height="40" Width="40" Tag=":bow_haha:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/look_down.png" Height="40" Width="40" Tag=":bow_look_down:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/matrix.png" Height="40" Width="40" Tag=":bow_matrix:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/mickey.png" Height="40" Width="40" Tag=":bow_mickey:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/misdoubt.png" Height="40" Width="40" Tag=":bow_misdoubt:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/nosebleed.png" Height="40" Width="40" Tag=":bow_nosebleed:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/oh.png" Height="40" Width="40" Tag=":bow_oh:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/pudency.png" Height="40" Width="40" Tag=":bow_pudency:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/sad.png" Height="40" Width="40" Tag=":bow_sad:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/sexy_girl.png" Height="40" Width="40" Tag=":bow_sexy_girl:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/smile.png" Height="40" Width="40" Tag=":bow_smile:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/spiderman.png" Height="40" Width="40" Tag=":bow_spiderman:" />
+                        </Button>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/sure.png" Height="40" Width="40" Tag=":bow_sure:" />
+                        </Button>
+                        <Button Background="Transparent">
+                            <Image Tapped="Image_Tap" RightTapped="Image_RightTapped" Margin="2" Stretch="Uniform" Source="ms-appx:///Assets/iconvoz/no/sweet_kiss.png" Height="40" Width="40" Tag=":bow_sweet_kiss:" />
+                        </Button>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+    </Pivot>
+
+</UserControl>

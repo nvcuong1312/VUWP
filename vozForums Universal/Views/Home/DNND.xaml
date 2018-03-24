@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="vozForums_Universal.Views.Home.DNND"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:vozForums_Universal.Views.Home"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{x:Bind appSetting.BackgroundHomeColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <RelativePanel Grid.Row="0" Style="{StaticResource rlHome}" Background="{x:Bind appSetting.BackgroundHomeColor}">
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Style="{StaticResource HomeIcon}" Text="&#xE8BD;" />
+                <TextBlock Style="{StaticResource HomeText}" Foreground="{x:Bind appSetting.TextblockHomeColor}" Text="Danh nghiệp và người dùng"/>
+            </StackPanel>
+        </RelativePanel>
+        <Frame Grid.Row="1" Background="{x:Bind appSetting.BackgroundHomeColor}">
+            <ListBox SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged" Background="{x:Bind appSetting.BackgroundHomeColor}">
+                <ListBoxItem Name="dell">
+                    <StackPanel>
+                        <TextBlock Text="DELL" Foreground="{x:Bind appSetting.TextblockHomeColor}" Style="{StaticResource HomeText}"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem Name="Hoangha">
+                    <StackPanel>
+                        <TextBlock Text="Hoanghamobile.com" Foreground="{x:Bind appSetting.TextblockHomeColor}" Style="{StaticResource HomeText}"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem Name="saiback">
+                    <StackPanel>
+                        <TextBlock Text="SaiBack.com" Foreground="{x:Bind appSetting.TextblockHomeColor}" Style="{StaticResource HomeText}"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem Name="wd">
+                    <StackPanel>
+                        <TextBlock Text="WD" Foreground="{x:Bind appSetting.TextblockHomeColor}" Style="{StaticResource HomeText}"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem Name="wecando">
+                    <StackPanel>
+                        <TextBlock Text="We can do"  Foreground="{x:Bind appSetting.TextblockHomeColor}" Style="{StaticResource HomeText}"/>
+                    </StackPanel>
+                </ListBoxItem>
+            </ListBox>
+        </Frame>
+
+    </Grid>
+</Page>

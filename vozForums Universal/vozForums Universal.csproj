@@ -1,0 +1,692 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{43AECE2D-40CD-4B66-94B3-BC910A8DF329}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>vozForums_Universal</RootNamespace>
+    <AssemblyName>vozForums Universal</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>vozForums Universal_StoreKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|arm</AppxBundlePlatforms>
+    <PackageCertificateThumbprint>168387DFB8D668D78476CCCC0E4E9BA28A578646</PackageCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="ClassDiagram1.cd" />
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommonControl\RatingControl.xaml.cs">
+      <DependentUpon>RatingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connect\ConnectServer.cs" />
+    <Compile Include="CommonControl\DefineEmoticon.cs" />
+    <Compile Include="CommonControl\Emoticon.xaml.cs">
+      <DependentUpon>Emoticon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommonControl\rtbViewHtml.xaml.cs">
+      <DependentUpon>rtbViewHtml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\ListThreadController.cs" />
+    <Compile Include="Controller\ThreadController.cs" />
+    <Compile Include="Helper\BookMark.cs" />
+    <Compile Include="Helper\HelperHtml.cs" />
+    <Compile Include="Model\AppSettingModel.cs" />
+    <Compile Include="Model\HomeTdModel.cs" />
+    <Compile Include="Model\InfoUserModel.cs" />
+    <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Model\ThreadModel.cs" />
+    <Compile Include="Model\ThreadListModel.cs" />
+    <Compile Include="Views\Account\Setting.xaml.cs">
+      <DependentUpon>Setting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Hidden\HiddenPage.xaml.cs">
+      <DependentUpon>HiddenPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Hidden\HomePageTd.xaml.cs">
+      <DependentUpon>HomePageTd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Hidden\ListThread.xaml.cs">
+      <DependentUpon>ListThread.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Hidden\Thread.xaml.cs">
+      <DependentUpon>Thread.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Bookmark.xaml.cs">
+      <DependentUpon>Bookmark.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\DaiSanh.xaml.cs">
+      <DependentUpon>DaiSanh.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\DNND.xaml.cs">
+      <DependentUpon>DNND.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Games.xaml.cs">
+      <DependentUpon>Games.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Home\Muaban.xaml.cs">
+      <DependentUpon>Muaban.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\PC.xaml.cs">
+      <DependentUpon>PC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\SPCN.xaml.cs">
+      <DependentUpon>SPCN.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Support.xaml.cs">
+      <DependentUpon>Support.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\TheNext.xaml.cs">
+      <DependentUpon>TheNext.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\VCGT.xaml.cs">
+      <DependentUpon>VCGT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListThread.xaml.cs">
+      <DependentUpon>ListThread.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Thread.xaml.cs">
+      <DependentUpon>Thread.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Version.xaml.cs">
+      <DependentUpon>Version.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="vozForums Universal_StoreKey.pfx" />
+    <None Include="vozForums Universal_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\avt.gif" />
+    <Content Include="Assets\BadgeLogo.scale-100.png" />
+    <Content Include="Assets\BadgeLogo.scale-125.png" />
+    <Content Include="Assets\BadgeLogo.scale-150.png" />
+    <Content Include="Assets\BadgeLogo.scale-200.png" />
+    <Content Include="Assets\BadgeLogo.scale-400.png" />
+    <Content Include="Assets\brick.png" />
+    <Content Include="Assets\iconvoz\30shades\adore_sweet_kiss.png" />
+    <Content Include="Assets\iconvoz\30shades\ahihihihi.png" />
+    <Content Include="Assets\iconvoz\30shades\amazed_sweet_kiss.png" />
+    <Content Include="Assets\iconvoz\30shades\big_smile_surender.png" />
+    <Content Include="Assets\iconvoz\30shades\byebye_big_smile.png" />
+    <Content Include="Assets\iconvoz\30shades\byebye_smile.png" />
+    <Content Include="Assets\iconvoz\30shades\confident_boss.png" />
+    <Content Include="Assets\iconvoz\30shades\double_brick.png" />
+    <Content Include="Assets\iconvoz\30shades\doubt_kiss.png" />
+    <Content Include="Assets\iconvoz\30shades\fap_dreaming.png" />
+    <Content Include="Assets\iconvoz\30shades\fap_fap.png" />
+    <Content Include="Assets\iconvoz\30shades\growing_horn.png" />
+    <Content Include="Assets\iconvoz\30shades\haha_angry.png" />
+    <Content Include="Assets\iconvoz\30shades\hey_hey.png" />
+    <Content Include="Assets\iconvoz\30shades\jummy_girl.png" />
+    <Content Include="Assets\iconvoz\30shades\kiss.png" />
+    <Content Include="Assets\iconvoz\30shades\look_down_confuse.png" />
+    <Content Include="Assets\iconvoz\30shades\look_down_haha.png" />
+    <Content Include="Assets\iconvoz\30shades\moaaa.png" />
+    <Content Include="Assets\iconvoz\30shades\nooo.png" />
+    <Content Include="Assets\iconvoz\30shades\oh_beauty.png" />
+    <Content Include="Assets\iconvoz\30shades\oh_sexy_girl.png" />
+    <Content Include="Assets\iconvoz\30shades\one_punch.png" />
+    <Content Include="Assets\iconvoz\30shades\ops_confident.png" />
+    <Content Include="Assets\iconvoz\30shades\rXaZ0vK.png" />
+    <Content Include="Assets\iconvoz\30shades\sad_smile.png" />
+    <Content Include="Assets\iconvoz\30shades\surrender_sexygirl.png" />
+    <Content Include="Assets\iconvoz\30shades\surrender_sexy_girl_byebye.png" />
+    <Content Include="Assets\iconvoz\30shades\UyaA5.jpg" />
+    <Content Include="Assets\iconvoz\30shades\vote_ban.png" />
+    <Content Include="Assets\iconvoz\30shades\whats_that_trick.png" />
+    <Content Include="Assets\iconvoz\30shades\what_the_heck.png" />
+    <Content Include="Assets\iconvoz\30shades\wtf.png" />
+    <Content Include="Assets\iconvoz\30shades\ZMDkt.jpg" />
+    <Content Include="Assets\iconvoz\30shades\Znuor.jpg" />
+    <Content Include="Assets\iconvoz\adore.png" />
+    <Content Include="Assets\iconvoz\after_boom.png" />
+    <Content Include="Assets\iconvoz\ah.png" />
+    <Content Include="Assets\iconvoz\amazed.png" />
+    <Content Include="Assets\iconvoz\angry.png" />
+    <Content Include="Assets\iconvoz\bad_smelly.png" />
+    <Content Include="Assets\iconvoz\baffle.png" />
+    <Content Include="Assets\iconvoz\band.gif" />
+    <Content Include="Assets\iconvoz\bang.gif" />
+    <Content Include="Assets\iconvoz\bann.gif" />
+    <Content Include="Assets\iconvoz\beated.png" />
+    <Content Include="Assets\iconvoz\beat_brick.png" />
+    <Content Include="Assets\iconvoz\beat_plaster.png" />
+    <Content Include="Assets\iconvoz\beat_shot.png" />
+    <Content Include="Assets\iconvoz\beauty.png" />
+    <Content Include="Assets\iconvoz\biggrin.gif" />
+    <Content Include="Assets\iconvoz\big_smile.png" />
+    <Content Include="Assets\iconvoz\bike.gif" />
+    <Content Include="Assets\iconvoz\Birthday.gif" />
+    <Content Include="Assets\iconvoz\boom.gif" />
+    <Content Include="Assets\iconvoz\boss.png" />
+    <Content Include="Assets\iconvoz\brick.png" />
+    <Content Include="Assets\iconvoz\burn_joss_stick.png" />
+    <Content Include="Assets\iconvoz\bye.gif" />
+    <Content Include="Assets\iconvoz\byebye.png" />
+    <Content Include="Assets\iconvoz\canny.png" />
+    <Content Include="Assets\iconvoz\capture.gif" />
+    <Content Include="Assets\iconvoz\cheers.gif" />
+    <Content Include="Assets\iconvoz\choler.png" />
+    <Content Include="Assets\iconvoz\cold.png" />
+    <Content Include="Assets\iconvoz\confident.png" />
+    <Content Include="Assets\iconvoz\confuse.png" />
+    <Content Include="Assets\iconvoz\confused.gif" />
+    <Content Include="Assets\iconvoz\cool.gif" />
+    <Content Include="Assets\iconvoz\cool.png" />
+    <Content Include="Assets\iconvoz\cry.png" />
+    <Content Include="Assets\iconvoz\doublegun.gif" />
+    <Content Include="Assets\iconvoz\doubt.png" />
+    <Content Include="Assets\iconvoz\dribble.png" />
+    <Content Include="Assets\iconvoz\eek.gif" />
+    <Content Include="Assets\iconvoz\embarrassed.png" />
+    <Content Include="Assets\iconvoz\extreme_sexy_girl.png" />
+    <Content Include="Assets\iconvoz\feel_good.png" />
+    <Content Include="Assets\iconvoz\fix.gif" />
+    <Content Include="Assets\iconvoz\flame.gif" />
+    <Content Include="Assets\iconvoz\frown.gif" />
+    <Content Include="Assets\iconvoz\go.png" />
+    <Content Include="Assets\iconvoz\haha.png" />
+    <Content Include="Assets\iconvoz\hang.gif" />
+    <Content Include="Assets\iconvoz\hehe.gif" />
+    <Content Include="Assets\iconvoz\hell_boy.png" />
+    <Content Include="Assets\iconvoz\hug.gif" />
+    <Content Include="Assets\iconvoz\hungry.png" />
+    <Content Include="Assets\iconvoz\is\adore.png" />
+    <Content Include="Assets\iconvoz\is\ah.png" />
+    <Content Include="Assets\iconvoz\is\ak_boss.png" />
+    <Content Include="Assets\iconvoz\is\ak_doubt.png" />
+    <Content Include="Assets\iconvoz\is\alahu_akbar.png" />
+    <Content Include="Assets\iconvoz\is\amazed.png" />
+    <Content Include="Assets\iconvoz\is\angry.png" />
+    <Content Include="Assets\iconvoz\is\bad_smelly.png" />
+    <Content Include="Assets\iconvoz\is\baffle.png" />
+    <Content Include="Assets\iconvoz\is\beat_brick.png" />
+    <Content Include="Assets\iconvoz\is\beauty.png" />
+    <Content Include="Assets\iconvoz\is\big_smile.png" />
+    <Content Include="Assets\iconvoz\is\boss.png" />
+    <Content Include="Assets\iconvoz\is\brick.png" />
+    <Content Include="Assets\iconvoz\is\burn_joss_stick.png" />
+    <Content Include="Assets\iconvoz\is\byebye.png" />
+    <Content Include="Assets\iconvoz\is\canny.png" />
+    <Content Include="Assets\iconvoz\is\choler.png" />
+    <Content Include="Assets\iconvoz\is\confuse.png" />
+    <Content Include="Assets\iconvoz\is\cry.png" />
+    <Content Include="Assets\iconvoz\is\doubt.png" />
+    <Content Include="Assets\iconvoz\is\dribble.png" />
+    <Content Include="Assets\iconvoz\is\embarrassed.png" />
+    <Content Include="Assets\iconvoz\is\feel_good.png" />
+    <Content Include="Assets\iconvoz\is\female_angry.png" />
+    <Content Include="Assets\iconvoz\is\female_beauty.png" />
+    <Content Include="Assets\iconvoz\is\female_brick.png" />
+    <Content Include="Assets\iconvoz\is\female_byebye.png" />
+    <Content Include="Assets\iconvoz\is\female_choler.png" />
+    <Content Include="Assets\iconvoz\is\female_doubt.png" />
+    <Content Include="Assets\iconvoz\is\female_feel_good.png" />
+    <Content Include="Assets\iconvoz\is\female_haha.png" />
+    <Content Include="Assets\iconvoz\is\female_look_down.png" />
+    <Content Include="Assets\iconvoz\is\female_sexy_girl.png" />
+    <Content Include="Assets\iconvoz\is\female_sure.png" />
+    <Content Include="Assets\iconvoz\is\female_surrender.png" />
+    <Content Include="Assets\iconvoz\is\female_sweat.png" />
+    <Content Include="Assets\iconvoz\is\female_sweet_kiss.png" />
+    <Content Include="Assets\iconvoz\is\female_too_sad.png" />
+    <Content Include="Assets\iconvoz\is\go.png" />
+    <Content Include="Assets\iconvoz\is\haha.png" />
+    <Content Include="Assets\iconvoz\is\hungry.png" />
+    <Content Include="Assets\iconvoz\is\look_down.png" />
+    <Content Include="Assets\iconvoz\is\misdoubt.png" />
+    <Content Include="Assets\iconvoz\is\nosebleed.png" />
+    <Content Include="Assets\iconvoz\is\oh.png" />
+    <Content Include="Assets\iconvoz\is\ops.png" />
+    <Content Include="Assets\iconvoz\is\pudency.png" />
+    <Content Include="Assets\iconvoz\is\sad.png" />
+    <Content Include="Assets\iconvoz\is\sexy_girl.png" />
+    <Content Include="Assets\iconvoz\is\shame.png" />
+    <Content Include="Assets\iconvoz\is\smile.png" />
+    <Content Include="Assets\iconvoz\is\spiderman.png" />
+    <Content Include="Assets\iconvoz\is\still_dreaming.png" />
+    <Content Include="Assets\iconvoz\is\sure.png" />
+    <Content Include="Assets\iconvoz\is\surrender.png" />
+    <Content Include="Assets\iconvoz\is\sweat.png" />
+    <Content Include="Assets\iconvoz\is\sweet_kiss.png" />
+    <Content Include="Assets\iconvoz\is\tire.png" />
+    <Content Include="Assets\iconvoz\is\too_sad.png" />
+    <Content Include="Assets\iconvoz\is\waaaht.png" />
+    <Content Include="Assets\iconvoz\is\what.png" />
+    <Content Include="Assets\iconvoz\lay.gif" />
+    <Content Include="Assets\iconvoz\lmao.gif" />
+    <Content Include="Assets\iconvoz\lol.gif" />
+    <Content Include="Assets\iconvoz\look_down.png" />
+    <Content Include="Assets\iconvoz\lovemachine.gif" />
+    <Content Include="Assets\iconvoz\loveyou.gif" />
+    <Content Include="Assets\iconvoz\mad.gif" />
+    <Content Include="Assets\iconvoz\mage.gif" />
+    <Content Include="Assets\iconvoz\matrix.png" />
+    <Content Include="Assets\iconvoz\misdoubt.png" />
+    <Content Include="Assets\iconvoz\Namek\adore.png" />
+    <Content Include="Assets\iconvoz\Namek\ah.png" />
+    <Content Include="Assets\iconvoz\Namek\amazed.png" />
+    <Content Include="Assets\iconvoz\Namek\angry.png" />
+    <Content Include="Assets\iconvoz\Namek\bad_smelly.png" />
+    <Content Include="Assets\iconvoz\Namek\baffle.png" />
+    <Content Include="Assets\iconvoz\Namek\beated.png" />
+    <Content Include="Assets\iconvoz\Namek\beat_brick.png" />
+    <Content Include="Assets\iconvoz\Namek\beat_plaster.png" />
+    <Content Include="Assets\iconvoz\Namek\beat_shot.png" />
+    <Content Include="Assets\iconvoz\Namek\beauty.png" />
+    <Content Include="Assets\iconvoz\Namek\big_smile.png" />
+    <Content Include="Assets\iconvoz\Namek\boss.png" />
+    <Content Include="Assets\iconvoz\Namek\burn_joss_stick.png" />
+    <Content Include="Assets\iconvoz\Namek\byebye.png" />
+    <Content Include="Assets\iconvoz\Namek\byebye_money.png" />
+    <Content Include="Assets\iconvoz\Namek\canny.png" />
+    <Content Include="Assets\iconvoz\Namek\choler.png" />
+    <Content Include="Assets\iconvoz\Namek\confident.png" />
+    <Content Include="Assets\iconvoz\Namek\confuse.png" />
+    <Content Include="Assets\iconvoz\Namek\cry.png" />
+    <Content Include="Assets\iconvoz\Namek\doubt.png" />
+    <Content Include="Assets\iconvoz\Namek\dribble.png" />
+    <Content Include="Assets\iconvoz\Namek\embarrassed.png" />
+    <Content Include="Assets\iconvoz\Namek\extreme_sexy_girl.png" />
+    <Content Include="Assets\iconvoz\Namek\feel_good.png" />
+    <Content Include="Assets\iconvoz\Namek\go.png" />
+    <Content Include="Assets\iconvoz\Namek\haha.png" />
+    <Content Include="Assets\iconvoz\Namek\hungry.png" />
+    <Content Include="Assets\iconvoz\Namek\look_down.png" />
+    <Content Include="Assets\iconvoz\Namek\misdoubt.png" />
+    <Content Include="Assets\iconvoz\Namek\nosebleed.png" />
+    <Content Include="Assets\iconvoz\Namek\oh.png" />
+    <Content Include="Assets\iconvoz\Namek\ops.png" />
+    <Content Include="Assets\iconvoz\Namek\pudency.png" />
+    <Content Include="Assets\iconvoz\Namek\sad.png" />
+    <Content Include="Assets\iconvoz\Namek\sexy_girl.png" />
+    <Content Include="Assets\iconvoz\Namek\shame.png" />
+    <Content Include="Assets\iconvoz\Namek\smile.png" />
+    <Content Include="Assets\iconvoz\Namek\still_dreaming.png" />
+    <Content Include="Assets\iconvoz\Namek\sure.png" />
+    <Content Include="Assets\iconvoz\Namek\surrender.png" />
+    <Content Include="Assets\iconvoz\Namek\sweat.png" />
+    <Content Include="Assets\iconvoz\Namek\sweet_kiss.png" />
+    <Content Include="Assets\iconvoz\Namek\tire.png" />
+    <Content Include="Assets\iconvoz\Namek\too_sad.png" />
+    <Content Include="Assets\iconvoz\Namek\waaaht.png" />
+    <Content Include="Assets\iconvoz\Namek\what.png" />
+    <Content Include="Assets\iconvoz\no.gif" />
+    <Content Include="Assets\iconvoz\nosebleed.png" />
+    <Content Include="Assets\iconvoz\no\adore.png" />
+    <Content Include="Assets\iconvoz\no\amazed.png" />
+    <Content Include="Assets\iconvoz\no\angry.png" />
+    <Content Include="Assets\iconvoz\no\baffle.png" />
+    <Content Include="Assets\iconvoz\no\beated.png" />
+    <Content Include="Assets\iconvoz\no\beat_plaster.png" />
+    <Content Include="Assets\iconvoz\no\beauty.png" />
+    <Content Include="Assets\iconvoz\no\boss.png" />
+    <Content Include="Assets\iconvoz\no\brick.png" />
+    <Content Include="Assets\iconvoz\no\byebye.png" />
+    <Content Include="Assets\iconvoz\no\canny.png" />
+    <Content Include="Assets\iconvoz\no\choler.png" />
+    <Content Include="Assets\iconvoz\no\confident.png" />
+    <Content Include="Assets\iconvoz\no\doubt.png" />
+    <Content Include="Assets\iconvoz\no\dribble.png" />
+    <Content Include="Assets\iconvoz\no\embarrassed.png" />
+    <Content Include="Assets\iconvoz\no\extreme_sexy_girl.png" />
+    <Content Include="Assets\iconvoz\no\go.png" />
+    <Content Include="Assets\iconvoz\no\haha.png" />
+    <Content Include="Assets\iconvoz\no\look_down.png" />
+    <Content Include="Assets\iconvoz\no\matrix.png" />
+    <Content Include="Assets\iconvoz\no\mickey.png" />
+    <Content Include="Assets\iconvoz\no\misdoubt.png" />
+    <Content Include="Assets\iconvoz\no\nosebleed.png" />
+    <Content Include="Assets\iconvoz\no\oh.png" />
+    <Content Include="Assets\iconvoz\no\pudency.png" />
+    <Content Include="Assets\iconvoz\no\sad.png" />
+    <Content Include="Assets\iconvoz\no\sexy_girl.png" />
+    <Content Include="Assets\iconvoz\no\smile.png" />
+    <Content Include="Assets\iconvoz\no\spiderman.png" />
+    <Content Include="Assets\iconvoz\no\sure.png" />
+    <Content Include="Assets\iconvoz\no\sweet_kiss.png" />
+    <Content Include="Assets\iconvoz\oh.png" />
+    <Content Include="Assets\iconvoz\ops.png" />
+    <Content Include="Assets\iconvoz\ot.gif" />
+    <Content Include="Assets\iconvoz\pauseGif\band.png" />
+    <Content Include="Assets\iconvoz\pauseGif\bang.png" />
+    <Content Include="Assets\iconvoz\pauseGif\bike.png" />
+    <Content Include="Assets\iconvoz\pauseGif\Birthday.png" />
+    <Content Include="Assets\iconvoz\pauseGif\boom.png" />
+    <Content Include="Assets\iconvoz\pauseGif\bye.png" />
+    <Content Include="Assets\iconvoz\pauseGif\capture.png" />
+    <Content Include="Assets\iconvoz\pauseGif\cheers.png" />
+    <Content Include="Assets\iconvoz\pauseGif\doublegun.png" />
+    <Content Include="Assets\iconvoz\pauseGif\fix.png" />
+    <Content Include="Assets\iconvoz\pauseGif\flame.png" />
+    <Content Include="Assets\iconvoz\pauseGif\hang.png" />
+    <Content Include="Assets\iconvoz\pauseGif\hehe.png" />
+    <Content Include="Assets\iconvoz\pauseGif\hug.png" />
+    <Content Include="Assets\iconvoz\pauseGif\lay.png" />
+    <Content Include="Assets\iconvoz\pauseGif\lmao.png" />
+    <Content Include="Assets\iconvoz\pauseGif\lol.png" />
+    <Content Include="Assets\iconvoz\pauseGif\mage.png" />
+    <Content Include="Assets\iconvoz\pauseGif\no.png" />
+    <Content Include="Assets\iconvoz\pauseGif\ot.png" />
+    <Content Include="Assets\iconvoz\pauseGif\phone.png" />
+    <Content Include="Assets\iconvoz\pauseGif\puke.png" />
+    <Content Include="Assets\iconvoz\pauseGif\rofl.png" />
+    <Content Include="Assets\iconvoz\pauseGif\runrun.png" />
+    <Content Include="Assets\iconvoz\pauseGif\shit_002.png" />
+    <Content Include="Assets\iconvoz\pauseGif\shoot1.png" />
+    <Content Include="Assets\iconvoz\pauseGif\sleep.png" />
+    <Content Include="Assets\iconvoz\pauseGif\smoke.png" />
+    <Content Include="Assets\iconvoz\pauseGif\sos.png" />
+    <Content Include="Assets\iconvoz\pauseGif\spam.png" />
+    <Content Include="Assets\iconvoz\pauseGif\theft.png" />
+    <Content Include="Assets\iconvoz\pauseGif\welcome.png" />
+    <Content Include="Assets\iconvoz\pauseGif\winner.png" />
+    <Content Include="Assets\iconvoz\pauseGif\yes.png" />
+    <Content Include="Assets\iconvoz\phone.gif" />
+    <Content Include="Assets\iconvoz\please.gif" />
+    <Content Include="Assets\iconvoz\pudency.png" />
+    <Content Include="Assets\iconvoz\puke.gif" />
+    <Content Include="Assets\iconvoz\rap.png" />
+    <Content Include="Assets\iconvoz\redface.gif" />
+    <Content Include="Assets\iconvoz\rofl.gif" />
+    <Content Include="Assets\iconvoz\rolleyes.gif" />
+    <Content Include="Assets\iconvoz\runrun.gif" />
+    <Content Include="Assets\iconvoz\sad.png" />
+    <Content Include="Assets\iconvoz\sexy_girl.png" />
+    <Content Include="Assets\iconvoz\shame.png" />
+    <Content Include="Assets\iconvoz\shit.gif" />
+    <Content Include="Assets\iconvoz\shit_002.gif" />
+    <Content Include="Assets\iconvoz\shoot1.gif" />
+    <Content Include="Assets\iconvoz\sleep.gif" />
+    <Content Include="Assets\iconvoz\smile.png" />
+    <Content Include="Assets\iconvoz\smoke.gif" />
+    <Content Include="Assets\iconvoz\sos.gif" />
+    <Content Include="Assets\iconvoz\spam.gif" />
+    <Content Include="Assets\iconvoz\spiderman.png" />
+    <Content Include="Assets\iconvoz\still_dreaming.png" />
+    <Content Include="Assets\iconvoz\stupid.gif" />
+    <Content Include="Assets\iconvoz\sure.png" />
+    <Content Include="Assets\iconvoz\surrender.png" />
+    <Content Include="Assets\iconvoz\sweat.png" />
+    <Content Include="Assets\iconvoz\sweet_kiss.png" />
+    <Content Include="Assets\iconvoz\theft.gif" />
+    <Content Include="Assets\iconvoz\tire.png" />
+    <Content Include="Assets\iconvoz\tongue.gif" />
+    <Content Include="Assets\iconvoz\too_sad.png" />
+    <Content Include="Assets\iconvoz\waaaht.png" />
+    <Content Include="Assets\iconvoz\welcome.gif" />
+    <Content Include="Assets\iconvoz\what.png" />
+    <Content Include="Assets\iconvoz\wink.gif" />
+    <Content Include="Assets\iconvoz\winner.gif" />
+    <Content Include="Assets\iconvoz\yes.gif" />
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-125.png" />
+    <Content Include="Assets\LargeTile.scale-150.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\RatingThread\rating_1.gif" />
+    <Content Include="Assets\RatingThread\rating_2.gif" />
+    <Content Include="Assets\RatingThread\rating_3.gif" />
+    <Content Include="Assets\RatingThread\rating_4.gif" />
+    <Content Include="Assets\RatingThread\rating_5.gif" />
+    <Content Include="Assets\reply.png" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-125.png" />
+    <Content Include="Assets\SmallTile.scale-150.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\sticky.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-125.png" />
+    <Content Include="Assets\StoreLogo.scale-150.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Views.png" />
+    <None Include="Package.StoreAssociation.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-125.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-150.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Properties\Default.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="CommonControl\Emoticon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CommonControl\RatingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CommonControl\rtbViewHtml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Account\Setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Hidden\HiddenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Hidden\HomePageTd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Hidden\ListThread.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Hidden\Thread.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home\Bookmark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home\DaiSanh.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home\DNND.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home\Games.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home\Home.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home\Muaban.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home\PC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home\SPCN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home\Support.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home\TheNext.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home\VCGT.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListThread.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Thread.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Version.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsDesktop, Version=10.0.14393.0">
+      <Name>Windows Desktop Extensions for the UWP</Name>
+    </SDKReference>
+    <SDKReference Include="WindowsMobile, Version=10.0.14393.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

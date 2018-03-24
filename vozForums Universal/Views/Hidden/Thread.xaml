@@ -1,0 +1,70 @@
+﻿<Page
+    x:Class="vozForums_Universal.Views.Hidden.Thread"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:vozForums_Universal.Views.Hidden"
+    xmlns:control="using:vozForums_Universal.CommonControl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <CommandBar Background="#FF595656" HorizontalAlignment="Left" Visibility="Visible">
+            <!--<AppBarButton Name="btnBookmark" Label="Bookmark" Icon="SolidStar" Click="btnBookmark_Click" />-->
+            <AppBarButton Name="pre_btn" Icon="Back" Label="Back" Click="pre_btn_Click" />
+            <AppBarButton Name="fl_page_btnflyout" Content="{Binding}" Label="Page" Width="Auto">
+                <AppBarButton.Flyout>
+                    <Flyout x:Name="fl_flyout">
+                        <StackPanel Orientation="Horizontal" Height="45">
+                            <!--<TextBox Name="fl_Page" Text=" " IsEnabled="True" Tapped="" InputScope="FormulaNumber" Margin="5,5,5,5" KeyDown="fl_Page_KeyDown" />-->
+                            <!--<Button Name="fp_click_btn" Content="First Page" Click="" Width="100" Margin="5,5,5,5" />-->
+                            <!--<Button Content="Last Page" Name="lp_click_btn" Click="" Width="100" Margin="5,5,5,5" />-->
+                        </StackPanel>
+                    </Flyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <AppBarButton Name="next_btn" Icon="Forward" Label="Next" Click="next_btn_Click"  />
+        </CommandBar>
+    </Page.BottomAppBar>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListView x:Name="lv_Post" Grid.Row="1" SelectionMode="None" >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="Padding" Value="0,0,0,0" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" BorderBrush="#FF688697" BorderThickness="1" Margin="0,0,0,6">
+                        <!--<StackPanel Orientation="Vertical" Name="Stack_Chinh" Background="{Binding BackgroundHomeColor}" >
+                            <RelativePanel Name="Panel_Chua_DateTime_#Post" Background="{Binding BackgroundTimeColor}">
+                                <TextBlock RelativePanel.AlignLeftWithPanel="True" Text="{Binding TimePost}" Foreground="{Binding TextblockTimePostColor}"/>
+                                <TextBlock RelativePanel.AlignRightWithPanel="True" Text="{Binding PostCount}" Foreground="{Binding TextblockTimePostColor}" />
+                            </RelativePanel>
+                            <RelativePanel Name="Stack_Chua_Info_User" Background="{Binding BackgroundPanelUserColor}">
+                                <StackPanel RelativePanel.AlignLeftWithPanel="True" Orientation="Horizontal" Name="stack_left" Background="{Binding BackgroundPanelUserColor}">
+                                    <Image Source="{Binding ImgAvatar}" MaxWidth="75" MaxHeight="60"  />
+                                    <StackPanel Name="Chua_UserName" HorizontalAlignment="Left"  Orientation="Vertical" Margin="3,3,0,0"  >
+                                        <TextBlock Text="{Binding UserName}" HorizontalAlignment="Left" Foreground="#23497C" Width="143" FontWeight="Bold" TextWrapping="Wrap"/>
+                                        <TextBlock Text="{Binding TypeMember}" Foreground="Red"/>
+                                        <TextBlock Text="{Binding location}" MaxWidth="340" TextWrapping="Wrap" Foreground="{Binding TextblockMessageColor}" />
+                                    </StackPanel>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Vertical" RelativePanel.AlignRightWithPanel="True" Margin="20,0,0,0" Name="stack_right">
+                                    <TextBlock Text="{Binding JoinDate}" Foreground="{Binding TextblockMessageColor}"/>
+                                    <TextBlock Text="{Binding totalPosts}" Foreground="{Binding TextblockMessageColor}" />
+                                </StackPanel>
+                            </RelativePanel>
+                        </StackPanel>-->
+                        <control:rtbViewHtml MyHtml="{Binding htmlcontent}" Margin="3,8,0,3"/>
+                        <TextBlock HorizontalAlignment="Left" Text="--------" />
+                        <!--<Button x:Name="Quote" HorizontalAlignment="Left" IsEnabled="{Binding enableQuote}" Foreground="{Binding TextblockMessageColor}" Background="{Binding BackgroundHomeColor}" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" Content="&#xE15F;" Tag="{Binding idComment}" Click="Quote_Click"/>-->
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="vozForums_Universal.Views.Version"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:vozForums_Universal.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Frame Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListBox>
+            <ListBoxItem Content="1.3.19" FontSize="20" />
+            <ListBoxItem Content=" - Thêm 5 sao" Margin="20,0,0,0" />
+            
+            <ListBoxItem Content="1.3.18" FontSize="20" />
+            <ListBoxItem Content=" - Fix crash app" Margin="20,0,0,0" />
+            <ListBoxItem Content=" - Cơ cấu lại hệ thống" Margin="20,0,0,0" />
+
+
+            <ListBoxItem Content="1.2.0" FontSize="20" />
+            <ListBoxItem Content=" - DarkTheme / LightTheme Added " Margin="20,0,0,0" />
+            
+            <ListBoxItem Content="1.1.9" FontSize="20" />
+            <ListBoxItem Content=" - Thêm tính năng 'ẩn' " Margin="20,0,0,0" />
+            
+            <ListBoxItem Content="1.1.8" FontSize="20" />
+            <ListBoxItem Content=" - Thêm tính năng bình luận" Margin="20,0,0,0" />
+            
+            <ListBoxItem Content="1.1.7" FontSize="20" />
+            <ListBoxItem Content=" - Fix lỗi" Margin="20,0,0,0" />
+            <ListBoxItem Content=" - Đổi giao diện mục view Comment" Margin="20,0,0,0" />
+
+            <ListBoxItem Content="1.1.6" Name="c" FontSize="20" />
+            <ListBoxItem Margin="20,0,0,0" Content="- Fix crash trên mobile"/>
+            
+            <ListBoxItem Content="1.1.5" />
+            <ListBoxItem Margin="20,0,0,0" Content=" - Hiển thị emotion" />
+            <ListBoxItem Margin="20,0,0,0" Content=" - Hiển thị ảnh" />
+            <ListBoxItem Margin="20,0,0,0" Content=" - Fix Quote" />
+            
+            <ListBoxItem Content="1.1.3" />
+            <ListBoxItem Margin="20,0,0,0" Content=" - Phiên bản đầu tiên trên store" />
+            <!--<ListBoxItem Content="Tieu Long Ha - NvCuTu" />-->
+            <StackPanel Orientation="Horizontal">
+                <Image Source="https://vozforums.com/customavatars/thumbs/avatar1456119_1.gif" Height="80" Width="59" />
+                <TextBlock Margin="10,30,0,0" Text="Tieu Long Ha - NvCuTu - Vozforums" />
+            </StackPanel>
+
+        </ListBox>
+        
+    </Frame>
+</Page>

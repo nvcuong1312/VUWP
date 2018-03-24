@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="vozForums_Universal.Views.Hidden.HiddenPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:vozForums_Universal.Views.Hidden"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="Black">
+        <StackPanel Orientation="Vertical">
+            <TextBlock HorizontalAlignment="Center" FontSize="50" Foreground="Red" Name="Warning" Text="Cảnh báo!" />
+            <TextBlock FontSize="30" Foreground="White" Text="Đây là khu vực nguy hiểm cho chính thím và sức khỏe của thím!" TextWrapping="Wrap"/>
+            <TextBlock FontSize="30" Foreground="White" Text="Nếu thím đủ sức khỏe, ăn uống, thể dục đầy đủ thì ấn tiếp tục." TextWrapping="Wrap"/>
+            <TextBlock FontSize="30" Foreground="White" Text="Còn không thì hãy bấm nút quay lại nhé. :'>" TextWrapping="Wrap"/>
+            <TextBlock FontSize="30" Foreground="White" Text="Hãy chú ý người sau lưng thím. :'>" TextWrapping="Wrap"/>
+            <TextBlock FontSize="30" Foreground="White" Text="Thân ái và dí .ái.." TextWrapping="Wrap"/>
+
+            <Button Background="#FF2C353E" Height="50" Content="Em biết rồi! khỏi nhắc!" Click="Button_Click" />
+        </StackPanel>
+        
+    </Grid>
+</Page>

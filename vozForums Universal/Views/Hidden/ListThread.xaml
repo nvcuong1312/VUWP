@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="vozForums_Universal.Views.Hidden.ListThread"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:vozForums_Universal.Views.Hidden"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.BottomAppBar>
+        <CommandBar Background="#FF595656" HorizontalAlignment="Left">
+            <AppBarButton Name="pre_btn" Icon="Back" Label="Back" Click="pre_btn_Click"  />
+            <AppBarButton Name="page_btn_commandbar" Content="{Binding}" Label="Page" Width="Auto">
+                <AppBarButton.Flyout>
+                    <Flyout x:Name="fl_listthread_flyout">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Name="fl_Page" Text=" " InputScope="FormulaNumber" Margin="5,5,5,5"  />
+                            <!--<Button Name="fl_page_btn" Content="Go" Click="fl_page_btn_Click" Margin="5,5,5,5" />-->
+                            <Button Name="firstPage" Click="firstPage_Click" Content="First Page" Width="100" Margin="5,5,5,5"/>
+                            <Button Name="lastPage" Click="lastPage_Click" Content="Last Page" Width="100" Margin="5,5,5,5"/>
+                        </StackPanel>
+                    </Flyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <AppBarButton Name="next_btn" Icon="Forward" Label="Next" Click="next_btn_Click"  />
+        </CommandBar>
+
+    </Page.BottomAppBar>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Name="TitleBox" Grid.Row="0" FontSize="17" />
+            <ListView Grid.Row="1" Name="lt_listview_td" Background="White">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Tag="{Binding IdTd}" Tapped="TextBlock_Tapped" >
+                            <TextBlock Text="{Binding NameTd}"  />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView Grid.Row="2" Name="lvListThread">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Name="tbTitleThiendia" Text="{Binding ThreadName}" Tag="{Binding ThreadId}" Tapped="tbTitleThiendia_Tapped"  />
+                            <TextBlock Text="{Binding ThreadCreate}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </Grid>
+    </ScrollViewer>
+</Page>

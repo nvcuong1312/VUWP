@@ -1,0 +1,20 @@
+﻿{
+  "dependencies": {
+    "HtmlAgilityPack": "1.6.16",
+    "Imgur.API": "4.0.1",
+    "Microsoft.Net.Http": "2.2.29",
+    "Microsoft.NETCore.Targets.UniversalWindowsPlatform": "5.0.0",
+    "MyToolkit.Extended": "2.5.16"
+  },
+  "frameworks": {
+    "uap10.0.10586": {}
+  },
+  "runtimes": {
+    "win10-arm": {},
+    "win10-arm-aot": {},
+    "win10-x86": {},
+    "win10-x86-aot": {},
+    "win10-x64": {},
+    "win10-x64-aot": {}
+  }
+}
