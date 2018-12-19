@@ -1,74 +1,152 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Net.Http;
 using vozForums_Universal.Model;
+using System.Text;
+using System.Threading;
+using System.Net.Http;
+using System.Net;
+using vozForums_Universal.CommonControl;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace vozForums_Universal.Connect
 {
     public class ConnectServer
     {
-        public static HttpClient client = new HttpClient();
-        public static HttpResponseMessage responseMessage = new HttpResponseMessage();
-        private static string loginUrl = "https://vozforums.com/login.php?do=login";
+        private string loginUrl = "https://forums.voz.vn/login.php?do=login";
 
-        public static void GetContent(string url, ref string outContent)
+        //private static HttpClient client;
+        private CookieContainer cookies;
+        private HttpClientHandler handler;
+        private AppSettingModel appSetting;
+
+        public ConnectServer()
         {
-            var checkDone = Task.Run(async () =>
+            appSetting = new AppSettingModel();
+
+            cookies = new CookieContainer();
+            handler = new HttpClientHandler();
+            handler.CookieContainer = cookies;
+        }
+
+        public void GetContent(string url, ref string outContent)
+        {
+            try
             {
-                return await client.GetStringAsync(url);
-            });
-            if (checkDone.Result != null)
+                HttpClient client = new HttpClient(handler);
+                cookies.Add(new Uri(url), new Cookie(Resource.COOKIES_VFPASSWORD, appSetting.Cookies_Vfpassword));
+                cookies.Add(new Uri(url), new Cookie(Resource.COOKIES_VFUSERID, appSetting.Cookies_Vfuserid));
+                cookies.Add(new Uri(url), new Cookie(Resource.COOKIES_VBULLETIN_MULTIQUOTE, appSetting.Cookies_Vbmultiquote));
+
+                client.DefaultRequestHeaders.Add(Resource.USER_AGENT, Resource.USER_AGENT_VALUE);
+                using (HttpResponseMessage response = client.GetAsync(url).Result)
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        outContent = content.ReadAsStringAsync().Result;
+                    }
+                }
+            }
+            catch (Exception ex)
             {
-                outContent = checkDone.Result.ToString();
+                outContent = Resource.STR_ERROR;
+                DialogResult.DialogOnlyOk(Resource.STR_ERROR_NETWORK);
             }
         }
 
-        public static void Login(string user, string password, ref string contentHtml)
+        public void Login(string user, string password, ref string contentHtml)
         {
             string postData = "&vb_login_username="
                 + user
                 + "&vb_login_password="
                 + password
-                + "&cookieuser=checked&"
-                + "do=login";
+                + "&cookieuser=1"
+                + "&do=login"
+                + "&s="
+                + "securitytoken=guest"
+                + "&vb_login_md5password="
+                + "&vb_login_md5password_utf=&";
             string applicationEncoded = "application/x-www-form-urlencoded";
-            var response = Task.Run(async () => {
-                    responseMessage = await client.PostAsync(loginUrl, 
-                        new StringContent(postData, System.Text.Encoding.UTF8, applicationEncoded));
-                    HttpResponseMessage resultPlaylist = await client.GetAsync(loginUrl);
-                return resultPlaylist.Content.ReadAsStringAsync();
-            });
-            contentHtml = response.Result.Result.ToString();
+
+            try
+            {
+                HttpClient client = new HttpClient(handler);
+                client.DefaultRequestHeaders.Add(Resource.USER_AGENT, Resource.USER_AGENT_VALUE);
+
+                using (HttpResponseMessage response = client.PostAsync(loginUrl, new StringContent(postData, Encoding.UTF8, applicationEncoded)).Result)
+                {
+                    using (HttpResponseMessage responseMessage = client.GetAsync("https://forums.voz.vn/").Result)
+                    {
+                        using (HttpContent content = responseMessage.Content)
+                        {
+                            contentHtml = content.ReadAsStringAsync().Result;
+
+                            IEnumerable<Cookie> responseCookies = cookies.GetCookies(new Uri("https://forums.voz.vn/")).Cast<Cookie>();
+                            foreach (Cookie cookie in responseCookies)
+                            {
+                                if (cookie.Name == Resource.COOKIES_VFPASSWORD)
+                                {
+                                    appSetting.Cookies_Vfpassword = cookie.Value;
+                                }
+                                if (cookie.Name == Resource.COOKIES_VFUSERID)
+                                {
+                                    appSetting.Cookies_Vfuserid = cookie.Value;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                contentHtml = Resource.STR_ERROR;
+            }
         }
 
-        public static void SendMessage(string message, string idThread,ref bool checkDone)
+        public void PostComment(string message, string PostURI, ref bool checkDone)
         {
             checkDone = false;
-            string requestUri = "https://vozforums.com/newreply.php?do=postreply&t=" + idThread;
-            string data = "message=" + message
-                    + "&wysiwyg=0&styleid=0&fromquickreply=1&s="
-                    + "&securitytoken=" + LoginModel.token
-                    + "&do=postreply&t=" + idThread
-                    + "&p=who cares&specifiedpost=0&parseurl=1&loggedinuser="
-                    + LoginModel.userId
-                    + "&sbutton=Post Quick Reply";
-            string application = "application/x-www-form-urlencoded";
-            var a = Task.Run(async () => responseMessage = await client.PostAsync(requestUri, new StringContent(data, System.Text.Encoding.UTF8, application)));
-            if (a.Result.IsSuccessStatusCode == true)
+            try
+            {
+                HttpClient client = new HttpClient(handler);
+                cookies.Add(new Uri(PostURI), new Cookie(Resource.COOKIES_VFPASSWORD, appSetting.Cookies_Vfpassword));
+                cookies.Add(new Uri(PostURI), new Cookie(Resource.COOKIES_VFUSERID, appSetting.Cookies_Vfuserid));
+                client.DefaultRequestHeaders.Add(Resource.USER_AGENT, Resource.USER_AGENT_VALUE);
+
+                using (var response = client.PostAsync(PostURI, new StringContent(message, Encoding.UTF8, Resource.APPLICATION)).Result)
+                {
+                    checkDone = true;
+                }
+            }
+            catch (Exception ex)
             {
                 checkDone = true;
             }
         }
-        public static void VoteThread(int rating, string idThread, bool checkDone)
+
+        public void VoteThread(int rating, string idThread, bool checkDone)
         {
-            string voteUri = "https://vozforums.com/threadrate.php?t=" + idThread;
+            string voteUri = "https://forums.voz.vn/threadrate.php?t=" + idThread;
             string data = "vote=" + rating
-                     + "&s=&securitytoken=" 
-                     + LoginModel.token
+                     + "&s=&securitytoken="
+                     + appSetting.Token
                      + "&t=" + idThread
                      + "&pp=10&page=1&button=Vote Now";
             string application = "application/x-www-form-urlencoded";
-            var a = Task.Run(async () => responseMessage = await client.PostAsync(voteUri, new StringContent(data, System.Text.Encoding.UTF8, application)));
-            if (a.Result.IsSuccessStatusCode == true)
+
+            try
+            {
+                HttpClient client = new HttpClient(handler);
+                cookies.Add(new Uri(voteUri), new Cookie(Resource.COOKIES_VFPASSWORD, appSetting.Cookies_Vfpassword));
+                cookies.Add(new Uri(voteUri), new Cookie(Resource.COOKIES_VFUSERID, appSetting.Cookies_Vfuserid));
+                client.DefaultRequestHeaders.Add(Resource.USER_AGENT, Resource.USER_AGENT_VALUE);
+
+                using (HttpResponseMessage response = client.PostAsync(voteUri, new StringContent(data, Encoding.UTF8, application)).Result)
+                {
+                    checkDone = true;
+                }
+            }
+            catch (Exception ex)
             {
                 checkDone = true;
             }

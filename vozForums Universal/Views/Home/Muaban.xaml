@@ -5,7 +5,7 @@
     xmlns:local="using:vozForums_Universal.Views.Home"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" SizeChanged="Page_SizeChanged">
 
     <Grid Background="{x:Bind appSetting.BackgroundHomeColor}">
         <Grid.RowDefinitions>
@@ -14,12 +14,13 @@
         </Grid.RowDefinitions>
         <RelativePanel Grid.Row="0" Style="{StaticResource rlHome}" Background="{x:Bind appSetting.BackgroundHomeColor}">
             <StackPanel Orientation="Horizontal" >
+                <Button x:Name="btnHambuger" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Width="45" Height="45" Background="{x:Bind appSetting.BackgroundHomeColor}" Click="btnHambuger_Click"/>
                 <TextBlock Style="{StaticResource HomeIcon}" Text="&#xE14D;" />
                 <TextBlock Text="Mua bán" Style="{StaticResource HomeText}"/>
             </StackPanel>
         </RelativePanel>
         <Frame Grid.Row="1" Background="{x:Bind appSetting.BackgroundHomeColor}">
-            <ListBox SelectionMode="Single" Style="{StaticResource lbHome}" SelectionChanged="ListBox_SelectionChanged" Background="{x:Bind appSetting.BackgroundHomeColor}">
+            <ListBox x:Name="lbItem" SelectionMode="Single" Style="{StaticResource lbHome}" SelectionChanged="ListBox_SelectionChanged" Background="{x:Bind appSetting.BackgroundHomeColor}">
                 <ListBoxItem Name="pc">
                     <StackPanel>
                         <TextBlock Text="Máy tính để bàn" Foreground="{x:Bind appSetting.TextblockHomeColor}" Style="{StaticResource HomeText}"/>

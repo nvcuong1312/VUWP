@@ -10,6 +10,6 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <StackPanel Orientation="Vertical" Name="MyRtbViewHtml" HorizontalAlignment="Stretch" VerticalAlignment="Top" >
-    </StackPanel>
+    <Grid Name="MyRtbViewHtml" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SizeChanged="MyRtbViewHtml_SizeChanged">
+    </Grid>
 </UserControl>

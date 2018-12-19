@@ -12,15 +12,19 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>vozForums Universal_StoreKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>vozForums Universal_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|arm</AppxBundlePlatforms>
-    <PackageCertificateThumbprint>168387DFB8D668D78476CCCC0E4E9BA28A578646</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>C87EACC05089CD1F32F51EB692BB2891148F8E6E</PackageCertificateThumbprint>
+    <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
+    <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -95,14 +99,10 @@
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="ClassDiagram1.cd" />
-    <None Include="project.json" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CommonControl\DialogResult.cs" />
     <Compile Include="CommonControl\RatingControl.xaml.cs">
       <DependentUpon>RatingControl.xaml</DependentUpon>
     </Compile>
@@ -111,77 +111,59 @@
     <Compile Include="CommonControl\Emoticon.xaml.cs">
       <DependentUpon>Emoticon.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CommonControl\rtbViewHtml.xaml.cs">
-      <DependentUpon>rtbViewHtml.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Controller\AccountController.cs" />
     <Compile Include="Controller\ListThreadController.cs" />
+    <Compile Include="Controller\ListMessageController.cs" />
+    <Compile Include="Controller\MessageController.cs" />
     <Compile Include="Controller\ThreadController.cs" />
-    <Compile Include="Helper\BookMark.cs" />
-    <Compile Include="Helper\HelperHtml.cs" />
+    <Compile Include="Helper\BookMarkHelper.cs" />
+    <Compile Include="Helper\HtmlHelper.cs" />
+    <Compile Include="ModelData\AccountModelData.cs" />
+    <Compile Include="ModelData\HomeModelData.cs" />
+    <Compile Include="ModelData\ListThreadModelData.cs" />
+    <Compile Include="ModelData\ListMessageModelData.cs" />
+    <Compile Include="ModelData\MessageModelData.cs" />
+    <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Model\AppSettingModel.cs" />
-    <Compile Include="Model\HomeTdModel.cs" />
-    <Compile Include="Model\InfoUserModel.cs" />
-    <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Helper\AccountHelper.cs" />
+    <Compile Include="Model\HomeModel.cs" />
+    <Compile Include="Model\ListMessageModel.cs" />
+    <Compile Include="Model\MessageModel.cs" />
     <Compile Include="Model\ThreadModel.cs" />
-    <Compile Include="Model\ThreadListModel.cs" />
-    <Compile Include="Views\Account\Setting.xaml.cs">
-      <DependentUpon>Setting.xaml</DependentUpon>
+    <Compile Include="Model\ListThreadModel.cs" />
+    <Compile Include="Resource.cs" />
+    <Compile Include="Views\Account\AccountView.xaml.cs">
+      <DependentUpon>AccountView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Hidden\HiddenPage.xaml.cs">
-      <DependentUpon>HiddenPage.xaml</DependentUpon>
+    <Compile Include="Views\Account\ListMessageView.xaml.cs">
+      <DependentUpon>ListMessageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Hidden\HomePageTd.xaml.cs">
-      <DependentUpon>HomePageTd.xaml</DependentUpon>
+    <Compile Include="Views\Account\MessageView.xaml.cs">
+      <DependentUpon>MessageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Hidden\ListThread.xaml.cs">
-      <DependentUpon>ListThread.xaml</DependentUpon>
+    <Compile Include="Views\Account\SettingView.xaml.cs">
+      <DependentUpon>SettingView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Hidden\Thread.xaml.cs">
-      <DependentUpon>Thread.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Home\Bookmark.xaml.cs">
-      <DependentUpon>Bookmark.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Home\DaiSanh.xaml.cs">
-      <DependentUpon>DaiSanh.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Home\DNND.xaml.cs">
-      <DependentUpon>DNND.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Home\Games.xaml.cs">
-      <DependentUpon>Games.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Home\Home.xaml.cs">
-      <DependentUpon>Home.xaml</DependentUpon>
+    <Compile Include="Views\Home\BookmarkView.xaml.cs">
+      <DependentUpon>BookmarkView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Home\Muaban.xaml.cs">
-      <DependentUpon>Muaban.xaml</DependentUpon>
+    <Compile Include="Views\Home\SupportView.xaml.cs">
+      <DependentUpon>SupportView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Home\PC.xaml.cs">
-      <DependentUpon>PC.xaml</DependentUpon>
+    <Compile Include="Views\Home\ListThreadView.xaml.cs">
+      <DependentUpon>ListThreadView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Home\SPCN.xaml.cs">
-      <DependentUpon>SPCN.xaml</DependentUpon>
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Home\Support.xaml.cs">
-      <DependentUpon>Support.xaml</DependentUpon>
+    <Compile Include="Views\Home\ThreadView.xaml.cs">
+      <DependentUpon>ThreadView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Home\TheNext.xaml.cs">
-      <DependentUpon>TheNext.xaml</DependentUpon>
+    <Compile Include="Views\Home\VersionView.xaml.cs">
+      <DependentUpon>VersionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Home\VCGT.xaml.cs">
-      <DependentUpon>VCGT.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ListThread.xaml.cs">
-      <DependentUpon>ListThread.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Thread.xaml.cs">
-      <DependentUpon>Thread.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Version.xaml.cs">
-      <DependentUpon>Version.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ModelData\ThreadModelData.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -198,6 +180,8 @@
     <Content Include="Assets\BadgeLogo.scale-200.png" />
     <Content Include="Assets\BadgeLogo.scale-400.png" />
     <Content Include="Assets\brick.png" />
+    <Content Include="Assets\HTML\ThreadHTML.txt" />
+    <Content Include="Assets\HTML\ThreadComment.txt" />
     <Content Include="Assets\iconvoz\30shades\adore_sweet_kiss.png" />
     <Content Include="Assets\iconvoz\30shades\ahihihihi.png" />
     <Content Include="Assets\iconvoz\30shades\amazed_sweet_kiss.png" />
@@ -525,6 +509,7 @@
     <Content Include="Assets\RatingThread\rating_4.gif" />
     <Content Include="Assets\RatingThread\rating_5.gif" />
     <Content Include="Assets\reply.png" />
+    <Content Include="Assets\Script\ResizeImage.js" />
     <Content Include="Assets\SmallTile.scale-100.png" />
     <Content Include="Assets\SmallTile.scale-125.png" />
     <Content Include="Assets\SmallTile.scale-150.png" />
@@ -585,83 +570,43 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CommonControl\rtbViewHtml.xaml">
+    <Page Include="Views\Account\AccountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Account\Setting.xaml">
+    <Page Include="Views\Account\ListMessageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Hidden\HiddenPage.xaml">
+    <Page Include="Views\Account\MessageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Hidden\HomePageTd.xaml">
+    <Page Include="Views\Account\SettingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Hidden\ListThread.xaml">
+    <Page Include="Views\Home\BookmarkView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Hidden\Thread.xaml">
+    <Page Include="Views\Home\SupportView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Home\Bookmark.xaml">
+    <Page Include="Views\Home\ListThreadView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Home\DaiSanh.xaml">
+    <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Home\DNND.xaml">
+    <Page Include="Views\Home\ThreadView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Home\Games.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Home\Home.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Home\Muaban.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Home\PC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Home\SPCN.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Home\Support.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Home\TheNext.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Home\VCGT.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ListThread.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Thread.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Version.xaml">
+    <Page Include="Views\Home\VersionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -677,7 +622,38 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack">
+      <Version>1.8.7</Version>
+    </PackageReference>
+    <PackageReference Include="Imgur.API">
+      <Version>4.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Data.Sqlite">
+      <Version>1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Net.Http">
+      <Version>2.2.29</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.Targets.UniversalWindowsPlatform">
+      <Version>5.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.1.9</Version>
+    </PackageReference>
+    <PackageReference Include="MyToolkit.Extended">
+      <Version>2.5.16</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BackgroundTasks\BackgroundTasks.csproj">
+      <Project>{ecfbceb0-54f2-41ed-8365-13d29f3653d8}</Project>
+      <Name>BackgroundTasks</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

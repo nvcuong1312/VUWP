@@ -3,24 +3,12 @@ namespace vozForums_Universal.Model
 {
     public class AppSettingModel
     {
-        Windows.Storage.ApplicationDataContainer valueCommon = Windows.Storage.ApplicationData.Current.LocalSettings;
+        Windows.Storage.ApplicationDataContainer valueCommon;
 
-        public string BackgroundHomeColor = string.Empty;
-        public string BackgroundListViewColor = string.Empty;
-        public string TextblockHomeColor = string.Empty;
-        public string TextblockLogoHomeColor = string.Empty;
-        public string IconColor = string.Empty;
-        public string TextblockTitleThreadColor = string.Empty;
-        public string TextblockExtraThreadColor = string.Empty;
-        public string TextblockCreateUserColor = string.Empty;
-        public string TextblockMessageColor = string.Empty;
-        public string TextblockQuoteColor = string.Empty;
-        public string BackgroundTimeColor = string.Empty;
-        public string BackgroundPanelUserColor = string.Empty;
-        public string TextblockTimePostColor = string.Empty;
-        public string BackgroundThread = string.Empty;
         public AppSettingModel()
         {
+            valueCommon = Windows.Storage.ApplicationData.Current.LocalSettings;
+
             if (ThemeSetting == "Dark")
             {
                 BackgroundHomeColor = "#262628";
@@ -36,6 +24,11 @@ namespace vozForums_Universal.Model
                 BackgroundPanelUserColor = "#1a1917";
                 TextblockTimePostColor = "White";
                 BackgroundThread = "#262628";
+
+                LinkHref = "#4db2ff";
+                ColorBody = "#E3E3E3";
+                ColorBackground = "#262628";
+                ColorBackgroundTD = "#171717";
             }
             else
             {
@@ -52,160 +45,286 @@ namespace vozForums_Universal.Model
                 BackgroundPanelUserColor = "#E1E4F2";
                 TextblockTimePostColor = "White";
                 BackgroundThread = "White";
+
+                LinkHref = "#23497C";
+                ColorBody = "#201F25";
+                ColorBackground = "#F2F2F2";
+                ColorBackgroundTD = "#E1E4F2";
             }
         }
+
+        // For <a href>
+        public string LinkHref { get; set; }
+        public string ColorBody { get; set; }
+        public string ColorBackground { get; set; }
+        public string ColorBackgroundTD { get; set; }
+        public string BackgroundHomeColor { get; set; }
+        public string BackgroundListViewColor { get; set; }
+        public string TextblockHomeColor { get; set; }
+        public string TextblockLogoHomeColor { get; set; }
+        public string IconColor { get; set; }
+        public string TextblockTitleThreadColor { get; set; }
+        public string TextblockExtraThreadColor { get; set; }
+        public string TextblockCreateUserColor { get; set; }
+        public string TextblockMessageColor { get; set; }
+        public string TextblockQuoteColor { get; set; }
+        public string BackgroundTimeColor { get; set; }
+        public string BackgroundPanelUserColor { get; set; }
+        public string TextblockTimePostColor { get; set; }
+        public string BackgroundThread { get; set; }
+
         public string DeviceName
         {
-            set
-            {
-                valueCommon.Values["devicename"] = value;
-            }
             get
             {
                 try
                 {
-                    return valueCommon.Values["devicename"].ToString();
+                    return valueCommon.Values[Resource.STR_DEVICE_NAME].ToString();
                 }
                 catch (System.Exception)
                 {
-                    valueCommon.Values["devicename"] = string.Empty;
-                    return string.Empty;
-                }                                
+                    valueCommon.Values[Resource.STR_DEVICE_NAME] = Resource.STR_DEFAULT_NAME_DEVICE;
+                    return Resource.STR_DEFAULT_NAME_DEVICE;
+                }
+            }
+            set
+            {
+                valueCommon.Values[Resource.STR_DEVICE_NAME] = value;
             }
         }
+
         public string UserName
         {
             get
             {
                 try
                 {
-                    return valueCommon.Values["UserName"].ToString();
+                    return valueCommon.Values[Resource.STR_USER_NAME].ToString();
                 }
                 catch (System.Exception)
                 {
-                    valueCommon.Values["UserName"] = string.Empty;
-                    return string.Empty;
+                    valueCommon.Values[Resource.STR_USER_NAME] = Resource.STR_EMPTY;
+                    return Resource.STR_EMPTY;
                 }
             }
             set
             {
-                valueCommon.Values["UserName"] = value;
+                valueCommon.Values[Resource.STR_USER_NAME] = value;
             }
         }
-        public string PassWord
+
+        public string Password
         {
             get
             {
                 try
                 {
-                    return valueCommon.Values["PassWord"].ToString();
+                    return valueCommon.Values[Resource.STR_PASSWORD].ToString();
                 }
                 catch (System.Exception)
                 {
-                    valueCommon.Values["PassWord"] = string.Empty;
-                    return string.Empty;
+                    valueCommon.Values[Resource.STR_PASSWORD] = Resource.STR_EMPTY;
+                    return Resource.STR_EMPTY;
                 }
             }
             set
             {
-                valueCommon.Values["PassWord"] = value;
+                valueCommon.Values[Resource.STR_PASSWORD] = value;
             }
         }
-        public string token
+
+        public string Token
         {
             get
             {
                 try
                 {
-                    return valueCommon.Values["token"].ToString();
+                    return valueCommon.Values[Resource.STR_TOKEN].ToString();
                 }
                 catch (System.Exception)
                 {
-                    valueCommon.Values["token"] = string.Empty;
-                    return string.Empty;
+                    valueCommon.Values[Resource.STR_TOKEN] = Resource.STR_EMPTY;
+                    return Resource.STR_EMPTY;
                 }
             }
             set
             {
-                valueCommon.Values["token"] = value;
+                valueCommon.Values[Resource.STR_TOKEN] = value;
             }
         }
+
         public string UserId
         {
             get
             {
                 try
                 {
-                    return valueCommon.Values["userId"].ToString();
+                    return valueCommon.Values[Resource.STR_USER_ID].ToString();
                 }
                 catch (System.Exception)
                 {
-                    valueCommon.Values["userId"] = string.Empty;
-                    return string.Empty;
+                    valueCommon.Values[Resource.STR_USER_ID] = Resource.STR_EMPTY;
+                    return Resource.STR_EMPTY;
                 }
             }
             set
             {
-                valueCommon.Values["userId"] = value;
+                valueCommon.Values[Resource.STR_USER_ID] = value;
             }
         }
-        public string CheckPosts
+
+        public bool IsEnablePostLink
         {
             get
             {
                 try
                 {
-                    return valueCommon.Values["checkPosts"].ToString();
+                    return (valueCommon.Values[Resource.STR_IS_ENABLE_POST_LINK].ToString() == Resource.TRUE) ? true : false;
                 }
                 catch (System.Exception)
                 {
-                    valueCommon.Values["checkPosts"] = string.Empty;
-                    return string.Empty;
+                    valueCommon.Values[Resource.STR_IS_ENABLE_POST_LINK] = Resource.FALSE;
+                    return false;
                 }
             }
             set
             {
-                valueCommon.Values["checkPosts"] = value;
+                if (value)
+                {
+                    valueCommon.Values[Resource.STR_IS_ENABLE_POST_LINK] = Resource.TRUE;
+                }
+                else
+                {
+                    valueCommon.Values[Resource.STR_IS_ENABLE_POST_LINK] = Resource.FALSE;
+                }
             }
         }
-        public string SaveState
+
+        public int TotalPosts
         {
-            set
-            {
-                valueCommon.Values["saveState"] = value;
-            }
             get
             {
                 try
                 {
-                    string sT = valueCommon.Values["saveState"].ToString();
-                    return sT;
+                    return int.Parse(valueCommon.Values[Resource.STR_TOTAL_POSTS].ToString());
                 }
                 catch (System.Exception)
                 {
-                    valueCommon.Values["saveState"] = string.Empty;
-                    return string.Empty;
+                    valueCommon.Values[Resource.STR_TOTAL_POSTS] = 0;
+                    return 0;
+                }
+            }
+            set
+            {
+                valueCommon.Values[Resource.STR_TOTAL_POSTS] = value;
+            }
+        }
+
+        public bool isSaveLogin
+        {
+
+            get
+            {
+                try
+                {
+                    return (valueCommon.Values[Resource.STR_SAVE_STATE].ToString() == Resource.TRUE) ? true : false;
+                }
+                catch (System.Exception)
+                {
+                    valueCommon.Values[Resource.STR_SAVE_STATE] = Resource.FALSE;
+                    return false;
+                }
+            }
+            set
+            {
+                if (value)
+                {
+                    valueCommon.Values[Resource.STR_SAVE_STATE] = Resource.TRUE;
+                }
+                else
+                {
+                    valueCommon.Values[Resource.STR_SAVE_STATE] = Resource.FALSE;
                 }
             }
         }
+
         public string ThemeSetting
         {
             set
             {
-                valueCommon.Values["themeSetting"] = value;
+                valueCommon.Values[Resource.STR_THEME_SETTING] = value;
             }
             get
             {
                 try
                 {
-                    string tS = valueCommon.Values["themeSetting"].ToString();
-                    return tS;
+                    return valueCommon.Values[Resource.STR_THEME_SETTING].ToString();
                 }
                 catch (System.Exception)
                 {
-                    valueCommon.Values["themeSetting"] = string.Empty;
-                    return string.Empty;
+                    valueCommon.Values[Resource.STR_THEME_SETTING] = Resource.STR_EMPTY;
+                    return Resource.STR_EMPTY;
                 }
+            }
+        }
+
+        public string Cookies_Vfpassword
+        {
+            get
+            {
+                try
+                {
+                    return valueCommon.Values[Resource.COOKIES_VFPASSWORD].ToString();
+                }
+                catch (System.Exception)
+                {
+                    valueCommon.Values[Resource.COOKIES_VFPASSWORD] = Resource.STR_EMPTY;
+                    return Resource.STR_EMPTY;
+                }
+            }
+            set
+            {
+                valueCommon.Values[Resource.COOKIES_VFPASSWORD] = value;
+            }
+        }
+
+        public string Cookies_Vfuserid
+        {
+            get
+            {
+                try
+                {
+                    return valueCommon.Values[Resource.COOKIES_VFUSERID].ToString();
+                }
+                catch (System.Exception)
+                {
+                    valueCommon.Values[Resource.COOKIES_VFUSERID] = Resource.STR_EMPTY;
+                    return Resource.STR_EMPTY;
+                }
+            }
+            set
+            {
+                valueCommon.Values[Resource.COOKIES_VFUSERID] = value;
+            }
+        }
+
+        public string Cookies_Vbmultiquote
+        {
+            get
+            {
+                try
+                {
+                    return valueCommon.Values[Resource.COOKIES_VBULLETIN_MULTIQUOTE].ToString();
+                }
+                catch (System.Exception)
+                {
+                    valueCommon.Values[Resource.COOKIES_VBULLETIN_MULTIQUOTE] = Resource.STR_EMPTY;
+                    return Resource.STR_EMPTY;
+                }
+            }
+            set
+            {
+                valueCommon.Values[Resource.COOKIES_VBULLETIN_MULTIQUOTE] = value;
             }
         }
     }

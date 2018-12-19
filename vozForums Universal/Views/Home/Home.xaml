@@ -5,9 +5,9 @@
     xmlns:local="using:vozForums_Universal"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-
-
+    xmlns:controls="using:vozForums_Universal.CommonControl"
+    mc:Ignorable="d" SizeChanged="Page_SizeChanged">
+    
     <Grid Style="{StaticResource grHome}" Background="{x:Bind appSetting.BackgroundHomeColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -16,42 +16,48 @@
         </Grid.RowDefinitions>
         <RelativePanel Grid.Row="0" Style="{StaticResource rlHome}" Background="{x:Bind appSetting.BackgroundHomeColor}" >
             <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnHambuger" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Width="45" Height="45" Background="{x:Bind appSetting.BackgroundHomeColor}" Click="btnHambuger_Click"/>
                 <TextBlock Style="{StaticResource HomeIcon}" Text="&#xE10F;" Foreground="{x:Bind appSetting.TextblockLogoHomeColor}" />
                 <TextBlock Name="tbMain" Text="Vozforums" Style="{StaticResource logo}" Foreground="{x:Bind appSetting.TextblockLogoHomeColor}" />
             </StackPanel>
         </RelativePanel>
-    <Frame Name="HomeFrame" Grid.Row="1"  >
-            <ListBox SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged_1" Style="{StaticResource lbHome}" Background="{x:Bind appSetting.BackgroundHomeColor}" >
-            <ListBoxItem x:Name="DS">
-                <StackPanel Orientation="Horizontal" >
+        <Frame Name="HomeFrame" Grid.Row="1"  >
+            <Frame.ContentTransitions>
+                <TransitionCollection>
+                    <NavigationThemeTransition />
+                </TransitionCollection>
+            </Frame.ContentTransitions>
+            <ListBox x:Name="lbItem" SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged_1" Style="{StaticResource lbHome}" Background="{x:Bind appSetting.BackgroundHomeColor}" >
+                <ListBoxItem x:Name="DS">
+                    <StackPanel Orientation="Horizontal" >
                         <TextBlock Style="{StaticResource HomeIcon}" Foreground="{x:Bind appSetting.IconColor}" Text="&#xEC08;"  />
                         <TextBlock Style="{StaticResource HomeText}" Foreground="{x:Bind appSetting.TextblockHomeColor}" Text="Đại Sảnh" />
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem x:Name="PC">
-                <StackPanel Orientation="Horizontal">
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem x:Name="PC">
+                    <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource HomeIcon}" Foreground="{x:Bind appSetting.IconColor}" Text="&#xE211;" />
                         <TextBlock Style="{StaticResource HomeText}" Foreground="{x:Bind appSetting.TextblockHomeColor}" Text="Máy tính để bàn"/>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Name="Games">
-                <StackPanel Orientation="Horizontal">
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem Name="Games">
+                    <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource HomeIcon}" Foreground="{x:Bind appSetting.IconColor}" Text="&#xE7Fc;" />
                         <TextBlock Style="{StaticResource HomeText}" Foreground="{x:Bind appSetting.TextblockHomeColor}" Text="Games"/>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Name="SPCN">
-                <StackPanel Orientation="Horizontal">
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem Name="SPCN">
+                    <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource HomeIcon}" Foreground="{x:Bind appSetting.IconColor}" Text="&#xE8A2;" />
                         <TextBlock Style="{StaticResource HomeText}" Foreground="{x:Bind appSetting.TextblockHomeColor}" Text="Sản phẩm công nghệ"/>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Name="VCGT">
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem Name="VCGT">
                     <StackPanel Orientation="Horizontal" >
                         <TextBlock Style="{StaticResource HomeIcon}" Foreground="{x:Bind appSetting.IconColor}" Text="&#xE19D;" />
                         <TextBlock Style="{StaticResource HomeText}" Foreground="{x:Bind appSetting.TextblockHomeColor}" Text="Vui chơi giải trí"/>
                     </StackPanel>
-            </ListBoxItem>
+                </ListBoxItem>
                 <ListBoxItem x:Name="TheNext">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource HomeIcon}" Foreground="{x:Bind appSetting.IconColor}" Text="&#xE726;" />
@@ -59,18 +65,18 @@
                     </StackPanel>
                 </ListBoxItem>
                 <ListBoxItem Name="DNND">
-                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource HomeIcon}" Foreground="{x:Bind appSetting.IconColor}" Text="&#xE8BD;" />
                         <TextBlock Style="{StaticResource HomeText}" Foreground="{x:Bind appSetting.TextblockHomeColor}" Text="Danh nghiệp và người dùng"/>
-                </StackPanel>
-            </ListBoxItem>
-            
-            <ListBoxItem Name="MB" >
-                <StackPanel Orientation="Horizontal">
+                    </StackPanel>
+                </ListBoxItem>
+
+                <ListBoxItem Name="MB" >
+                    <StackPanel Orientation="Horizontal">
                         <TextBlock Style="{StaticResource HomeIcon}" Foreground="{x:Bind appSetting.IconColor}" Text="&#xE14D;" />
                         <TextBlock Style="{StaticResource HomeText}" Foreground="{x:Bind appSetting.TextblockHomeColor}" Text="Mua bán"/>
-                </StackPanel>
-            </ListBoxItem>
+                    </StackPanel>
+                </ListBoxItem>
                 <ListBoxItem x:Name="BM">
                     <StackPanel Orientation="Horizontal" >
                         <TextBlock Style="{StaticResource HomeIcon}" Foreground="{x:Bind appSetting.IconColor}" Text="&#xE82D;"  />
@@ -78,28 +84,22 @@
                     </StackPanel>
                 </ListBoxItem>
                 <ListBoxItem Name="AS" >
-                <StackPanel Orientation="Horizontal" >
+                    <StackPanel Orientation="Horizontal" >
                         <TextBlock Style="{StaticResource HomeIcon}" Foreground="{x:Bind appSetting.IconColor}" Text="&#xE13D;" />
                         <TextBlock Style="{StaticResource HomeText}" Foreground="{x:Bind appSetting.TextblockHomeColor}" Text="Tài khoản và cài đặt"/>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Name="Support" >
-                <StackPanel Orientation="Horizontal" >
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem Name="Support" >
+                    <StackPanel Orientation="Horizontal" >
                         <TextBlock Style="{StaticResource HomeIcon}" Foreground="{x:Bind appSetting.IconColor}" Text="&#xE1A3;" />
                         <TextBlock Style="{StaticResource HomeText}" Foreground="{x:Bind appSetting.TextblockHomeColor}" Text="Hỗ trợ"/>
-                </StackPanel>
-            </ListBoxItem>
-            <!--<ListBoxItem>
-                <StackPanel Orientation="Horizontal" >
-                     <TextBlock Name="GetDns" />
-                </StackPanel>
-            </ListBoxItem>-->
+                    </StackPanel>
+                </ListBoxItem>
             </ListBox>
-
-    </Frame>
+        </Frame>
         <StackPanel Background="{x:Bind appSetting.BackgroundHomeColor}" Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-            <TextBox Name="GoToTd" BorderBrush="{x:Bind appSetting.BackgroundHomeColor}" Background="{x:Bind appSetting.BackgroundHomeColor}" Foreground="{x:Bind appSetting.TextblockHomeColor}" />
-            <TextBlock Name="Vozforumsapp" Tapped="TextBlock_Tapped" Margin="10,0,0,0" Foreground="{x:Bind appSetting.TextblockHomeColor}"  />
+            <!--<TextBox Name="GoToTd" BorderBrush="{x:Bind appSetting.BackgroundHomeColor}" Background="{x:Bind appSetting.BackgroundHomeColor}" Foreground="{x:Bind appSetting.TextblockHomeColor}" />-->
+            <TextBlock Name="Vozforumsapp"  Margin="10,0,0,0" Foreground="{x:Bind appSetting.TextblockHomeColor}"  />
         </StackPanel>
     </Grid>
 </Page>

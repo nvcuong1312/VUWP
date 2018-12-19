@@ -17,6 +17,7 @@ namespace vozForums_Universal.CommonControl
             }
             return message;
         }
+
         public DefineEmoticon()
         {
             emoticon.Clear();

@@ -1,0 +1,46 @@
+﻿<div style="border: 1px solid #B0BDC6; margin: 1; overflow-x:auto;">
+<table width="100%" style="overflow:hidden;">
+<tr>
+	<td class="thead">
+		<div style="float:right;">{rpPostCount}</div>
+		<div style="float:left;">{rpTime}</div>
+	</td>
+</tr>
+<tr>
+	<td style="background: {rpBackgroundBodyTD};">
+		<table width="100%">
+			<colgroup>
+				<col class="sixteen" />  
+				<col class="fourteen" />
+			</colgroup>
+			<tr>
+				<td width="100%">
+					<div>				
+						<div style="float:left;">
+							<a href="{rpUrlMember}"> 
+								<img class="ImageAvt" src="{rpAvatar}" onclick="window.external.notify('{Image}' + src); return false;"/>
+							</a>
+						</div>
+						<div style="float:center;">
+							<a href="{rpUrlMember}" onclick="window.external.notify('{Url}' + href); return false;">{rpUserName}</a> 
+							<img style="vertical-align: middle;" src="{rpImgOnline}">
+							<div class="smallfont">{rpLevelMember}</div>
+						</div>					
+					</div>
+				</td>			
+				<td valign="top" class="smallfont" nowrap="nowrap">
+					<div>
+						<div>{rpJoinDate}</div>
+						<div class="voz-postbit-location voz-truncate">{rpLocation}</div>
+						<div>{rpPosts}</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</td>
+</tr>
+<tr>
+	{rpHTML}
+</tr>
+</table>
+</div>

@@ -23,9 +23,13 @@ namespace vozForums_Universal.CommonControl
     {
         private string sourceImage = "";
         private string baseLink = "https://vozforums.com";
+        string injectionStyleAndScript = @"<style> html,body {margin: 0;padding: 0;height: 100%; overflow-y:hidden; overflow-x:hidden;} </style><script type='text/javascript'>function getHeight() { var height = Math.max(document.getElementById('wrapper').offsetHeight, document.getElementById('wrapper').clientHeight, document.getElementById('wrapper').scrollHeight, document.body.scrollHeight, document.body.offsetHeight); window.external.notify(''+height);}</script>";
+        WebView web;
+
         public rtbViewHtml()
         {
             this.InitializeComponent();
+            web = new WebView();
         }
         private string CleanText(string input)
         {
@@ -52,33 +56,23 @@ namespace vozForums_Universal.CommonControl
                 tb.ChangeHtml(e);
             }));
 
-        private async void ChangeHtml(DependencyPropertyChangedEventArgs e)
+        private void ChangeHtml(DependencyPropertyChangedEventArgs e)
         {
-            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-            {
-                try
-                {
-                    string xhtml = MyHtml.ToString();
-                    MyRtbViewHtml.Children.Clear();
-                    //Tao Blocks
-                    List<Block> blocks = GenerateBlocksForHtml(xhtml, baseLink);
-                    //Them cac blocks vao RichTextBlock
-                    foreach (Block b in blocks)
-                    {
-                        RichTextBlock rtb = new RichTextBlock();
-                        rtb.TextWrapping = TextWrapping.Wrap;
-                        rtb.HorizontalAlignment = HorizontalAlignment.Stretch;
-                        rtb.VerticalAlignment = VerticalAlignment.Top;
-                        rtb.Blocks.Add(b);
-                        MyRtbViewHtml.Children.Add(rtb);
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                }
-            });
+            web.NavigateToString(MyHtml.ToString());
+            MyRtbViewHtml.Children.Add(web);
         }
+
+        void web_DOMContentLoaded(WebView sender, WebViewDOMContentLoadedEventArgs args)
+        {
+            web.InvokeScriptAsync("getHeight", null);
+        }
+
+        void web_ScriptNotify(object sender, NotifyEventArgs e)
+        {
+            string result = e.Value.ToString();
+            web.Height = double.Parse(result) + 15;
+        }
+
 
 
         private List<Block> GenerateBlocksForHtml(string xhtml, string baseLink)
@@ -242,7 +236,7 @@ namespace vozForums_Universal.CommonControl
                 var sourceUri = System.Net.WebUtility.HtmlDecode(node.Attributes["src"].Value);
                 Image img = new Image() { Source = new BitmapImage(new Uri(sourceUri)), Tag = sourceUri };
 
-                if (node.Attributes["src"].Value.ToString().Contains("Assets/iconvoz") || node.Attributes["src"].Value.ToString().Contains("https://vozforums.com/images/smilies/brick.png"))
+                if (node.Attributes["src"].Value.ToString().Contains("Assets/iconvoz") || node.Attributes["src"].Value.ToString().Contains("https://forums.voz.vn/images/smilies/brick.png"))
                 {
                     img.Height = 35;
                     img.Width = 35;
@@ -387,7 +381,7 @@ namespace vozForums_Universal.CommonControl
 
             if (lk.Contains("https://") == false)
             {
-                lk = string.Format("https://vozforums.com/{0}", lk);
+                lk = string.Format("https://forums.voz.vn/{0}", lk);
 
                 iui.Child = new HyperlinkButton() { NavigateUri = new Uri(lk, UriKind.RelativeOrAbsolute), Content = CleanText(node.InnerText), Margin = new Thickness(3, 3, 0, 0) };
                 s.Inlines.Add(iui);
@@ -525,6 +519,11 @@ namespace vozForums_Universal.CommonControl
             s.Inlines.Add(iui);
             s.Inlines.Add(new LineBreak());
             return s;
+        }
+
+        private void MyRtbViewHtml_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            web.Width = ActualWidth;
         }
     }
 }
