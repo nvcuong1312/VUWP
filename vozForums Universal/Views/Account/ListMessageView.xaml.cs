@@ -110,7 +110,7 @@ namespace vozForums_Universal.Views.Account
                 var Id = messageModel.ID;
                 var title = messageModel.Title;
                 var User = messageModel.UserName;
-                Frame.NavigateAsync(typeof(MessageView), new object[] 
+                Frame.NavigateAsync(typeof(MessageView), new object[]
                 {
                     1, Id, title, User
                 });
@@ -121,6 +121,44 @@ namespace vozForums_Universal.Views.Account
         private void BtnNewPM_Click(object sender, RoutedEventArgs e)
         {
             Frame.NavigateAsync(typeof(MessageView), new object[] { 2 });
+        }
+
+        private void LvMessageList_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            
+
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var ID = ((MenuFlyoutItem)sender).Tag.ToString();
+            var FolderID = (Message.Text == Resource.STR_INBOX) ? string.Empty : "-1";
+            messageController.DeleteMsg(ID, FolderID);
+            Loader((Message.Text == Resource.STR_INBOX) ? true : false);
+        }
+
+        private void Border_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            try
+            {                
+                MenuFlyout myFlyout = new MenuFlyout();
+                MenuFlyoutItem Delete = new MenuFlyoutItem
+                {
+                    Text = Resource.STR_DELETE_MSG,
+                    Height = 30,
+                    Width = 100,
+                    Padding = new Thickness(0, 0, 0, 0),
+                    Tag = ((Border)sender).Tag.ToString()
+                };
+
+                Delete.Click += Delete_Click;
+                myFlyout.Items.Add(Delete);
+                myFlyout.ShowAt(sender as UIElement, e.GetPosition(sender as UIElement));
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

@@ -3,13 +3,65 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using vozForums_Universal.CommonControl;
 using vozForums_Universal.Model;
+using Windows.Storage;
+using DataAccessLibrary;
 
 namespace vozForums_Universal.ModelData
 {
     public class HomeModelData
     {
-        public List<HomeModel> homeModelsList { get; set; }
+        private List<HomeModel> homeModelsList { get; set; }
+
+        public List<HomeModel> GetListBox()
+        {
+            return homeModelsList;
+        }
+
+        public void Add(HomeModel item)
+        {
+            DataAccess.AddData(item.Id, item.NameBox, item.NameSubBox);
+        }
+
+        public void Delete(string IdBox)
+        {
+            DataAccess.DeleteData(IdBox);
+        }
+
+        private void GetDataBox()
+        {
+            var DataBoxList = DataAccess.GetData();
+
+            foreach (var DataBox in DataBoxList)
+            {
+                var ItemInsert = new HomeModel()
+                {
+                    Id = DataBox.Key,
+                    NameBox = DataBox.Value[0],
+                    NameSubBox = DataBox.Value[1]
+                };
+
+                if (!homeModelsList.Contains(ItemInsert))
+                {
+                    homeModelsList.Add(ItemInsert);
+                }
+            }
+        }
+
+        private void Update()
+        {
+            try
+            {
+                //await FileIO.WriteLinesAsync(DataBox, BoxContent);
+                DialogResult.DialogOnlyOk(Resource.STR_DONE);
+            }
+            catch (Exception ex)
+            {
+                DialogResult.DialogOnlyOk(Resource.STR_ERROR);
+            }
+        }
+
         public HomeModelData()
         {
             homeModelsList = new List<HomeModel>();
@@ -56,7 +108,7 @@ namespace vozForums_Universal.ModelData
             homeModelsList.Add(new HomeModel() { NameBox = "Doanh nghiệp & Người dùng", NameSubBox = "We can do", Id = "170" });
             homeModelsList.Add(new HomeModel() { NameBox = "Khu vui chơi giải trí", NameSubBox = "Chuyện trò linh tinh™", Id = "17" });
             homeModelsList.Add(new HomeModel() { NameBox = "Khu vui chơi giải trí", NameSubBox = "Điểm báo", Id = "33" });
-            homeModelsList.Add(new HomeModel() { NameBox = "Khu vui chơi giải trí", NameSubBox = "Các món ăn chơi", Id = "207" });
+            //homeModelsList.Add(new HomeModel() { NameBox = "Khu vui chơi giải trí", NameSubBox = "Các món ăn chơi", Id = "207" });
             homeModelsList.Add(new HomeModel() { NameBox = "Khu vui chơi giải trí", NameSubBox = "Superthreads", Id = "34" });
             homeModelsList.Add(new HomeModel() { NameBox = "Khu vui chơi giải trí", NameSubBox = "From f17 with Love", Id = "145" });
             homeModelsList.Add(new HomeModel() { NameBox = "Khu vui chơi giải trí", NameSubBox = "Offline", Id = "35" });
@@ -68,6 +120,8 @@ namespace vozForums_Universal.ModelData
             homeModelsList.Add(new HomeModel() { NameBox = "Khu thương mại", NameSubBox = "Máy tính xách tay", Id = "72" });
             homeModelsList.Add(new HomeModel() { NameBox = "Khu thương mại", NameSubBox = "Điện thoại di động", Id = "76" });
             homeModelsList.Add(new HomeModel() { NameBox = "Khu thương mại", NameSubBox = "Các sản phẩm, dịch vụ khác", Id = "80" });
+
+            GetDataBox();
         }
     }
 }

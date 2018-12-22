@@ -103,7 +103,7 @@ namespace vozForums_Universal.Connect
             }
         }
 
-        public void PostComment(string message, string PostURI, ref bool checkDone)
+        public void Post(string message, string PostURI, ref bool checkDone)
         {
             checkDone = false;
             try

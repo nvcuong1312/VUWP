@@ -11,6 +11,7 @@ using MyToolkit.Controls;
 using MyToolkit.Paging;
 using MyToolkit.Paging.Animations;
 using MyToolkit.UI;
+using DataAccessLibrary;
 
 namespace vozForums_Universal
 {
@@ -39,6 +40,7 @@ namespace vozForums_Universal
             }
 
             this.InitializeComponent();
+            DataAccess.InitializeDatabase();
         }
 
         public override Type StartPageType => typeof(MainView);

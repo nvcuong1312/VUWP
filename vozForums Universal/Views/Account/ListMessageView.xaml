@@ -201,7 +201,7 @@
             </Button>
         </Grid>
 
-        <ListView x:Name="LvMessageList" Grid.Row="2" Style="{StaticResource ListViewStyle1}" Tapped="LvMessageList_Tapped">
+        <ListView x:Name="LvMessageList" Grid.Row="2" Style="{StaticResource ListViewStyle1}" Tapped="LvMessageList_Tapped" RightTapped="LvMessageList_RightTapped">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -209,7 +209,7 @@
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="{StaticResource TextBoxBorderThemeBrush}" Margin="1,1,1,1" Tag="{Binding ID}">
+                    <Border BorderBrush="{StaticResource TextBoxBorderThemeBrush}" Margin="1,1,1,1" Tag="{Binding ID}" RightTapped="Border_RightTapped">
                         <Grid MaxHeight="70">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="50" />

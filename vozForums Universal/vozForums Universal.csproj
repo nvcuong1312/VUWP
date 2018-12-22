@@ -653,6 +653,10 @@
       <Project>{ecfbceb0-54f2-41ed-8365-13d29f3653d8}</Project>
       <Name>BackgroundTasks</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataAccessLibrary\DataAccessLibrary.csproj">
+      <Project>{a378aff9-8e5b-4520-bc57-89dd19c83b3b}</Project>
+      <Name>DataAccessLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

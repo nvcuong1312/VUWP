@@ -32,6 +32,7 @@ namespace vozForums_Universal.Views
         AccountHelper loginModel = null;
         AppSettingModel appSetting = null;
 
+
         public MainView()
         {
             this.InitializeComponent();
@@ -40,7 +41,7 @@ namespace vozForums_Universal.Views
             appSetting = new AppSettingModel();
 
             CheckStatusSplitView();
-            SetupSplitView();
+            RefreshSplitView();
             LoginFirst();
             _instance = this;
             PageAnimation = new ScalePageTransition();
@@ -90,11 +91,11 @@ namespace vozForums_Universal.Views
             idSelected = int.Parse(ID);
         }
 
-        private void SetupSplitView()
+        public void RefreshSplitView()
         {
             HomeModelData homeData = new HomeModelData();
-            var homeList = homeData.homeModelsList;
-            var group = from c in homeList
+            var ListBox = homeData.GetListBox();
+            var group = from c in ListBox
                         group c by c.NameBox;
             this.cvs.Source = group;
         }

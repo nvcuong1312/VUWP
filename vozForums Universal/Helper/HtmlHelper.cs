@@ -14,6 +14,7 @@ using Windows.Storage;
 using System.IO;
 using Windows.Security.ExchangeActiveSyncProvisioning;
 using vozForums_Universal.Views;
+using vozForums_Universal.ModelData;
 
 namespace vozForums_Universal.Helper
 {
@@ -373,15 +374,86 @@ namespace vozForums_Universal.Helper
             // Update to UI
             var mainView = MainView.GetInstance();
             mainView.UpdateInfoMessageBtn(Unread, Total);
-            //if (isNumTotal && isNumUnread && Unread > 0)
-            //{
-                
-            //}            
-            //else
-            //{
-            //    var mainView = MainView.GetInstance();
-            //    mainView.UpdateInfoMessageBtn(0, 0);
-            //}
+        }
+
+        public string RequestAddNamebox(string idBox)
+        {
+            // Check IdBox.
+            HomeModelData homeModelData = new HomeModelData();
+            var ListBox = homeModelData.GetListBox();
+            foreach (var Box in ListBox)
+            {
+                if (Box.Id == idBox)
+                {
+                    return Resource.STR_IDBOX_EXIST;
+                }
+            }
+
+            // Send request
+            string content = Resource.STR_EMPTY;
+            string url = Resource.URL_LIST_THREAD
+                .Replace("{rpIDBox}", idBox)
+                .Replace("{rpIDPage}", "0");
+
+            try
+            {
+                Server.GetContent(url, ref content);
+                if (content != Resource.STR_ERROR)
+                {
+                    HtmlDocument doc = new HtmlDocument();
+                    doc.LoadHtml(content);
+
+                    // Get Title Box
+                    HtmlNode TitleBoxNode = (from td in doc.DocumentNode.Descendants("td")
+                                             where td.GetAttributeValue("class", Resource.STR_EMPTY) == "navbar"
+                                             select td).FirstOrDefault();
+
+                    // Get parent of Box
+                    List<HtmlNode> ParentBoxNodeList = doc
+                        .DocumentNode
+                        .Descendants("span")
+                        .Where(n => n.GetAttributeValue("class", Resource.STR_EMPTY) == "navbar")
+                        .ToList();
+
+                    if (TitleBoxNode == null
+                        || HtmlEntity.DeEntitize(TitleBoxNode.InnerText) == Resource.STR_VB_MSG
+                        || ParentBoxNodeList == null
+                        || ParentBoxNodeList.Count < 2)
+                    {
+                        return Resource.STR_ERROR;
+                    }
+
+                    var TitleNode = HtmlEntity.DeEntitize(TitleBoxNode.InnerText.Trim());
+                    var TitleParent = HtmlEntity.DeEntitize(ParentBoxNodeList[1].InnerText).Replace(">", Resource.STR_EMPTY).Trim();
+
+                    homeModelData.Add(new HomeModel()
+                    {
+                        Id = idBox,
+                        NameBox = TitleParent,
+                        NameSubBox = TitleNode
+                    });
+
+                    //await Task.Delay(TimeSpan.FromSeconds(0.3));
+                    MainView.GetInstance().RefreshSplitView();
+
+                    return Resource.STR_DONE;
+                }
+                else
+                {
+                    return Resource.STR_ERROR;
+                }
+            }
+            catch (Exception ex)
+            {
+                return Resource.STR_ERROR;
+            }
+        }
+
+        public void RequestDeleteBox(string idBox)
+        {
+            HomeModelData homeModelData = new HomeModelData();
+            homeModelData.Delete(idBox);
+            MainView.GetInstance().RefreshSplitView();
         }
     }
 }

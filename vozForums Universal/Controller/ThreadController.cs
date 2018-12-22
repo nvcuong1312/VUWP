@@ -40,7 +40,7 @@ namespace vozForums_Universal.Controller
                     + "&sbutton=Post Quick Reply";
             string PostURI = Resource.URL_POST_COMMENT.Replace("{rpID}", idThread);
 
-            Server.PostComment(data, PostURI, ref checkDone);
+            Server.Post(data, PostURI, ref checkDone);
         }
 
         public void GetContent(string url, ref string content)

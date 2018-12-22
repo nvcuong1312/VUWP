@@ -74,7 +74,7 @@ namespace vozForums_Universal.Controller
                 PostURI = Resource.URL_POST_MESSAGE.Replace("{rpID}", Resource.STR_EMPTY);
             }
 
-            Server.PostComment(data, PostURI, ref checkDone);
+            Server.Post(data, PostURI, ref checkDone);
         }
 
         public void NavigateManager(string url)

@@ -12,6 +12,7 @@ namespace vozForums_Universal
         public const string STR_EMPTY = "";
         public const string STR_SPACE = " ";
         public const string STR_LAST_PAGE = "Last page";
+        public const string STR_DELETE_MSG = "Delete";
         public const string STR_CONTENT_EXIST = "Bookmark already exist";
         public const string STR_DONE = "Done";
         public const string STR_ERROR = "Error";
@@ -26,6 +27,7 @@ namespace vozForums_Universal
         public const int ID_MESSAGE = -5;
         public const string STR_VISIT = "Khách";
         public const string STR_LOGGING = "Logging...";
+        public const string STR_IDBOX_EXIST = "Box is exist!";
 
         // For AppSetting
         public const string STR_DEVICE_NAME = "Devicename";
@@ -44,6 +46,7 @@ namespace vozForums_Universal
         public const string NOK = "NOK";
         public const string STR_GUEST = "Guest";
         public const string STR_DEFAULT_NAME_DEVICE = " Windows Device ";
+        public const string STR_SPLIT_DATA_BOX = "{xx}";
 
         // ListThread
         public const int MAX_LENGTH = 70;
@@ -69,7 +72,9 @@ namespace vozForums_Universal
 
         // Message
         public const string URL_MESSAGE = "https://forums.voz.vn/private.php?do=showpm&pmid={rpID}";
-        public const string URL_POST_MESSAGE = "https://forums.voz.vn//private.php?do=insertpm&pmid={rpID}";
+        public const string URL_POST_MESSAGE = "https://forums.voz.vn/private.php?do=insertpm&pmid={rpID}";
+        public const string URL_DELETE_MESSAGE = "https://forums.voz.vn/private.php?do=managepm&dowhat=delete&pmid={rpID}";
+
         public const string STR_POST_MESSAGE_DONE = "Sent message done!";
 
         // Account

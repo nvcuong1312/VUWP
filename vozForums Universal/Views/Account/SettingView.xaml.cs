@@ -21,13 +21,15 @@ namespace vozForums_Universal.Views.Account
     /// 
     public sealed partial class SettingView : MtPage
     {
-        AccountHelper myLogin;
+        HtmlHelper Helper;
+        AccountHelper myLogin;        
         AppSettingModel appSetting;
 
         public SettingView()
         {
             this.InitializeComponent();
 
+            Helper = new HtmlHelper();
             myLogin = new AccountHelper();
             appSetting = new AppSettingModel();
         }
@@ -146,6 +148,29 @@ namespace vozForums_Universal.Views.Account
             {
                 btn_login.IsEnabled = true;
             }
-        }     
+        }
+
+        private void BtnAddBox_Click(object sender, RoutedEventArgs e)
+        {
+            var ID = tbIdBox.Text;
+            if (!string.IsNullOrEmpty(ID))
+            {
+                var AddResult = Helper.RequestAddNamebox(ID);
+                if (AddResult == Resource.STR_DONE)
+                {
+                    DialogResult.DialogOnlyOk(Resource.STR_DONE);
+                }
+            }
+        }
+
+        private void BtnDelBox_Click(object sender, RoutedEventArgs e)
+        {
+            var ID = tbIdBox.Text;
+            if (!string.IsNullOrEmpty(ID))
+            {
+                Helper.RequestDeleteBox(ID);
+                DialogResult.DialogOnlyOk(Resource.STR_DONE);
+            }          
+        }
     }
 }
