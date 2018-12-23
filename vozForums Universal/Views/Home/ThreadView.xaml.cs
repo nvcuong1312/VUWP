@@ -38,7 +38,7 @@ namespace vozForums_Universal.Views
         private string titleThread;
 
         private HtmlHelper helper;
-        private BookMarkHelper bookMark;
+        private BookmarkModelData bookMark;
         private ThreadModel thread;
         private AccountHelper myLogin;
         private DefineEmoticon define;
@@ -59,7 +59,7 @@ namespace vozForums_Universal.Views
             btnPopupPostMessage.IsEnabled = false;
             comment.IsEnabled = false;
 
-            bookMark = new BookMarkHelper();
+            bookMark = new BookmarkModelData();
             helper = new HtmlHelper();
             thread = new ThreadModel();
             myLogin = new AccountHelper();
@@ -412,7 +412,8 @@ namespace vozForums_Universal.Views
 
         private void btnBookmark_Click(object sender, RoutedEventArgs e)
         {
-            bookMark.Add(titleThread, new string[] { idThread, CurrentPage.ToString() });
+            //bookMark.Add(titleThread, new string[] { idThread, CurrentPage.ToString() });
+            bookMark.Add(idThread, titleThread, CurrentPage.ToString());
         }
 
         private void btnHambuger_Click(object sender, RoutedEventArgs e)

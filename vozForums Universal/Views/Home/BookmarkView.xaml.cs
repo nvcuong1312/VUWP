@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using vozForums_Universal.Model;
 using System.Reflection;
 using MyToolkit.Paging;
+using vozForums_Universal.ModelData;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -21,21 +22,18 @@ namespace vozForums_Universal.Views.Home
     /// </summary>
     public sealed partial class BookmarkView : MtPage
     {
-        StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+        //StorageFolder localFolder = ApplicationData.Current.LocalFolder;
         AppSettingModel appSetting;
-        BookMarkHelper b;
-
-        private List<ListBookmark> list;
+        BookmarkHelper b;
+        BookmarkModelData BmData;
 
         public BookmarkView()
         {
             this.InitializeComponent();
 
-            b = new BookMarkHelper();
             appSetting = new AppSettingModel();
 
             GetListBookmark();
-            //this.NavigationCacheMode = NavigationCacheMode.Disabled;
         }
 
         protected override void OnNavigatedTo(MtNavigationEventArgs e)
@@ -43,68 +41,40 @@ namespace vozForums_Universal.Views.Home
             MainView.GetInstance().UpdatePosSelectedListView(Resource.ID_BOOKMARK.ToString());
         }
 
-        private async void GetListBookmark()
+        protected override void OnNavigatingFrom(MtNavigatingCancelEventArgs e)
         {
-            list = new List<ListBookmark>();
-            list.Clear();
-            string line;
-            //Get all content from Bookmark.txt
-            try
-            {
-                StorageFile sampleFile = await localFolder.GetFileAsync("Bookmark.txt");
-                String timestamp = await FileIO.ReadTextAsync(sampleFile);
+            MainView.GetInstance().UpdatePosSelectedListView(Resource.ID_OUT.ToString());
+        }
 
-                StringReader reader = new StringReader(timestamp);
-                while ((line = reader.ReadLine()) != null)
-                {
-                    ListBookmark bookmark = new ListBookmark();
-                    if (string.IsNullOrWhiteSpace(line)) continue;
-                    try
-                    {
-                        bookmark.Name = line.Split('|')[0];
-                        bookmark.idThread = line.Split('|')[1];
-                        bookmark.numPage = line.Split('|')[2];
-                        bookmark.idThread = bookmark.idThread + "|" + bookmark.numPage;
-                        bookmark.contentRemove = bookmark.Name + "|" + bookmark.idThread;
-                    }
-                    catch
-                    {
-                        bookmark.Name = line.Split('|')[0];
-                        bookmark.idThread = line.Split('|')[1];
-                        bookmark.contentRemove = bookmark.Name + "|" + bookmark.idThread;
-                    }
-                    list.Add(bookmark);
-                }
-
-                lvBookmark.ItemsSource = list;
-                lvBookmark.IsEnabled = true;
-            }
-            catch
-            {
-                ;
-            }
+            private void GetListBookmark()
+        {
+            BmData = new BookmarkModelData();
+            lvBookmark.ItemsSource = BmData.GetDataBookmark();
+            lvBookmark.IsEnabled = true;            
         }
 
         private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            string idThread = ((TextBlock)sender).Tag.ToString();
-            Frame.NavigateAsync(typeof(ThreadView), idThread);
+            
         }
 
         private async void btnDeleteBookmark_Click(object sender, RoutedEventArgs e)
         {
             string sen = ((Button)sender).Tag.ToString();
-            b.Remove(sen + Environment.NewLine);
+            var ID = sen.Split('_')[0];
+            var Page = sen.Split('_')[1];
+
+            BmData.Delete(ID, Page);
             await Task.Delay(TimeSpan.FromSeconds(2));
             GetListBookmark();
         }
-    }
 
-    public class ListBookmark
-    {
-        public string Name { get; set; }
-        public string idThread { get; set; }
-        public string contentRemove { get; set; }
-        public string numPage { get; set; }
+        private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            string sen = ((TextBlock)sender).Tag.ToString();
+            var ID = sen.Split('_')[0];
+            var Page = sen.Split('_')[1];
+            Frame.NavigateAsync(typeof(ThreadView), ID + "|" + Page);
+        }
     }
 }

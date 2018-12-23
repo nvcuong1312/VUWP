@@ -116,9 +116,10 @@
     <Compile Include="Controller\ListMessageController.cs" />
     <Compile Include="Controller\MessageController.cs" />
     <Compile Include="Controller\ThreadController.cs" />
-    <Compile Include="Helper\BookMarkHelper.cs" />
+    <Compile Include="Helper\BookmarkHelper.cs" />
     <Compile Include="Helper\HtmlHelper.cs" />
     <Compile Include="ModelData\AccountModelData.cs" />
+    <Compile Include="ModelData\BookmarkModelData.cs" />
     <Compile Include="ModelData\HomeModelData.cs" />
     <Compile Include="ModelData\ListThreadModelData.cs" />
     <Compile Include="ModelData\ListMessageModelData.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Model\AccountModel.cs" />
     <Compile Include="Model\AppSettingModel.cs" />
     <Compile Include="Helper\AccountHelper.cs" />
+    <Compile Include="Model\BookmarkModel.cs" />
     <Compile Include="Model\HomeModel.cs" />
     <Compile Include="Model\ListMessageModel.cs" />
     <Compile Include="Model\MessageModel.cs" />

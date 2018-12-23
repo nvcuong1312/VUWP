@@ -21,17 +21,17 @@ namespace vozForums_Universal.ModelData
 
         public void Add(HomeModel item)
         {
-            DataAccess.AddData(item.Id, item.NameBox, item.NameSubBox);
+            DataAccess.AddDataBox(item.Id, item.NameBox, item.NameSubBox);
         }
 
         public void Delete(string IdBox)
         {
-            DataAccess.DeleteData(IdBox);
+            DataAccess.DeleteDataBox(IdBox);
         }
 
         private void GetDataBox()
         {
-            var DataBoxList = DataAccess.GetData();
+            var DataBoxList = DataAccess.GetDataBox();
 
             foreach (var DataBox in DataBoxList)
             {

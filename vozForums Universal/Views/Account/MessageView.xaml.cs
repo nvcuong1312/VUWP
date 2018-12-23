@@ -72,7 +72,8 @@ namespace vozForums_Universal.Views.Account
                 }
                 else if ((int)e.Parameters[0] == 2)
                 {
-                    DisplayPopupPostMessage();
+                    TblTitleMsg.Text = Resource.STR_NEW_MESSAGE;
+                    DisplayPopupPostMessage();                    
                 }
             }
         }
@@ -135,7 +136,7 @@ namespace vozForums_Universal.Views.Account
                 {
                     Loader();
                 }
-                tbTitle.Text = Resource.STR_POST_MESSAGE_DONE;
+                TblTitleMsg.Text = Resource.STR_POST_MESSAGE_DONE;
                 tbMessage.Text = string.Empty;
                 tbMessage.IsEnabled = true;
                 myPopupPostMessage.IsOpen = false;

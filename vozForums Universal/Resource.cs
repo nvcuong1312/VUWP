@@ -25,6 +25,7 @@ namespace vozForums_Universal
         public const int ID_SUPPORT = -3;
         public const int ID_ACCOUNT = -4;
         public const int ID_MESSAGE = -5;
+        public const int ID_OUT = -6;
         public const string STR_VISIT = "Khách";
         public const string STR_LOGGING = "Logging...";
         public const string STR_IDBOX_EXIST = "Box is exist!";
@@ -71,6 +72,7 @@ namespace vozForums_Universal
         public const string URL_MESSAGE_OUT = "https://forums.voz.vn/private.php?s=&pp=50&folderid=-1";
 
         // Message
+        public const string STR_NEW_MESSAGE = "New message";
         public const string URL_MESSAGE = "https://forums.voz.vn/private.php?do=showpm&pmid={rpID}";
         public const string URL_POST_MESSAGE = "https://forums.voz.vn/private.php?do=insertpm&pmid={rpID}";
         public const string URL_DELETE_MESSAGE = "https://forums.voz.vn/private.php?do=managepm&dowhat=delete&pmid={rpID}";
