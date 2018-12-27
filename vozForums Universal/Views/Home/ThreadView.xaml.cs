@@ -326,7 +326,7 @@ namespace vozForums_Universal.Views
             }
         }
 
-        private void RatingMethod(int rating)
+        public void RatingThread(int rating)
         {
             bool checkDone = false;
             threadController.SendRating(rating, idThread, ref checkDone);

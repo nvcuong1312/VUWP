@@ -146,7 +146,7 @@ namespace vozForums_Universal.ModelData
                     .Where(m => m.GetAttributeValue("id", "") == "td_post_")
                     .FirstOrDefault();
 
-                MessageInfo.HTML = nodeHTML.OuterHtml.ToString();
+                MessageInfo.ContentComment = nodeHTML.OuterHtml.ToString();
 
                 messageData.Add(MessageInfo);
             }

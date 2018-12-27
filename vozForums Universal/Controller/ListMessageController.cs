@@ -15,7 +15,7 @@ namespace vozForums_Universal.Controller
 
         public void GetContent(string url, ref string contentHtml)
         {
-            Server.GetContent(url, ref contentHtml);
+            Server.Get(url, ref contentHtml);
         }
 
         public void DeleteMsg(string ID, string FolderID)

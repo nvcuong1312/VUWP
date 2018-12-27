@@ -120,7 +120,7 @@
     <Compile Include="Helper\HtmlHelper.cs" />
     <Compile Include="ModelData\AccountModelData.cs" />
     <Compile Include="ModelData\BookmarkModelData.cs" />
-    <Compile Include="ModelData\HomeModelData.cs" />
+    <Compile Include="ModelData\BoxModelData.cs" />
     <Compile Include="ModelData\ListThreadModelData.cs" />
     <Compile Include="ModelData\ListMessageModelData.cs" />
     <Compile Include="ModelData\MessageModelData.cs" />
@@ -128,7 +128,7 @@
     <Compile Include="Model\AppSettingModel.cs" />
     <Compile Include="Helper\AccountHelper.cs" />
     <Compile Include="Model\BookmarkModel.cs" />
-    <Compile Include="Model\HomeModel.cs" />
+    <Compile Include="Model\BoxModel.cs" />
     <Compile Include="Model\ListMessageModel.cs" />
     <Compile Include="Model\MessageModel.cs" />
     <Compile Include="Model\ThreadModel.cs" />

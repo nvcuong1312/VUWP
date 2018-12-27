@@ -26,6 +26,7 @@ namespace vozForums_Universal
         public const int ID_ACCOUNT = -4;
         public const int ID_MESSAGE = -5;
         public const int ID_OUT = -6;
+        public const int ID_BOX_START_DEFAULT = 26;
         public const string STR_VISIT = "Khách";
         public const string STR_LOGGING = "Logging...";
         public const string STR_IDBOX_EXIST = "Box is exist!";
@@ -48,6 +49,7 @@ namespace vozForums_Universal
         public const string STR_GUEST = "Guest";
         public const string STR_DEFAULT_NAME_DEVICE = " Windows Device ";
         public const string STR_SPLIT_DATA_BOX = "{xx}";
+        public const string STR_BOX_START = "BoxStart";
 
         // ListThread
         public const int MAX_LENGTH = 70;

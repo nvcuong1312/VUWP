@@ -32,9 +32,7 @@ namespace vozForums_Universal.CommonControl
             else if (Rdo1Star.IsChecked == true)
                 rating = 1;
 
-            var instance = ThreadView.GetInstance();
-            MethodInfo method = instance.GetType().GetMethod("RatingMethod", BindingFlags.NonPublic | BindingFlags.Instance);
-            method.Invoke(instance, new object[] { rating });
+            ThreadView.GetInstance().RatingThread(rating);
         }
     }
 }

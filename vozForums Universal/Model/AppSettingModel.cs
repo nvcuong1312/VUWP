@@ -327,5 +327,25 @@ namespace vozForums_Universal.Model
                 valueCommon.Values[Resource.COOKIES_VBULLETIN_MULTIQUOTE] = value;
             }
         }
+
+        public int BoxStart
+        {
+            get
+            {
+                try
+                {
+                    return int.Parse(valueCommon.Values[Resource.STR_BOX_START].ToString());
+                }
+                catch (System.Exception)
+                {
+                    valueCommon.Values[Resource.STR_BOX_START] = Resource.ID_BOX_START_DEFAULT;
+                    return Resource.ID_BOX_START_DEFAULT;
+                }
+            }
+            set
+            {
+                valueCommon.Values[Resource.STR_BOX_START] = value;
+            }
+        }
     }
 }

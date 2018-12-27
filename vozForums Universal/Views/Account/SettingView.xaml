@@ -23,7 +23,7 @@
         <ScrollViewer Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollMode="Enabled">
             <StackPanel Orientation="Vertical">
                 <Border BorderBrush="{StaticResource AppBarBorderThemeBrush}" BorderThickness="1,1,1,1">
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,15,0,0">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,10,0,0">
                         <TextBlock Text="Tài khoản" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="25"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
                             <TextBlock Text="Username" VerticalAlignment="Center"/>
@@ -41,7 +41,7 @@
                     </StackPanel>
                 </Border>
                 <Border BorderBrush="{StaticResource AppBarBorderThemeBrush}" BorderThickness="1,1,1,1" Margin="0,1,0,0">
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,20,0,0">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,10,0,0">
                         <TextBlock Text="Giao diện" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" Margin="10,0,0,0"/>
                         <RadioButton x:Name="DarkTheme" HorizontalAlignment="Center" Content="Dark" Margin="30,10,0,0"/>
                         <RadioButton x:Name="LightTheme" HorizontalAlignment="Center" Content="Light" Margin="30,0,0,0"/>
@@ -49,19 +49,28 @@
                     </StackPanel>
                 </Border>
                 <Border BorderBrush="{StaticResource AppBarBorderThemeBrush}" BorderThickness="1,1,1,1" Margin="0,1,0,0">
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,10,0,0">
                         <TextBlock HorizontalAlignment="Left" Text="Chữ ký" Margin="10,0,0,0" FontSize="25"/>
-                        <TextBox x:Name="tbDeviceName" PlaceholderText="Mobile name" Width="200" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                        <TextBox x:Name="tbDeviceName" PlaceholderText="Mobile name" Width="200" HorizontalAlignment="Center" Margin="10,10,0,0"/>
                         <Button x:Name="SaveBtn" Content="Save" HorizontalAlignment="Center" Margin="0,10,0,0" Click="SaveBtn_Click"/>
                     </StackPanel>
                 </Border>
                 <Border BorderBrush="{StaticResource AppBarBorderThemeBrush}" BorderThickness="1,1,1,1" Margin="0,1,0,0">
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,10,0,0">
                         <TextBlock Text="Quản lý Box" HorizontalAlignment="Left" FontSize="25"  Margin="10,0,0,0"/>
                         <TextBox x:Name="tbIdBox" Margin="10" Width="200" PlaceholderText="ID Box"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button x:Name="btnAddBox" Content="Add Box" Click="BtnAddBox_Click"/>
                             <Button x:Name="btnDelBox" Content="Delete Box" Margin="10,0,0,0" Click="BtnDelBox_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border BorderBrush="{StaticResource AppBarBorderThemeBrush}" BorderThickness="1,1,1,1" Margin="0,1,0,0">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,10,0,0">
+                        <TextBlock Text="Box mặc định khi khởi động" HorizontalAlignment="Left" FontSize="25"  Margin="10,0,0,0"/>
+                        <TextBox x:Name="tbBoxDefault" Margin="10" Width="200" PlaceholderText="ID Box" HorizontalAlignment="Left"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="75,0,0,0">
+                            <Button x:Name="btnSaveDefaultBox" Content="Save" Click="BtnSaveDefaultBox_Click"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>

@@ -68,12 +68,12 @@ namespace vozForums_Universal.Helper
             }
         }
 
-        public async void GetPosts(string userId)
+        public async void GetPosts()
         {
             int posts = 0;
-            string url = "https://forums.voz.vn/member.php?u=" + userId;
+            string url = "https://forums.voz.vn/member.php?u=" + appSetting.Cookies_Vfuserid;
             string content = Resource.STR_EMPTY; ;
-            await Task.Run(() => Server.GetContent(url, ref content));
+            await Task.Run(() => Server.Get(url, ref content));
             if (content != Resource.STR_ERROR)
             {
                 HtmlDocument htmlDocument = new HtmlDocument();
@@ -256,7 +256,7 @@ namespace vozForums_Universal.Helper
                     .Replace("{rpLocation}", item.Location)
                     .Replace("{rpPosts}", item.TotalPosts)
                     .Replace("{rpImgOnline}", item.Status)
-                    .Replace("{rpHTML}", item.HTML);
+                    .Replace("{rpHTML}", item.ContentComment);
             }
             Package package = Package.Current;
             var Arch = package.Id.Architecture;
@@ -285,7 +285,7 @@ namespace vozForums_Universal.Helper
         {
             if (appSetting.TotalPosts < Resource.TOTAL_POST_URL_IMAGE)
             {
-                GetPosts(appSetting.Cookies_Vfuserid);
+                GetPosts();
             }
             string DeviceName = Resource.STR_EMPTY;
             if (appSetting.DeviceName != null)
@@ -379,7 +379,7 @@ namespace vozForums_Universal.Helper
         public string RequestAddNamebox(string idBox)
         {
             // Check IdBox.
-            HomeModelData homeModelData = new HomeModelData();
+            BoxModelData homeModelData = new BoxModelData();
             var ListBox = homeModelData.GetListBox();
             foreach (var Box in ListBox)
             {
@@ -397,7 +397,7 @@ namespace vozForums_Universal.Helper
 
             try
             {
-                Server.GetContent(url, ref content);
+                Server.Get(url, ref content);
                 if (content != Resource.STR_ERROR)
                 {
                     HtmlDocument doc = new HtmlDocument();
@@ -426,11 +426,11 @@ namespace vozForums_Universal.Helper
                     var TitleNode = HtmlEntity.DeEntitize(TitleBoxNode.InnerText.Trim());
                     var TitleParent = HtmlEntity.DeEntitize(ParentBoxNodeList[1].InnerText).Replace(">", Resource.STR_EMPTY).Trim();
 
-                    homeModelData.Add(new HomeModel()
+                    homeModelData.Add(new BoxModel()
                     {
                         Id = idBox,
-                        NameBox = TitleParent,
-                        NameSubBox = TitleNode
+                        NameParentBox = TitleParent,
+                        NameBox = TitleNode
                     });
 
                     //await Task.Delay(TimeSpan.FromSeconds(0.3));
@@ -451,9 +451,21 @@ namespace vozForums_Universal.Helper
 
         public void RequestDeleteBox(string idBox)
         {
-            HomeModelData homeModelData = new HomeModelData();
+            BoxModelData homeModelData = new BoxModelData();
             homeModelData.Delete(idBox);
             MainView.GetInstance().RefreshSplitView();
+        }
+
+        public bool SetDefaultBox(string idBox)
+        {
+            BoxModelData homeModelData = new BoxModelData();
+            var ListBoxID = homeModelData.GetListBox().Select(n=>n.Id).ToList();
+            if (!ListBoxID.Contains(idBox))
+            {
+                return false;
+            }
+            appSetting.BoxStart = int.Parse(idBox);
+            return true;
         }
     }
 }

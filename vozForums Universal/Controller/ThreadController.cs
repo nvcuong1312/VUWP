@@ -45,12 +45,19 @@ namespace vozForums_Universal.Controller
 
         public void GetContent(string url, ref string content)
         {
-            Server.GetContent(url, ref content);
+            Server.Get(url, ref content);
         }
 
         public void SendRating(int rating, string idThread, ref bool checkDone)
         {
-            Server.VoteThread(rating, idThread, checkDone);
+            string PostURI = "https://forums.voz.vn/threadrate.php?t=" + idThread;
+            string data = "vote=" + rating
+                     + "&s=&securitytoken="
+                     + appSetting.Token
+                     + "&t=" + idThread
+                     + "&pp=10&page=1&button=Vote Now";
+
+            Server.Post(data, PostURI, ref checkDone);
         }
 
         public void NavigateManager(string url)

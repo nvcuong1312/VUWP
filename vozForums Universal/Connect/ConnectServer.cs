@@ -29,7 +29,7 @@ namespace vozForums_Universal.Connect
             handler.CookieContainer = cookies;
         }
 
-        public void GetContent(string url, ref string outContent)
+        public void Get(string url, ref string outContent)
         {
             try
             {
@@ -82,17 +82,29 @@ namespace vozForums_Universal.Connect
                             contentHtml = content.ReadAsStringAsync().Result;
 
                             IEnumerable<Cookie> responseCookies = cookies.GetCookies(new Uri("https://forums.voz.vn/")).Cast<Cookie>();
-                            foreach (Cookie cookie in responseCookies)
+                            var listName = responseCookies.Select(n => n.Name).ToList();
+                            if (listName.Contains(Resource.COOKIES_VFPASSWORD))
                             {
-                                if (cookie.Name == Resource.COOKIES_VFPASSWORD)
-                                {
-                                    appSetting.Cookies_Vfpassword = cookie.Value;
-                                }
-                                if (cookie.Name == Resource.COOKIES_VFUSERID)
-                                {
-                                    appSetting.Cookies_Vfuserid = cookie.Value;
-                                }
+                                //var xxx = responseCookies.Where(n => n.Name == Resource.COOKIES_VFPASSWORD).Select(n => n.Value).FirstOrDefault();
+                                //var yyy = responseCookies.Where(n => n.Name == Resource.COOKIES_VFUSERID).Select(n => n.Value).FirstOrDefault();
+                                appSetting.Cookies_Vfpassword = responseCookies.Where(n => n.Name == Resource.COOKIES_VFPASSWORD).Select(n => n.Value).FirstOrDefault();
+                                appSetting.Cookies_Vfuserid = responseCookies.Where(n => n.Name == Resource.COOKIES_VFUSERID).Select(n => n.Value).FirstOrDefault();
                             }
+                            else
+                            {
+                                contentHtml = Resource.STR_ERROR;
+                            }
+                            //foreach (Cookie cookie in responseCookies)
+                            //{
+                            //    if (cookie.Name == Resource.COOKIES_VFPASSWORD)
+                            //    {
+                            //        appSetting.Cookies_Vfpassword = cookie.Value;
+                            //    }
+                            //    if (cookie.Name == Resource.COOKIES_VFUSERID)
+                            //    {
+                            //        appSetting.Cookies_Vfuserid = cookie.Value;
+                            //    }
+                            //}
                         }
                     }
                 }
@@ -124,32 +136,32 @@ namespace vozForums_Universal.Connect
             }
         }
 
-        public void VoteThread(int rating, string idThread, bool checkDone)
-        {
-            string voteUri = "https://forums.voz.vn/threadrate.php?t=" + idThread;
-            string data = "vote=" + rating
-                     + "&s=&securitytoken="
-                     + appSetting.Token
-                     + "&t=" + idThread
-                     + "&pp=10&page=1&button=Vote Now";
-            string application = "application/x-www-form-urlencoded";
+        //public void VoteThread(int rating, string idThread, bool checkDone)
+        //{
+        //    string voteUri = "https://forums.voz.vn/threadrate.php?t=" + idThread;
+        //    string data = "vote=" + rating
+        //             + "&s=&securitytoken="
+        //             + appSetting.Token
+        //             + "&t=" + idThread
+        //             + "&pp=10&page=1&button=Vote Now";
+        //    string application = "application/x-www-form-urlencoded";
 
-            try
-            {
-                HttpClient client = new HttpClient(handler);
-                cookies.Add(new Uri(voteUri), new Cookie(Resource.COOKIES_VFPASSWORD, appSetting.Cookies_Vfpassword));
-                cookies.Add(new Uri(voteUri), new Cookie(Resource.COOKIES_VFUSERID, appSetting.Cookies_Vfuserid));
-                client.DefaultRequestHeaders.Add(Resource.USER_AGENT, Resource.USER_AGENT_VALUE);
+        //    try
+        //    {
+        //        HttpClient client = new HttpClient(handler);
+        //        cookies.Add(new Uri(voteUri), new Cookie(Resource.COOKIES_VFPASSWORD, appSetting.Cookies_Vfpassword));
+        //        cookies.Add(new Uri(voteUri), new Cookie(Resource.COOKIES_VFUSERID, appSetting.Cookies_Vfuserid));
+        //        client.DefaultRequestHeaders.Add(Resource.USER_AGENT, Resource.USER_AGENT_VALUE);
 
-                using (HttpResponseMessage response = client.PostAsync(voteUri, new StringContent(data, Encoding.UTF8, application)).Result)
-                {
-                    checkDone = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                checkDone = true;
-            }
-        }
+        //        using (HttpResponseMessage response = client.PostAsync(voteUri, new StringContent(data, Encoding.UTF8, application)).Result)
+        //        {
+        //            checkDone = true;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        checkDone = true;
+        //    }
+        //}
     }
 }

@@ -45,7 +45,7 @@ namespace vozForums_Universal.Views
             LoginFirst();
             _instance = this;
             PageAnimation = new ScalePageTransition();
-            frMainFrame.NavigateAsync(typeof(ListThreadView), 26);
+            frMainFrame.NavigateAsync(typeof(ListThreadView), appSetting.BoxStart);
 
             SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
             if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.ApplicationView"))
@@ -93,10 +93,10 @@ namespace vozForums_Universal.Views
 
         public void RefreshSplitView()
         {
-            HomeModelData homeData = new HomeModelData();
+            BoxModelData homeData = new BoxModelData();
             var ListBox = homeData.GetListBox();
             var group = from c in ListBox
-                        group c by c.NameBox;
+                        group c by c.NameParentBox;
             this.cvs.Source = group;
         }
 

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace vozForums_Universal.Model
 {
-    public class HomeModel
+    public class BoxModel
     {
+        public string NameParentBox { get; set; }
         public string NameBox { get; set; }
-        public string NameSubBox { get; set; }
         public string Id { get; set; }
     }
 }

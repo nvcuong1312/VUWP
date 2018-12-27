@@ -18,18 +18,18 @@ namespace vozForums_Universal.Controller
 
         public void GetContent(string url, ref string content)
         {
-            Server.GetContent(url, ref content);
+            Server.Get(url, ref content);
         }
 
         /// <summary>
-        /// DataContent[0] : mpid
-        /// DataContent[1] : title
-        /// DataContent[2] : recipients
+        /// DataHeader[0] : mpid
+        /// DataHeader[1] : title
+        /// DataHeader[2] : recipients
         /// </summary>
         /// <param name="message"></param>
-        /// <param name="DataContent"></param>
+        /// <param name="DataHeader"></param>
         /// <param name="checkDone"></param>
-        public void PostMessage(string message, string[] DataContent, ref bool checkDone, bool isNewMessage = false)
+        public void PostMessage(string message, string[] DataHeader, ref bool checkDone, bool isNewMessage = false)
         {
             message = Helper.ConvertMessage(message);
             string PostURI = Resource.STR_EMPTY;
@@ -44,15 +44,15 @@ namespace vozForums_Universal.Controller
                         + "&signature=1"
                         + "&s="
                         + "&securitytoken=" + appSetting.Token
-                        + "&do=insertpm&pmid=" + DataContent[0]
+                        + "&do=insertpm&pmid=" + DataHeader[0]
                         + "&loggedinuser=" + appSetting.Cookies_Vfuserid
                         + "&parseurl=1"
-                        + "&title=" + DataContent[1]
-                        + "&recipients=" + DataContent[2]
+                        + "&title=" + DataHeader[1]
+                        + "&recipients=" + DataHeader[2]
                         + "&forward=0"
                         + "&savecopy=1"
                         + "&sbutton=Post Message";
-                PostURI = Resource.URL_POST_MESSAGE.Replace("{rpID}", DataContent[0]);
+                PostURI = Resource.URL_POST_MESSAGE.Replace("{rpID}", DataHeader[0]);
             }
             else
             {
@@ -65,8 +65,8 @@ namespace vozForums_Universal.Controller
                         + "&do=insertpm&pmid="
                         + "&loggedinuser=" + appSetting.Cookies_Vfuserid
                         + "&parseurl=1"
-                        + "&title=" + DataContent[1]
-                        + "&recipients=" + DataContent[2]
+                        + "&title=" + DataHeader[1]
+                        + "&recipients=" + DataHeader[2]
                         + "&bccrecipients="
                         + "&forward="
                         + "&savecopy=1"

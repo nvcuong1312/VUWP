@@ -40,7 +40,7 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid Margin="0.5" Width="Auto" HorizontalAlignment="Stretch" Tag="{Binding Id}" Tapped="StackPanel_Tapped" Height="40">
-                                        <TextBlock Text="{Binding NameSubBox}" Padding="0,10,0,0"/>
+                                        <TextBlock Text="{Binding NameBox}" Padding="0,10,0,0"/>
                                     </Grid>
                                 </DataTemplate>
                             </ListView.ItemTemplate>

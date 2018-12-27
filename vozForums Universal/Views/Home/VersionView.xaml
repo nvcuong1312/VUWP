@@ -10,6 +10,15 @@
 
     <Frame Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ListBox>
+            <ListBoxItem Content="1.3.81" FontSize="20" />
+            <ListBoxItem Content=" - Fix bug" Margin="20,0,0,0" />
+            <ListBoxItem Content=" - Add customize start default" Margin="20,0,0,0" />
+            
+            <ListBoxItem Content="1.3.80" FontSize="20" />
+            <ListBoxItem Content=" - Fix bug" Margin="20,0,0,0" />
+            <ListBoxItem Content=" - Add new message" Margin="20,0,0,0" />
+            <ListBoxItem Content=" - Add add/delete box" Margin="20,0,0,0" />
+            
             <ListBoxItem Content="1.3.70" FontSize="20" />
             <ListBoxItem Content=" - Add manager message" Margin="20,0,0,0" />
             
@@ -36,7 +45,6 @@
             <ListBoxItem Content="1.3.18" FontSize="20" />
             <ListBoxItem Content=" - Fix crash app" Margin="20,0,0,0" />
             <ListBoxItem Content=" - Cơ cấu lại hệ thống" Margin="20,0,0,0" />
-
 
             <ListBoxItem Content="1.2.0" FontSize="20" />
             <ListBoxItem Content=" - DarkTheme / LightTheme Added " Margin="20,0,0,0" />

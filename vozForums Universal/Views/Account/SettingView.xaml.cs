@@ -22,7 +22,7 @@ namespace vozForums_Universal.Views.Account
     public sealed partial class SettingView : MtPage
     {
         HtmlHelper Helper;
-        AccountHelper myLogin;        
+        AccountHelper myLogin;
         AppSettingModel appSetting;
 
         public SettingView()
@@ -54,15 +54,17 @@ namespace vozForums_Universal.Views.Account
                 txtPASSWORD.Password = appSetting.Password;
             }
 
-            if (appSetting.Token == null) btn_logout.IsEnabled = false;
-
-            if (appSetting.DeviceName != null)
+            if (appSetting.Token == null)
             {
-                tbDeviceName.Text = appSetting.DeviceName;
+                btn_logout.IsEnabled = false;
             }
 
+            tbDeviceName.Text = appSetting.DeviceName;
+
+            tbBoxDefault.Text = appSetting.BoxStart.ToString();
+
             MainView.GetInstance().UpdatePosSelectedListView(Resource.ID_SETTING.ToString());
-        }       
+        }
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
@@ -83,7 +85,7 @@ namespace vozForums_Universal.Views.Account
                 {
                     DialogResult.DialogOnlyOk(Resource.STR_LOGIN_SUCCESS);
                     btn_logout.IsEnabled = true;
-                   
+
                     MainView.GetInstance().UpdateNameAndStatusBtnAccount(txtUSERNAME.Text);
                 }
             }
@@ -170,7 +172,19 @@ namespace vozForums_Universal.Views.Account
             {
                 Helper.RequestDeleteBox(ID);
                 DialogResult.DialogOnlyOk(Resource.STR_DONE);
-            }          
+            }
+        }
+
+        private void BtnSaveDefaultBox_Click(object sender, RoutedEventArgs e)
+        {
+            if (Helper.SetDefaultBox(tbBoxDefault.Text))
+            {
+                DialogResult.DialogOnlyOk(Resource.STR_DONE);
+            }
+            else
+            {
+                DialogResult.DialogOnlyOk(Resource.STR_ERROR);
+            }
         }
     }
 }

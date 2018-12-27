@@ -14,6 +14,6 @@ namespace vozForums_Universal.Model
         public string TimePost { get; set; }
         public string PostID { get; set; }
         public string Status { get; set; }
-        public string HTML { get; set; }
+        public string ContentComment { get; set; }
     }
 }

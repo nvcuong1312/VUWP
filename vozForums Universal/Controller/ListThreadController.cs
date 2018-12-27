@@ -13,7 +13,7 @@ namespace vozForums_Universal.Controller
         ConnectServer Server = new ConnectServer();
         public void GetContent(string url, ref string contentHtml)
         {
-            Server.GetContent(url, ref contentHtml);
+            Server.Get(url, ref contentHtml);
         }
     }
 }

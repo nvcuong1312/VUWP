@@ -46,7 +46,7 @@ namespace vozForums_Universal.Helper
                 appSetting.UserName = userName;
                 appSetting.Password = passWord;
                 appSetting.Token = GetToken(doc.DocumentNode.OuterHtml);
-                helper.GetPosts(appSetting.Cookies_Vfuserid);
+                helper.GetPosts();
 
                 if (appSetting.Token == Resource.STR_GUEST)
                 {
