@@ -35,7 +35,6 @@ namespace vozForums_Universal.Views
         private string url;
         private string MaxPage;
         private string idThread;
-        private string titleThread;
 
         private HtmlHelper helper;
         private BookmarkModelData bookMark;
@@ -45,8 +44,6 @@ namespace vozForums_Universal.Views
         private AppSettingModel appSetting;
         private ThreadController threadController;
 
-        Windows.Storage.ApplicationDataContainer loginValue;
-
         public ThreadView()
         {
             this.InitializeComponent();
@@ -54,9 +51,8 @@ namespace vozForums_Universal.Views
             CurrentPage = 1;
             appBar.Width = ActualWidth;
 
-            titleThread = string.Empty;
-
             btnPopupPostMessage.IsEnabled = false;
+            BtnRating.IsEnabled = false;
             comment.IsEnabled = false;
 
             bookMark = new BookmarkModelData();
@@ -66,8 +62,6 @@ namespace vozForums_Universal.Views
             define = new DefineEmoticon();
             appSetting = new AppSettingModel();
             threadController = new ThreadController();
-
-            loginValue = Windows.Storage.ApplicationData.Current.LocalSettings;
 
             if (Windows.Foundation.Metadata.ApiInformation.IsPropertyPresent("Windows.UI.Xaml.FrameworkElement", "AllowFocusOnInteraction"))
             {
@@ -108,6 +102,7 @@ namespace vozForums_Universal.Views
                 appSetting.Cookies_Vbmultiquote = Resource.STR_EMPTY;
                 Loader();
             }
+            _instance = this;
         }
 
         protected override void OnNavigatingFrom(MtNavigatingCancelEventArgs e)
@@ -172,8 +167,6 @@ namespace vozForums_Universal.Views
                         return;
                     }
 
-                    titleThread = TitleThread.Text;
-
                     // Get max page
                     var CurrentPagePeerMaxPage = threadModelData.GetMaxPage();
                     fl_page_btnflyout.DataContext = CurrentPagePeerMaxPage;
@@ -200,21 +193,12 @@ namespace vozForums_Universal.Views
 
         private void StatusButton()
         {
-            if (!string.IsNullOrEmpty(appSetting.Token))
+            if (appSetting.Token.Length >= 10)
             {
-                if (appSetting.Token.Length >= 10)
-                {
-                    tbMessage.IsEnabled = true;
-                    btnEmoticon.IsEnabled = true;
-                    comment.IsEnabled = true;
-                }
-                else
-                {
-                    tbMessage.IsEnabled = false;
-                    btnPopupPostMessage.IsEnabled = false;
-                    comment.IsEnabled = false;
-                    btnEmoticon.IsEnabled = false;
-                }
+                tbMessage.IsEnabled = true;
+                btnEmoticon.IsEnabled = true;
+                comment.IsEnabled = true;
+                BtnRating.IsEnabled = true;
             }
             else
             {
@@ -222,6 +206,7 @@ namespace vozForums_Universal.Views
                 btnPopupPostMessage.IsEnabled = false;
                 comment.IsEnabled = false;
                 btnEmoticon.IsEnabled = false;
+                BtnRating.IsEnabled = false;
             }
         }
 
@@ -413,7 +398,7 @@ namespace vozForums_Universal.Views
         private void btnBookmark_Click(object sender, RoutedEventArgs e)
         {
             //bookMark.Add(titleThread, new string[] { idThread, CurrentPage.ToString() });
-            bookMark.Add(idThread, titleThread, CurrentPage.ToString());
+            bookMark.Add(idThread, TitleThread.Text, CurrentPage.ToString());
         }
 
         private void btnHambuger_Click(object sender, RoutedEventArgs e)

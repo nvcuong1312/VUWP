@@ -55,7 +55,7 @@ namespace vozForums_Universal
         public const int MAX_LENGTH = 70;
         public const string STR_CREATOR = "Người tạo:  ";
         public const string STR_LAST_POST = "Lastpost: ";
-        public const string URL_NEW_THREAD = "https://forums.voz.vn/newthread.php?do=newthread&f=";
+        public const string URL_NEW_THREAD = "https://forums.voz.vn/newthread.php?do=newthread&f={rpID}";
         public const string URL_LIST_THREAD = "https://forums.voz.vn/forumdisplay.php?f={rpIDBox}&daysprune=-1&order=desc&sort=lastpost&pp=20&page={rpIDPage}";
 
         // Thread

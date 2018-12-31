@@ -32,7 +32,6 @@ namespace vozForums_Universal.Views
         AccountHelper loginModel = null;
         AppSettingModel appSetting = null;
 
-
         public MainView()
         {
             this.InitializeComponent();

@@ -23,19 +23,21 @@ namespace vozForums_Universal.CommonControl
 
         private void Image_Tap(object sender, TappedRoutedEventArgs e)
         {
-            if (TypeInput == 1)
-            {
-                ThreadView.GetInstance().UpdateContentTextbox(((Image)sender).Tag.ToString());
-            }
-            else if (TypeInput == 2)
-            {
-                MessageView.GetInstance().UpdateContentTextbox(((Image)sender).Tag.ToString());
-            }
+            //if (TypeInput == 1)
+            //{
+            //    ThreadView.GetInstance().UpdateContentTextbox(((Image)sender).Tag.ToString());
+            //}
+            //else if (TypeInput == 2)
+            //{
+            //    MessageView.GetInstance().UpdateContentTextbox(((Image)sender).Tag.ToString());
+            //}
+            
         }
 
         /// <summary>
         /// 1 : Thread
         /// 2 : Message
+        /// 3 : ListThread
         /// </summary>
         public int TypeInput
         {
@@ -78,6 +80,10 @@ namespace vozForums_Universal.CommonControl
             else if (TypeInput == 2)
             {
                 MessageView.GetInstance().UpdateContentTextbox(((Button)sender).Tag.ToString());
+            }
+            else if (TypeInput == 3)
+            {
+                ListThreadView.GetInstance().UpdateContentTextbox(((Button)sender).Tag.ToString());
             }
         }
 

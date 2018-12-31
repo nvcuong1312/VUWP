@@ -35,7 +35,7 @@ namespace vozForums_Universal.Views
 
         private HtmlHelper helper;
         private AppSettingModel appSetting;
-        private ListThreadController threadController;
+        private ListThreadController listThreadController;
 
         public ListThreadView()
         {
@@ -46,7 +46,7 @@ namespace vozForums_Universal.Views
 
             helper = new HtmlHelper();
             appSetting = new AppSettingModel();
-            threadController = new ListThreadController();
+            listThreadController = new ListThreadController();
             iconcolor = appSetting.ThemeSetting;
             new_thread.Visibility = Visibility.Collapsed;
 
@@ -56,6 +56,27 @@ namespace vozForums_Universal.Views
                 getIdthread.AllowFocusOnInteraction = true;
                 jumpTextBox.AllowFocusOnInteraction = true;
             }
+
+            _instance = this;
+        }
+
+        private static ListThreadView _instance;
+
+        /// <summary>
+        /// Gets the instance.
+        /// </summary>
+        /// <returns></returns>
+        public static ListThreadView GetInstance()
+        {
+            return _instance;
+        }
+
+        public void UpdateContentTextbox(string emotion)
+        {
+            int currentSelect = tbMessage.SelectionStart;
+            tbMessage.Text = tbMessage.Text.Insert(currentSelect, emotion);
+            tbMessage.SelectionStart = currentSelect + emotion.Length;
+            fly_PanelEmoticon.Hide();
         }
 
         protected override void OnNavigatedTo(MtNavigationEventArgs e)
@@ -66,6 +87,7 @@ namespace vozForums_Universal.Views
                 CurrentPage = 1;
                 Loader();
             }
+            _instance = this;
             MainView.GetInstance().UpdatePosSelectedListView(idBox.ToString());
         }
 
@@ -73,9 +95,10 @@ namespace vozForums_Universal.Views
         {
             base.OnNavigatingFrom(e);
             if (e.NavigationMode == NavigationMode.Back)
-            {
+            {                    
                 helper = null;
-                threadController = null;
+                listThreadController = null;
+                _instance = null;
                 GC.Collect();
             }
         }
@@ -92,7 +115,7 @@ namespace vozForums_Universal.Views
             url = Resource.URL_LIST_THREAD.Replace("{rpIDBox}", idBox.ToString()).Replace("{rpIDPage}", CurrentPage.ToString());
             try
             {
-                await Task.Run(() => threadController.GetContent(url, ref contentHtml));
+                await Task.Run(() => listThreadController.GetContent(url, ref contentHtml));
                 if (!string.IsNullOrEmpty(contentHtml) && contentHtml != Resource.STR_ERROR)
                 {
                     appSetting.Token = AccountHelper.GetToken(contentHtml);
@@ -103,10 +126,10 @@ namespace vozForums_Universal.Views
 
                     tblTitle.Text = listThreadModelData.GetTitle();
 
-                    await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
-                    {
-                        lb_views.ItemsSource = listThreadModelData.GetListThreadData(idBox.ToString());
-                    });
+                    //await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
+                    //{
+                    lb_views.ItemsSource = listThreadModelData.GetListThreadData(idBox.ToString());
+                    //});
 
                     var CurrentPagePeerMaxPage = listThreadModelData.GetMaxPage();
                     page_btn_commandbar.DataContext = CurrentPagePeerMaxPage;
@@ -182,10 +205,11 @@ namespace vozForums_Universal.Views
             Frame.NavigateAsync(typeof(ThreadView), s);
         }
 
-        private async void New_thread_Click(object sender, RoutedEventArgs e)
+        private void New_thread_Click(object sender, RoutedEventArgs e)
         {
-            string ReplyUrl = Resource.URL_NEW_THREAD + idBox;
-            await Windows.System.Launcher.LaunchUriAsync(new Uri(ReplyUrl));
+            DisplayPopupPostMessage();
+            //string ReplyUrl = Resource.URL_NEW_THREAD + idBox;
+            //await Windows.System.Launcher.LaunchUriAsync(new Uri(ReplyUrl));
         }
 
         private void Fl_Page_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -336,6 +360,50 @@ namespace vozForums_Universal.Views
                 btnHambuger.Visibility = Visibility.Collapsed;
             }
             appBar.Width = ActualWidth;
+        }
+
+        private void BtnPopupCreateThread_Click(object sender, RoutedEventArgs e)
+        {
+            string Title = tbTitleNewThread.Text;
+            string Message = tbMessage.Text;
+            if (string.IsNullOrEmpty(Title)
+                || string.IsNullOrEmpty(Message))
+            {
+                return;
+            }
+            bool checkDone = false;
+            listThreadController.Post(idBox.ToString(), Message, Title, ref checkDone);
+            if (checkDone)
+            {
+                Loader();
+            }
+        }
+
+        private void BtnClosePopupCreateThread_Click(object sender, RoutedEventArgs e)
+        {
+            myPopupCreateThread.IsOpen = false;
+        }
+
+        public void DisplayPopupPostMessage()
+        {
+            myGridCreateThread.Height = ActualHeight / 2;
+            int marTop = (int)ActualHeight / 4;
+            myGridCreateThread.Margin = new Thickness(0, marTop, 0, 0);
+            myGridCreateThread.Width = ActualWidth;
+            myPopupCreateThread.IsOpen = !myPopupCreateThread.IsOpen;
+            //tbTitle.Text = TitleMessage;
+            //tbUser.Text = UserName;
+            //tbUser.IsEnabled = false;
+        }
+
+        private void btnEmoticon_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void tbComment_TextChanged(object sender, TextChangedEventArgs e)
+        {           
+            
         }
     }
 }

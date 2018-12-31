@@ -10,6 +10,10 @@
 
     <Frame Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ListBox>
+            <ListBoxItem Content="1.3.82" FontSize="20" />
+            <ListBoxItem Content=" - Fix bug" Margin="20,0,0,0" />
+            <ListBoxItem Content=" - Add UI create new thread" Margin="20,0,0,0" />
+            
             <ListBoxItem Content="1.3.81" FontSize="20" />
             <ListBoxItem Content=" - Fix bug" Margin="20,0,0,0" />
             <ListBoxItem Content=" - Add customize start default" Margin="20,0,0,0" />
