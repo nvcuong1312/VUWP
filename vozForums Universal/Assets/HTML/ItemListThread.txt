@@ -1,0 +1,28 @@
+<div class="thread-row">
+    <div class="thread-icon-cell">
+        <i class="fas fa-thumbtack" title="Sticky Thread" {rpDisplaySticky}> </i>
+    </div> 
+    <div class="thread-info-cell">
+        <div class="threadmetaicons">
+            <span {rpDisplayRating} class="threadrating">{rpValueRating} <i class="fas fa-star"> </i></span>
+        </div>
+        <div class="thread-title-cell">
+            <a href="" class="threadTitle threadTitleUnread" style="font-style:{rpStyleItalicOrNormal}" id="{rpValueID}" onclick="window.external.notify(id); return false;">{rpTitle}</a>
+            <span class="smallfont threadbit-pagelinks" style="white-space:nowrap">
+            </span>
+        </div>
+        <div class="smallfont">
+            Thread by <a href="">{rpCreate}</a>
+        </div>
+    </div>
+    <div class="info-cell" title="Replies: {rpReplies}, Views: {rpViews}">
+        <span class="responsive-text-show">Latest Post:</span>
+        <a href="">{rpDayLastPost}</a> <span class="time">{rpTimeLastPost}</span>
+        <br class="responsive-text-hide">
+        by <a href="" rel="nofollow">{rpUserLastPost}</a>
+    </div>
+    <div class="count-cell">
+        <a href="">Replies: {rpReplies}</a><br class="responsive-text-hide">
+        Views: {rpViews}
+    </div>
+</div>

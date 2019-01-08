@@ -194,7 +194,7 @@
             </StackPanel>
         </RelativePanel>
         <ProgressBar x:Name="pgbarLoading" Grid.Row="1" Width="Auto" ShowPaused="False" ShowError="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="5"/>
-        <ListView Grid.Row="2" Name="lb_views" Background="{Binding BackgroundHomeColor}" Style="{StaticResource ListViewStyle1}">
+        <!--<ListView Grid.Row="2" Name="lb_views" Background="{Binding BackgroundHomeColor}" Style="{StaticResource ListViewStyle1}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -227,7 +227,8 @@
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
+        <WebView x:Name="myWebview" Margin="0,0,0,0" Grid.Row="2" ScriptNotify="myWebview_ScriptNotify"/>
 
         <CommandBar Name="appBar" Background="{x:Bind appSetting.BackgroundHomeColor}"  HorizontalAlignment="Left" Grid.Row="3">
             <AppBarButton Name="refresh" Icon="Refresh" Label="Refresh" Click="Refresh_Click"/>

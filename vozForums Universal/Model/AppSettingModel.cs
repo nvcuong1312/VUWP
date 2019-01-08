@@ -9,69 +9,220 @@ namespace vozForums_Universal.Model
         {
             valueCommon = Windows.Storage.ApplicationData.Current.LocalSettings;
 
-            if (ThemeSetting == "Dark")
-            {
-                BackgroundHomeColor = "#262628";
-                BackgroundListViewColor = "Black";
-                TextblockHomeColor = "White";
-                TextblockLogoHomeColor = "#0a64f8";
-                IconColor = "#0fed88";
-                TextblockExtraThreadColor = "#a2a3aa";
-                TextblockCreateUserColor = "#bcccb7";
-                TextblockMessageColor = "White";
-                TextblockQuoteColor = "#afdbb6";
-                BackgroundTimeColor = "#9aacb8";
-                BackgroundPanelUserColor = "#1a1917";
-                TextblockTimePostColor = "White";
-                BackgroundThread = "#262628";
+            _isDark = ThemeSetting == "Dark" ? true : false;
+            //if (ThemeSetting == "Dark")
+            //{
+            //    //IconColor = "#0fed88";
+            //    //TextblockExtraThreadColor = "#a2a3aa";
+            //    //TextblockCreateUserColor = "#bcccb7";
+            //    //TextblockMessageColor = "White";
+            //    //TextblockQuoteColor = "#afdbb6";
+            //    //BackgroundTimeColor = "#9aacb8";
+            //    //BackgroundPanelUserColor = "#1a1917";
+            //    //TextblockTimePostColor = "White";
+            //    //BackgroundThread = "#262628";
+            //    _isDark = true;
+            //}
+            //else
+            //{
+            //    //IconColor = "#1414d5";
+            //    //TextblockExtraThreadColor = "9aacb8";
+            //    //TextblockCreateUserColor = "#9aacb8";
+            //    //TextblockMessageColor = "Black";
+            //    //TextblockQuoteColor = "#afdbb6";
+            //    //BackgroundTimeColor = "#5C7099";
+            //    //BackgroundPanelUserColor = "#E1E4F2";
+            //    //TextblockTimePostColor = "White";
+            //    //BackgroundThread = "White";
+            //    _isDark = false;
+            //}
+        }
 
-                LinkHref = "#4db2ff";
-                ColorBody = "#E3E3E3";
-                ColorBackground = "#262628";
-                ColorBackgroundTD = "#171717";
+        private bool _isDark;
+
+        // <a href> for Listthread.
+        public string ListThreadATag
+        {
+            get
+            {
+                return _isDark ? "#E1E2FB" : "#23497C";
             }
-            else
-            {
-                BackgroundHomeColor = "#E1E4F2";
-                BackgroundListViewColor = "#E1E4F2";
-                TextblockHomeColor = "Black";
-                TextblockLogoHomeColor = "Black";
-                IconColor = "#1414d5";
-                TextblockExtraThreadColor = "9aacb8";
-                TextblockCreateUserColor = "#9aacb8";
-                TextblockMessageColor = "Black";
-                TextblockQuoteColor = "#afdbb6";
-                BackgroundTimeColor = "#5C7099";
-                BackgroundPanelUserColor = "#E1E4F2";
-                TextblockTimePostColor = "White";
-                BackgroundThread = "White";
+        }
 
-                LinkHref = "#23497C";
-                ColorBody = "#201F25";
-                ColorBackground = "#F2F2F2";
-                ColorBackgroundTD = "#E1E4F2";
+        public string ListThreadATagHover
+        {
+            get
+            {
+                return _isDark ? "#cfcfcf" : "#ff0808";
+            }
+        }
+
+        public string ThreadRowHoverBackGroundColor
+        {
+            get
+            {
+                return _isDark ? "#3f3e3e" : "#ebebeb";
+            }
+        }
+
+        public string ForumBoxRowThreadRowBorder
+        {
+            get
+            {
+                return _isDark ? "#4e4b4b" : "#d8d8d8";
+            }
+        }
+
+        public string BodyListThreadBackGround
+        {
+            get
+            {
+                return _isDark ? "#262628" : "#fff";
+            }
+        }
+
+        public string BodyListThreadColor
+        {
+            get
+            {
+                return _isDark ? "#afb9b0" : "#454545";
             }
         }
 
         // For <a href>
-        public string LinkHref { get; set; }
-        public string ColorBody { get; set; }
-        public string ColorBackground { get; set; }
-        public string ColorBackgroundTD { get; set; }
-        public string BackgroundHomeColor { get; set; }
-        public string BackgroundListViewColor { get; set; }
-        public string TextblockHomeColor { get; set; }
-        public string TextblockLogoHomeColor { get; set; }
-        public string IconColor { get; set; }
-        public string TextblockTitleThreadColor { get; set; }
-        public string TextblockExtraThreadColor { get; set; }
-        public string TextblockCreateUserColor { get; set; }
-        public string TextblockMessageColor { get; set; }
-        public string TextblockQuoteColor { get; set; }
-        public string BackgroundTimeColor { get; set; }
-        public string BackgroundPanelUserColor { get; set; }
-        public string TextblockTimePostColor { get; set; }
-        public string BackgroundThread { get; set; }
+        public string LinkHref
+        {
+            get
+            {
+                return _isDark ? "#4db2ff" : "#23497C";
+            }
+        }
+
+        public string ColorBody
+        {
+            get
+            {
+                return _isDark ? "#E3E3E3" : "#201F25";
+            }
+        }
+
+        public string ColorBackground
+        {
+            get
+            {
+                return _isDark ? "#262628" : "#F2F2F2";
+            }
+        }
+        public string ColorBackgroundTD
+        {
+            get
+            {
+                return _isDark ? "#171717" : "#E1E4F2";
+            }
+        }
+
+        public string BackgroundHomeColor
+        {
+            get
+            {
+                return _isDark ? "#262628" : "#E1E4F2";
+            }
+        }
+
+        public string BackgroundListViewColor
+        {
+            get
+            {
+                return _isDark ? "#000" : "#E1E4F2";
+            }
+        }
+
+        public string TextblockHomeColor
+        {
+            get
+            {
+                return _isDark ? "#fff" : "#000";
+            }
+        }
+
+        public string TextblockLogoHomeColor
+        {
+            get
+            {
+                return _isDark ? "#0a64f8" : "#000";
+            }
+        }
+
+        public string IconColor
+        {
+            get
+            {
+                return _isDark ? "#0fed88" : "#1414d5";
+            }
+        }
+        public string TextblockTitleThreadColor
+        {
+            get
+            {
+                return _isDark ? "#3f3e3e" : "#ebebeb";
+            }
+        }
+        public string TextblockExtraThreadColor
+        {
+            get
+            {
+                return _isDark ? "#a2a3aa" : "#9aacb8";
+            }
+        }
+        public string TextblockCreateUserColor
+        {
+            get
+            {
+                return _isDark ? "#bcccb7" : "#9aacb8";
+            }
+        }
+        public string TextblockMessageColor
+        {
+            get
+            {
+                return _isDark ? "#fff" : "#000";
+            }
+        }
+        public string TextblockQuoteColor
+        {
+            get
+            {
+                return _isDark ? "#afdbb6" : "#afdbb6";
+            }
+        }
+        public string BackgroundTimeColor
+        {
+            get
+            {
+                return _isDark ? "#9aacb8" : "#5C7099";
+            }
+        }
+        public string BackgroundPanelUserColor
+        {
+            get
+            {
+                return _isDark ? "#1a1917" : "#E1E4F2";
+            }
+        }
+        public string TextblockTimePostColor
+        {
+            get
+            {
+                return _isDark ? "#fff" : "#fff";
+            }
+        }
+        public string BackgroundThread
+        {
+            get
+            {
+                return _isDark ? "#262628" : "#fff";
+            }
+        }
 
         public string DeviceName
         {

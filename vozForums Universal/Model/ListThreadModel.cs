@@ -7,13 +7,15 @@ namespace vozForums_Universal.Model
         public string ThreadName { get; set; }
         public string ThreadId { get; set; }
         public string ThreadCreate { get; set; }
-        public string TimePost { get; set; }
-        public string extraTitle { get; set; }
+        public string DayLastPost { get; set; }
+        public string TimeLastPost { get; set; }
+        public string UserLastPost { get; set; }
+        public string ExtraTitle { get; set; }
         public string CountReply { get; set; }
         public string CountViews { get; set; }
-        public string rating { get; set; }
-        public string ThreadStyle { get; set; }
-        public string Stick { get; set; }
+        public string Rating { get; set; }
+        public bool IsReaded { get; set; }
+        public bool Stick { get; set; }
         public string HeightStick { get; set; }
         public string WidthStick { get; set; }
         public string ForegroundStick { get; set; }

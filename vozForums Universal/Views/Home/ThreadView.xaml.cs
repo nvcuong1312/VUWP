@@ -110,9 +110,8 @@ namespace vozForums_Universal.Views
             base.OnNavigatingFrom(e);
             if (e.NavigationMode == NavigationMode.Back)
             {
-                _instance = null;
-
-                mainGridThread.Children.Remove(myWebview);
+                //mainGridThread.Children.Remove(myWebview);
+                this.NavigationCacheMode = NavigationCacheMode.Disabled;
                 helper = null;
                 bookMark = null;
                 thread = null;
@@ -121,12 +120,13 @@ namespace vozForums_Universal.Views
                 appSetting = null;
                 threadController = null;
                 myWebview = null;
-                tbMessage.Text = Resource.STR_EMPTY;
+                tbMessage.Text = Resource.STR_EMPTY;                
                 if (wbPopup != null)
                 {
                     wbPopup.Navigate(new Uri("about:blank"));
                     wbPopup = null;
                 }
+                _instance = null;
                 GC.Collect();
             }
             else

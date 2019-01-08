@@ -20,6 +20,9 @@ namespace vozForums_Universal.Helper
 {
     class HtmlHelper : UserControl
     {
+        private string ListThreadHTML = string.Empty;
+        private string ItemListThread = string.Empty;
+
         private string ThreadHTML = string.Empty;
         private string ThreadComment = string.Empty;
 
@@ -41,6 +44,10 @@ namespace vozForums_Universal.Helper
         {
             string pathThreadHTML = @"Assets\HTML\ThreadHTML.txt";
             string pathThreadComment = @"Assets\HTML\ThreadComment.txt";
+
+            string pathListThreadHTML = @"Assets\HTML\ListThreadHTML.txt";
+            string pathItemListThread = @"Assets\HTML\ItemListThread.txt";
+
             StorageFolder InstallationFolder = Package.Current.InstalledLocation;
             StorageFile file = await InstallationFolder.GetFileAsync(pathThreadHTML);
             if (File.Exists(file.Path))
@@ -52,6 +59,18 @@ namespace vozForums_Universal.Helper
             if (File.Exists(file.Path))
             {
                 ThreadComment = File.ReadAllText(file.Path);
+            }
+
+            file = await InstallationFolder.GetFileAsync(pathListThreadHTML);
+            if (File.Exists(file.Path))
+            {
+                ListThreadHTML = File.ReadAllText(file.Path);
+            }
+
+            file = await InstallationFolder.GetFileAsync(pathItemListThread);
+            if (File.Exists(file.Path))
+            {
+                ItemListThread = File.ReadAllText(file.Path);
             }
         }
 
@@ -236,6 +255,52 @@ namespace vozForums_Universal.Helper
             {
                 item.SetAttributeValue("style", "margin: 0px;padding: 3px;border: 1px inset;width: 100%; max-height: 300px;text - align: left;overflow: auto;");
             }
+        }
+
+        public string FullPageListThreadHtml(List<ListThreadModel> objList)
+        {
+            string html = string.Empty;
+            string tempbody = string.Empty;
+            foreach (var item in objList)
+            {
+                tempbody += ItemListThread
+                    .Replace("{rpValueID}", item.ThreadId)
+                    .Replace("{rpCreate}", item.ThreadCreate)
+                    .Replace("{rpDisplayRating}", string.IsNullOrEmpty(item.Rating) ? Resource.HTML_NONE_DISPLAY : Resource.STR_EMPTY)
+                    .Replace("{rpValueRating}", item.Rating)
+                    .Replace("{rpTitle}", item.ThreadName)
+                    .Replace("{rpViews}", item.CountViews)
+                    .Replace("{rpReplies}", item.CountReply)
+                    .Replace("{rpDayLastPost}", item.DayLastPost)
+                    .Replace("{rpTimeLastPost}", item.TimeLastPost)
+                    .Replace("{rpUserLastPost}", item.UserLastPost)
+                    .Replace("{rpStyleItalicOrNormal}", item.IsReaded ? Resource.HTML_STYLE_FONT_STYLE_ITALIC : Resource.HTML_STYLE_FONT_STYLE_NORMAL)
+                    .Replace("{rpDisplaySticky}", !item.Stick ? Resource.HTML_NONE_DISPLAY : Resource.STR_EMPTY)
+                    .Replace("{rpUserLastPost}", item.UserLastPost);
+
+            }
+            Package package = Package.Current;
+            var Arch = package.Id.Architecture;
+
+            if (Arch == Windows.System.ProcessorArchitecture.Arm)
+            {
+                html = ListThreadHTML
+                    .Replace("{rpBody}", tempbody)
+                    .Replace("{rpMarginRight}", "1px");                    
+            }
+            else
+            {
+                html = ListThreadHTML
+                    .Replace("{rpBody}", tempbody)
+                    .Replace("{rpMarginRight}", "8px");                    
+            }
+            return html
+                    .Replace("{rpColorBody}", appSetting.BodyListThreadColor)
+                    .Replace("{rpBackGroundBody}", appSetting.BodyListThreadBackGround)
+                    .Replace("{rpAColor}", appSetting.ListThreadATag)
+                    .Replace("{rpAHover}", appSetting.ListThreadATagHover)
+                    .Replace("{rpThreadRowHover}", appSetting.ThreadRowHoverBackGroundColor)
+                    .Replace("{rpBorderColor}", appSetting.ForumBoxRowThreadRowBorder); ;
         }
 
         public string FullPageThreadHtml(List<ThreadModel> objList)
@@ -459,7 +524,7 @@ namespace vozForums_Universal.Helper
         public bool SetDefaultBox(string idBox)
         {
             BoxModelData homeModelData = new BoxModelData();
-            var ListBoxID = homeModelData.GetListBox().Select(n=>n.Id).ToList();
+            var ListBoxID = homeModelData.GetListBox().Select(n => n.Id).ToList();
             if (!ListBoxID.Contains(idBox))
             {
                 return false;

@@ -52,11 +52,11 @@ namespace vozForums_Universal.ModelData
                                       .FirstOrDefault();
                 if (ForeStick != null)
                 {
-                    listThreadItem.Stick = "/Assets/sticky.png";
-                    listThreadItem.HeightStick = "18";
-                    listThreadItem.WidthStick = "18";
-                    listThreadItem.ForegroundStick = "#FE2E2E";
-                    listThreadItem.MarginStick = "18,0,0,0";
+                    listThreadItem.Stick = true;
+                    //listThreadItem.HeightStick = "18";
+                    //listThreadItem.WidthStick = "18";
+                    //listThreadItem.ForegroundStick = "#FE2E2E";
+                    //listThreadItem.MarginStick = "18,0,0,0";
                 }
                 else
                 {
@@ -68,10 +68,10 @@ namespace vozForums_Universal.ModelData
                     {
                         listThreadItem.ForegroundStick = "#23497C";
                     }
-                    listThreadItem.Stick = null;
-                    listThreadItem.HeightStick = null;
-                    listThreadItem.WidthStick = null;
-                    listThreadItem.MarginStick = null;
+                    listThreadItem.Stick = false;
+                    //listThreadItem.HeightStick = null;
+                    //listThreadItem.WidthStick = null;
+                    //listThreadItem.MarginStick = null;
                 }
 
                 nodeTd = c.Elements("td").ToList();
@@ -86,9 +86,21 @@ namespace vozForums_Universal.ModelData
 
                 //get last user post
                 nodeLastPost = nodeTd[2];
-                listThreadItem.TimePost = HtmlEntity.DeEntitize(nodeLastPost.InnerText.Trim());
-                string[] s = listThreadItem.TimePost.Split();
-                listThreadItem.TimePost = Resource.STR_LAST_POST + string.Join(Resource.STR_SPACE, s);
+                var LastPost = HtmlEntity.DeEntitize(nodeLastPost.InnerText.Trim())
+                    .Replace("\r", " ")
+                    .Replace("\n", " ")
+                    .Replace("\t", " ");
+
+                while (LastPost.Contains("  "))
+                {
+                    LastPost = LastPost.Replace("  ", " ");
+                }
+                if (LastPost.Split(' ').Count() >= 4)
+                {
+                    listThreadItem.DayLastPost = LastPost.Split(' ')[0];
+                    listThreadItem.TimeLastPost = LastPost.Split(' ')[1];
+                    listThreadItem.UserLastPost = LastPost.Split(new string[] { "by" }, StringSplitOptions.None).LastOrDefault().Trim();
+                }
 
                 //Get Count Reply
                 nodeReply = nodeTd[3];
@@ -111,20 +123,60 @@ namespace vozForums_Universal.ModelData
                 nodeSpan = nodeDivTitle[1].Elements("span").ToList();
                 if (nodeSpan.Count() == 2)
                 {
-                    listThreadItem.ThreadCreate = Resource.STR_CREATOR + nodeSpan[1].InnerText;
+                    listThreadItem.ThreadCreate = nodeSpan[1].InnerText;
                     HtmlNode img = nodeSpan[0].Descendants("img").First();
-                    listThreadItem.rating = Resource.URL_HOMEPAGE + img.Attributes["src"].Value.ToString();
+                    //listThreadItem.rating = Resource.URL_HOMEPAGE + img.Attributes["src"].Value.ToString();
+                    var ra = img.Attributes["src"].Value.ToString();
+                    switch (ra)
+                    {
+                        case "images/rating/rating_1.gif":
+                            listThreadItem.Rating = "1";
+                            break;
+                        case "images/rating/rating_2.gif":
+                            listThreadItem.Rating = "2";
+                            break;
+                        case "images/rating/rating_3.gif":
+                            listThreadItem.Rating = "3";
+                            break;
+                        case "images/rating/rating_4.gif":
+                            listThreadItem.Rating = "4";
+                            break;
+                        case "images/rating/rating_5.gif":
+                            listThreadItem.Rating = "5";
+                            break;
+                        default:
+                            break;
+                    }
                 }
                 else
                 {
-                    listThreadItem.ThreadCreate = Resource.STR_CREATOR + nodeSpan[0].InnerText;
+                    listThreadItem.ThreadCreate = nodeSpan[0].InnerText;
                 }
 
                 //get id thread
-                listThreadItem.ThreadId =
+                var nodeAContainID = nodeTd[1]
+                    .Descendants("div")
+                    .FirstOrDefault()
+                    .Descendants("a")
+                    .Where(n=>n.GetAttributeValue("id", Resource.STR_EMPTY).Contains("thread_title_"))
+                    .FirstOrDefault();
+                if (nodeAContainID != null)
+                {
+                    // ID
+                    listThreadItem.ThreadId = nodeAContainID
+                        .GetAttributeValue("href", Resource.STR_EMPTY)
+                        .Split('=').LastOrDefault();
+
+                    // Check thread is Readed or Not
+                    listThreadItem.IsReaded = nodeAContainID.GetAttributeValue("style", Resource.STR_EMPTY) != "font-weight:bold";
+                }
+                else
+                {
+                    listThreadItem.ThreadId =
                     nodeTd[0].Attributes["id"].Value.Remove(0, 20)
                     + "|"
                     + listThreadItem.CountReply.Replace(",", string.Empty);
+                }
 
                 //get extra title
                 string extra = nodeTd[1].Attributes["title"].Value.ToString().Trim();
@@ -134,7 +186,7 @@ namespace vozForums_Universal.ModelData
                     extra = extra.Substring(0, Resource.MAX_LENGTH);
                 }
                 string[] a = extra.Split();
-                listThreadItem.extraTitle = string.Join(Resource.STR_SPACE, a);
+                listThreadItem.ExtraTitle = string.Join(Resource.STR_SPACE, a);                
 
                 listThreadData.Add(listThreadItem);
             }

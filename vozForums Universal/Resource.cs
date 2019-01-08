@@ -102,6 +102,11 @@ namespace vozForums_Universal
         public const int SIZE_WIDTH_SCREEN_600 = 600;
         public const int SIZE_WIDTH_SCREEN_700 = 800;
         public const int TOTAL_POST_MESSAGE = 15;
-        public const int TOTAL_POST_URL_IMAGE = 20;        
+        public const int TOTAL_POST_URL_IMAGE = 20;
+
+        // For HTML
+        public const string HTML_NONE_DISPLAY = "style=\"display:none\"";
+        public const string HTML_STYLE_FONT_STYLE_ITALIC = "italic";
+        public const string HTML_STYLE_FONT_STYLE_NORMAL = "normal";
     }
 }

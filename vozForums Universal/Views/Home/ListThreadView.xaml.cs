@@ -95,7 +95,9 @@ namespace vozForums_Universal.Views
         {
             base.OnNavigatingFrom(e);
             if (e.NavigationMode == NavigationMode.Back)
-            {                    
+            {
+                this.NavigationCacheMode = NavigationCacheMode.Disabled;                
+                myWebview = null;
                 helper = null;
                 listThreadController = null;
                 _instance = null;
@@ -107,7 +109,7 @@ namespace vozForums_Universal.Views
         {
             pre_btn.IsEnabled = false;
             next_btn.IsEnabled = false;
-            lb_views.IsEnabled = false;
+            //lb_views.IsEnabled = false;
             pgbarLoading.Visibility = Visibility.Visible;
             pgbarLoading.IsIndeterminate = true;
             string contentHtml = Resource.STR_EMPTY;
@@ -128,7 +130,10 @@ namespace vozForums_Universal.Views
 
                     //await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
                     //{
-                    lb_views.ItemsSource = listThreadModelData.GetListThreadData(idBox.ToString());
+                    var List = listThreadModelData.GetListThreadData(idBox.ToString());
+                    //lb_views.ItemsSource = List;
+                    var xxx = helper.FullPageListThreadHtml(List);
+                    myWebview.NavigateToString(xxx);
                     //});
 
                     var CurrentPagePeerMaxPage = listThreadModelData.GetMaxPage();
@@ -140,7 +145,7 @@ namespace vozForums_Universal.Views
                 }
                 else if (contentHtml == Resource.STR_ERROR)
                 {
-                    tblTitle.Text = Resource.STR_ERROR;
+                    tblTitle.Text = Resource.STR_ERROR;                    
                 }
             }
             catch (Exception ex)
@@ -158,7 +163,7 @@ namespace vozForums_Universal.Views
                 new_thread.Visibility = Visibility.Collapsed;
             }
 
-            lb_views.IsEnabled = true;
+            //lb_views.IsEnabled = true;
             pgbarLoading.IsIndeterminate = false;
             pgbarLoading.Visibility = Visibility.Collapsed;
         }
@@ -404,6 +409,12 @@ namespace vozForums_Universal.Views
         private void tbComment_TextChanged(object sender, TextChangedEventArgs e)
         {           
             
+        }
+
+        private void myWebview_ScriptNotify(object sender, NotifyEventArgs e)
+        {
+            string IDThread = e.Value;
+            Frame.NavigateAsync(typeof(ThreadView), IDThread.Split('|').FirstOrDefault());        
         }
     }
 }

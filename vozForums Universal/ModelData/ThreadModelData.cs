@@ -45,7 +45,7 @@ namespace vozForums_Universal.ModelData
 
             List<HtmlNode> ListAllNodePost = doc.DocumentNode
                                        .Descendants("div")
-                                       .Where(n => n.GetAttributeValue("id", Resource.STR_EMPTY) == "posts")
+                                       .Where(n => n.GetAttributeValue("class", string.Empty) == "neo_column container")
                                        .FirstOrDefault()
                                        .Descendants("table")
                                        .Where(n => n.GetAttributeValue("width", Resource.STR_EMPTY) == "100%")

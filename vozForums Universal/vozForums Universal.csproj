@@ -182,6 +182,9 @@
     <Content Include="Assets\BadgeLogo.scale-200.png" />
     <Content Include="Assets\BadgeLogo.scale-400.png" />
     <Content Include="Assets\brick.png" />
+    <Content Include="Assets\HTML\ItemListThread.txt" />
+    <Content Include="Assets\HTML\ListThreadHTML.txt" />
+    <Content Include="Assets\HTML\Style.css" />
     <Content Include="Assets\HTML\ThreadHTML.txt" />
     <Content Include="Assets\HTML\ThreadComment.txt" />
     <Content Include="Assets\iconvoz\30shades\adore_sweet_kiss.png" />
