@@ -34,12 +34,12 @@ namespace vozForums_Universal.ModelData
             var xxx = DataAccess.GetDataBookmark();
             if (xxx.ContainsKey(Key))
             {
-                DialogResult.DialogOnlyOk(Resource.STR_CONTENT_EXIST);
+                DialogResult.DialogOnlyOk(Resource.DIALOG_CONTENT_EXIST);
             }
             else
             {
                 DataAccess.AddDataBookmark(ID, Title, Page);
-                DialogResult.DialogOnlyOk(Resource.STR_DONE);
+                DialogResult.DialogOnlyOk(Resource.DIALOG_DONE);
             }
         }
 

@@ -134,16 +134,19 @@
     <Compile Include="Model\ThreadModel.cs" />
     <Compile Include="Model\ListThreadModel.cs" />
     <Compile Include="Resource.cs" />
-    <Compile Include="Views\Account\AccountView.xaml.cs">
+    <Compile Include="Views\Private\AccountView.xaml.cs">
       <DependentUpon>AccountView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Account\ListMessageView.xaml.cs">
+    <Compile Include="Views\Private\DownLoadPictureView.xaml.cs">
+      <DependentUpon>DownLoadPictureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Private\ListMessageView.xaml.cs">
       <DependentUpon>ListMessageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Account\MessageView.xaml.cs">
+    <Compile Include="Views\Private\MessageView.xaml.cs">
       <DependentUpon>MessageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Account\SettingView.xaml.cs">
+    <Compile Include="Views\Private\SettingView.xaml.cs">
       <DependentUpon>SettingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Home\BookmarkView.xaml.cs">
@@ -575,19 +578,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Account\AccountView.xaml">
+    <Page Include="Views\Private\AccountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Account\ListMessageView.xaml">
+    <Page Include="Views\Private\DownLoadPictureView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Account\MessageView.xaml">
+    <Page Include="Views\Private\ListMessageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Account\SettingView.xaml">
+    <Page Include="Views\Private\MessageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Private\SettingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

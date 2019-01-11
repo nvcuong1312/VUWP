@@ -12,12 +12,8 @@ namespace vozForums_Universal
         public const string STR_EMPTY = "";
         public const string STR_SPACE = " ";
         public const string STR_LAST_PAGE = "Last page";
-        public const string STR_DELETE_MSG = "Delete";
-        public const string STR_CONTENT_EXIST = "Bookmark already exist";
-        public const string STR_DONE = "Done";
-        public const string STR_ERROR = "Error";
-        public const string STR_ERROR_LOGIN = "Login Error";
-        public const string STR_LOGIN_SUCCESS = "Login Success";
+        public const string STR_DELETE_MSG = "Delete";        
+        
         public const string STR_TIME_FORMAT = "yyyy-MM-dd HH-mm-ss";
         public const string STR_2C = "%2C";
         public const int ID_BOOKMARK = -1;
@@ -29,7 +25,18 @@ namespace vozForums_Universal
         public const int ID_BOX_START_DEFAULT = 26;
         public const string STR_VISIT = "Khách";
         public const string STR_LOGGING = "Logging...";
-        public const string STR_IDBOX_EXIST = "Box is exist!";
+
+        // For Dialog result
+        public const string DIALOG_IDBOX_EXIST = "Box is exist!";
+        public const string DIALOG_LOGIN_SUCCESS = "Login Success";
+        public const string DIALOG_CONTENT_EXIST = "Bookmark already exist";
+        public const string DIALOG_DONE = "Done";
+        public const string DIALOG_ERROR = "Error";
+        public const string DIALOG_ERROR_LOGIN = "Login Error";
+        public const string DIALOG_ERROR_NETWORK = "Lỗi mạng: \n * Kiểm tra lại kết nối, DNS \n * Có thể lỗi máy chủ. \n Vui lòng kiểm tra và tải lại trang";
+        public const string DIALOG_ERROR_INPUT = "Giá trị nhập không đúng format!";
+        public const string DIALOG_THREAD_DELETED = "Mod/Min del bài rồi. :'<";
+        public const string DIALOG_VALUE_INPUT_INVALID = "Giá trị nhập không hợp lệ";
 
         // For AppSetting
         public const string STR_DEVICE_NAME = "Devicename";
@@ -55,34 +62,20 @@ namespace vozForums_Universal
         public const int MAX_LENGTH = 70;
         public const string STR_CREATOR = "Người tạo:  ";
         public const string STR_LAST_POST = "Lastpost: ";
-        public const string URL_NEW_THREAD = "https://forums.voz.vn/newthread.php?do=newthread&f={rpID}";
-        public const string URL_LIST_THREAD = "https://forums.voz.vn/forumdisplay.php?f={rpIDBox}&daysprune=-1&order=desc&sort=lastpost&pp=20&page={rpIDPage}";
-
+        
         // Thread
         public const string STR_VB_MSG = "vBulletin Message";
         public const string STR_REPLY_WITH_QUOTE = "Reply With Quote";
         public const string STR_MULTI_QUOTE = "Multi-Quote This Message";
-        public const string STR_QUICK_REPLY = "Quick reply to this message";
-        public const string URL_THREAD = "https://forums.voz.vn/showthread.php?t={rpIdThread}&page={rpIDPage}";
-        public const string URL_GET_CONTENT_MESSAGE = "https://forums.voz.vn/newreply.php?do=newreply&p={rpID}";
-        public const string URL_POST_COMMENT = "https://forums.voz.vn/newreply.php?do=postreply&t={rpID}";
+        public const string STR_QUICK_REPLY = "Quick reply to this message";        
 
         // ListMessage
         public const string STR_INBOX = "Inbox";
-        public const string STR_OUTBOX = "Outbox";
-        public const string URL_MESSAGE_IN = "https://forums.voz.vn/private.php";
-        public const string URL_MESSAGE_OUT = "https://forums.voz.vn/private.php?s=&pp=50&folderid=-1";
+        public const string STR_OUTBOX = "Outbox";        
 
         // Message
         public const string STR_NEW_MESSAGE = "New message";
-        public const string URL_MESSAGE = "https://forums.voz.vn/private.php?do=showpm&pmid={rpID}";
-        public const string URL_POST_MESSAGE = "https://forums.voz.vn/private.php?do=insertpm&pmid={rpID}";
-        public const string URL_DELETE_MESSAGE = "https://forums.voz.vn/private.php?do=managepm&dowhat=delete&pmid={rpID}";
-
-        public const string STR_POST_MESSAGE_DONE = "Sent message done!";
-
-        // Account
-        public const string URL_ACCOUNT = "https://forums.voz.vn/member.php?u={rpID}";
+        public const string STR_POST_MESSAGE_DONE = "Sent message done!";    
 
         // HttpClient
         public const string USER_AGENT = "User-Agent";
@@ -90,13 +83,7 @@ namespace vozForums_Universal
         public const string COOKIES_VFPASSWORD = "vfpassword";
         public const string COOKIES_VFUSERID = "vfuserid";
         public const string COOKIES_VBULLETIN_MULTIQUOTE = "vbulletin_multiquote";
-        public const string APPLICATION = "application/x-www-form-urlencoded";
-        public const string URL_HOMEPAGE = "https://forums.voz.vn/";
-
-        // Display Popup
-        public const string STR_ERROR_NETWORK = "Lỗi mạng: \n * Kiểm tra lại kết nối, DNS \n * Có thể lỗi máy chủ. \n Vui lòng kiểm tra và tải lại trang";
-        public const string STR_ERROR_INPUT = "Giá trị nhập không đúng format!";
-        public const string STR_THREAD_DELETED = "Mod/Min del bài rồi. :'<";
+        public const string APPLICATION = "application/x-www-form-urlencoded";               
 
         // Define Value
         public const int SIZE_WIDTH_SCREEN_600 = 600;
@@ -108,5 +95,20 @@ namespace vozForums_Universal
         public const string HTML_NONE_DISPLAY = "style=\"display:none\"";
         public const string HTML_STYLE_FONT_STYLE_ITALIC = "italic";
         public const string HTML_STYLE_FONT_STYLE_NORMAL = "normal";
+
+        // URL
+        public const string URL_HOMEPAGE = "https://forums.voz.vn/";
+        public const string URL_LOGIN = "https://forums.voz.vn/login.php?do=login";
+        public const string URL_ACCOUNT = "https://forums.voz.vn/member.php?u={rpID}";
+        public const string URL_MESSAGE = "https://forums.voz.vn/private.php?do=showpm&pmid={rpID}";
+        public const string URL_POST_MESSAGE = "https://forums.voz.vn/private.php?do=insertpm&pmid={rpID}";
+        public const string URL_DELETE_MESSAGE = "https://forums.voz.vn/private.php?do=managepm&dowhat=delete&pmid={rpID}";
+        public const string URL_MESSAGE_IN = "https://forums.voz.vn/private.php";
+        public const string URL_MESSAGE_OUT = "https://forums.voz.vn/private.php?s=&pp=50&folderid=-1";
+        public const string URL_THREAD = "https://forums.voz.vn/showthread.php?t={rpIdThread}&page={rpIDPage}";
+        public const string URL_GET_CONTENT_MESSAGE = "https://forums.voz.vn/newreply.php?do=newreply&p={rpID}";
+        public const string URL_POST_COMMENT = "https://forums.voz.vn/newreply.php?do=postreply&t={rpID}";
+        public const string URL_NEW_THREAD = "https://forums.voz.vn/newthread.php?do=newthread&f={rpID}";
+        public const string URL_LIST_THREAD = "https://forums.voz.vn/forumdisplay.php?f={rpIDBox}&daysprune=-1&order=desc&sort=lastpost&pp=20&page={rpIDPage}";
     }
 }

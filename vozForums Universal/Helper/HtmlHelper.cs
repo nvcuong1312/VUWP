@@ -15,6 +15,7 @@ using System.IO;
 using Windows.Security.ExchangeActiveSyncProvisioning;
 using vozForums_Universal.Views;
 using vozForums_Universal.ModelData;
+using Windows.Networking.BackgroundTransfer;
 
 namespace vozForums_Universal.Helper
 {
@@ -93,7 +94,7 @@ namespace vozForums_Universal.Helper
             string url = "https://forums.voz.vn/member.php?u=" + appSetting.Cookies_Vfuserid;
             string content = Resource.STR_EMPTY; ;
             await Task.Run(() => Server.Get(url, ref content));
-            if (content != Resource.STR_ERROR)
+            if (content != Resource.DIALOG_ERROR)
             {
                 HtmlDocument htmlDocument = new HtmlDocument();
                 htmlDocument.LoadHtml(content);
@@ -109,7 +110,7 @@ namespace vozForums_Universal.Helper
                 }
                 appSetting.TotalPosts = int.TryParse(node[1].InnerText.Trim(), out posts) ? posts : 0;
             }
-            else if (content == Resource.STR_ERROR)
+            else if (content == Resource.DIALOG_ERROR)
             {
                 appSetting.TotalPosts = 0;
             }
@@ -450,7 +451,7 @@ namespace vozForums_Universal.Helper
             {
                 if (Box.Id == idBox)
                 {
-                    return Resource.STR_IDBOX_EXIST;
+                    return Resource.DIALOG_IDBOX_EXIST;
                 }
             }
 
@@ -463,7 +464,7 @@ namespace vozForums_Universal.Helper
             try
             {
                 Server.Get(url, ref content);
-                if (content != Resource.STR_ERROR)
+                if (content != Resource.DIALOG_ERROR)
                 {
                     HtmlDocument doc = new HtmlDocument();
                     doc.LoadHtml(content);
@@ -485,7 +486,7 @@ namespace vozForums_Universal.Helper
                         || ParentBoxNodeList == null
                         || ParentBoxNodeList.Count < 2)
                     {
-                        return Resource.STR_ERROR;
+                        return Resource.DIALOG_ERROR;
                     }
 
                     var TitleNode = HtmlEntity.DeEntitize(TitleBoxNode.InnerText.Trim());
@@ -501,16 +502,16 @@ namespace vozForums_Universal.Helper
                     //await Task.Delay(TimeSpan.FromSeconds(0.3));
                     MainView.GetInstance().RefreshSplitView();
 
-                    return Resource.STR_DONE;
+                    return Resource.DIALOG_DONE;
                 }
                 else
                 {
-                    return Resource.STR_ERROR;
+                    return Resource.DIALOG_ERROR;
                 }
             }
             catch (Exception ex)
             {
-                return Resource.STR_ERROR;
+                return Resource.DIALOG_ERROR;
             }
         }
 
@@ -532,5 +533,64 @@ namespace vozForums_Universal.Helper
             appSetting.BoxStart = int.Parse(idBox);
             return true;
         }
-    }
+
+        public List<string> DownLoadImage(string IDThread, int FromPage, int ToPage)
+        {
+            ListAll = new List<string>();
+            for (int page = FromPage; page <= ToPage; page++)
+            {
+                var url = Resource.URL_THREAD.Replace("{rpIdThread}", IDThread).Replace("{rpIDPage}", page.ToString());
+                string contentHtml = string.Empty;
+                try
+                {
+                    Server.Get(url, ref contentHtml);
+                    if (!string.IsNullOrEmpty(contentHtml) && contentHtml != Resource.DIALOG_ERROR)
+                    {
+                        HtmlDocument doc = new HtmlDocument();
+                        doc.LoadHtml(contentHtml);                        
+                        FindImageNode(doc.DocumentNode);
+                    }
+                    else if (contentHtml == Resource.DIALOG_ERROR)
+                    {
+                        
+                    }
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
+            }
+
+            return ListAll;
+        }
+        
+        List<string> ListAll = null;
+        private void FindImageNode(HtmlNode nodeFind)
+        {
+            if (nodeFind.Name == "img")
+            {
+                var vl = nodeFind.GetAttributeValue("src", string.Empty);
+                if (!string.IsNullOrEmpty(vl)
+                    && (vl.Contains("https://")
+                    || vl.Contains("http://")
+                    || vl.Contains("www."))
+                    && !vl.StartsWith("/"))
+                {
+                    var vcl = HtmlEntity.DeEntitize(nodeFind.GetAttributeValue("src", string.Empty));
+                    if (!ListAll.Contains(vcl))
+                    {
+                        ListAll.Add(vcl);
+                    }
+                }
+            }
+            if (nodeFind.HasChildNodes)
+            {
+                var childNodeList = nodeFind.ChildNodes;
+                foreach (HtmlNode node in childNodeList)
+                {
+                    FindImageNode(node);
+                }
+            }
+        }
+    }    
 }

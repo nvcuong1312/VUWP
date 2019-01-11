@@ -151,7 +151,7 @@ namespace vozForums_Universal.Views
             try
             {
                 await Task.Run(() => threadController.GetContent(url, ref contentHtml));
-                if (!string.IsNullOrEmpty(contentHtml) && contentHtml != Resource.STR_ERROR)
+                if (!string.IsNullOrEmpty(contentHtml) && contentHtml != Resource.DIALOG_ERROR)
                 {
                     appSetting.Token = AccountHelper.GetToken(contentHtml);
 
@@ -163,7 +163,7 @@ namespace vozForums_Universal.Views
                     TitleThread.Text = threadModelData.TitleThread();
                     if (TitleThread.Text == Resource.STR_VB_MSG)
                     {
-                        DialogResult.DialogOnlyOk(Resource.STR_THREAD_DELETED);
+                        DialogResult.DialogOnlyOk(Resource.DIALOG_THREAD_DELETED);
                         return;
                     }
 
@@ -178,14 +178,14 @@ namespace vozForums_Universal.Views
                     pre_btn.IsEnabled = true;
                     next_btn.IsEnabled = true;
                 }
-                else if (contentHtml == Resource.STR_ERROR)
+                else if (contentHtml == Resource.DIALOG_ERROR)
                 {
-                    TitleThread.Text = Resource.STR_ERROR;
+                    TitleThread.Text = Resource.DIALOG_ERROR;
                 }
             }
             catch (Exception)
             {
-                TitleThread.Text = Resource.STR_ERROR;
+                TitleThread.Text = Resource.DIALOG_ERROR;
             }
             pgbarLoading.IsIndeterminate = false;
             pgbarLoading.Visibility = Visibility.Collapsed;
@@ -573,13 +573,13 @@ namespace vozForums_Universal.Views
                 {
                     threadController.GetContent(urlQuote, ref contentHTML);
                 });
-                if (!string.IsNullOrEmpty(contentHTML) && contentHTML != Resource.STR_ERROR)
+                if (!string.IsNullOrEmpty(contentHTML) && contentHTML != Resource.DIALOG_ERROR)
                 {
                     tbMessage.Text = helper.GetContenFromQuote(contentHTML);
                     appSetting.Cookies_Vbmultiquote = Resource.STR_EMPTY;
                     DisplayPopupPostMessage();
                 }
-                else if (contentHTML == Resource.STR_ERROR)
+                else if (contentHTML == Resource.DIALOG_ERROR)
                 {
                     //pgbarLoading.IsIndeterminate = false;
                     //pgbarLoading.Visibility = Visibility.Collapsed;
@@ -587,7 +587,7 @@ namespace vozForums_Universal.Views
             }
             catch (Exception)
             {
-                DialogResult.DialogOnlyOk(Resource.STR_ERROR_NETWORK);
+                DialogResult.DialogOnlyOk(Resource.DIALOG_ERROR_NETWORK);
             }
             pgbarLoading.IsIndeterminate = false;
             pgbarLoading.Visibility = Visibility.Collapsed;

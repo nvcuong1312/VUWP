@@ -65,7 +65,7 @@ namespace vozForums_Universal.Views.Account
             try
             {
                 await Task.Run(() => messageController.GetContent(url, ref contentHtml));
-                if (!string.IsNullOrEmpty(contentHtml) && contentHtml != Resource.STR_ERROR)
+                if (!string.IsNullOrEmpty(contentHtml) && contentHtml != Resource.DIALOG_ERROR)
                 {
                     appSetting.Token = AccountHelper.GetToken(contentHtml);
 
@@ -75,14 +75,14 @@ namespace vozForums_Universal.Views.Account
 
                     LvMessageList.ItemsSource = listThreadModelData.GetListMessagesData();
                 }
-                else if (contentHtml == Resource.STR_ERROR)
+                else if (contentHtml == Resource.DIALOG_ERROR)
                 {
-                    Message.Text = Resource.STR_ERROR;
+                    Message.Text = Resource.DIALOG_ERROR;
                 }
             }
             catch (Exception ex)
             {
-                Message.Text = Resource.STR_ERROR;
+                Message.Text = Resource.DIALOG_ERROR;
             }
 
             Outbox.IsEnabled = true;

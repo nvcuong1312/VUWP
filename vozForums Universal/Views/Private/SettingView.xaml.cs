@@ -83,7 +83,7 @@ namespace vozForums_Universal.Views.Account
             {
                 if (appSetting.Token.Length > 10)
                 {
-                    DialogResult.DialogOnlyOk(Resource.STR_LOGIN_SUCCESS);
+                    DialogResult.DialogOnlyOk(Resource.DIALOG_LOGIN_SUCCESS);
                     btn_logout.IsEnabled = true;
 
                     MainView.GetInstance().UpdateNameAndStatusBtnAccount(txtUSERNAME.Text);
@@ -91,7 +91,7 @@ namespace vozForums_Universal.Views.Account
             }
             catch (Exception ex)
             {
-                DialogResult.DialogOnlyOk(Resource.STR_ERROR_LOGIN);
+                DialogResult.DialogOnlyOk(Resource.DIALOG_ERROR_LOGIN);
             }
             txtUSERNAME.IsEnabled = true;
             txtPASSWORD.IsEnabled = true;
@@ -158,9 +158,9 @@ namespace vozForums_Universal.Views.Account
             if (!string.IsNullOrEmpty(ID))
             {
                 var AddResult = Helper.RequestAddNamebox(ID);
-                if (AddResult == Resource.STR_DONE)
+                if (AddResult == Resource.DIALOG_DONE)
                 {
-                    DialogResult.DialogOnlyOk(Resource.STR_DONE);
+                    DialogResult.DialogOnlyOk(Resource.DIALOG_DONE);
                 }
             }
         }
@@ -171,7 +171,7 @@ namespace vozForums_Universal.Views.Account
             if (!string.IsNullOrEmpty(ID))
             {
                 Helper.RequestDeleteBox(ID);
-                DialogResult.DialogOnlyOk(Resource.STR_DONE);
+                DialogResult.DialogOnlyOk(Resource.DIALOG_DONE);
             }
         }
 
@@ -179,11 +179,11 @@ namespace vozForums_Universal.Views.Account
         {
             if (Helper.SetDefaultBox(tbBoxDefault.Text))
             {
-                DialogResult.DialogOnlyOk(Resource.STR_DONE);
+                DialogResult.DialogOnlyOk(Resource.DIALOG_DONE);
             }
             else
             {
-                DialogResult.DialogOnlyOk(Resource.STR_ERROR);
+                DialogResult.DialogOnlyOk(Resource.DIALOG_ERROR);
             }
         }
     }

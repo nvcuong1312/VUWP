@@ -54,11 +54,11 @@ namespace vozForums_Universal.ModelData
             try
             {
                 //await FileIO.WriteLinesAsync(DataBox, BoxContent);
-                DialogResult.DialogOnlyOk(Resource.STR_DONE);
+                DialogResult.DialogOnlyOk(Resource.DIALOG_DONE);
             }
             catch (Exception ex)
             {
-                DialogResult.DialogOnlyOk(Resource.STR_ERROR);
+                DialogResult.DialogOnlyOk(Resource.DIALOG_ERROR);
             }
         }
 

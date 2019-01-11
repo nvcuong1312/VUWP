@@ -118,7 +118,7 @@ namespace vozForums_Universal.Views
             try
             {
                 await Task.Run(() => listThreadController.GetContent(url, ref contentHtml));
-                if (!string.IsNullOrEmpty(contentHtml) && contentHtml != Resource.STR_ERROR)
+                if (!string.IsNullOrEmpty(contentHtml) && contentHtml != Resource.DIALOG_ERROR)
                 {
                     appSetting.Token = AccountHelper.GetToken(contentHtml);
 
@@ -143,14 +143,14 @@ namespace vozForums_Universal.Views
                     pre_btn.IsEnabled = true;
                     next_btn.IsEnabled = true;
                 }
-                else if (contentHtml == Resource.STR_ERROR)
+                else if (contentHtml == Resource.DIALOG_ERROR)
                 {
-                    tblTitle.Text = Resource.STR_ERROR;                    
+                    tblTitle.Text = Resource.DIALOG_ERROR;                    
                 }
             }
             catch (Exception ex)
             {
-                tblTitle.Text = Resource.STR_ERROR;
+                tblTitle.Text = Resource.DIALOG_ERROR;
             }
 
             if (appSetting.TotalPosts >= Resource.TOTAL_POST_URL_IMAGE

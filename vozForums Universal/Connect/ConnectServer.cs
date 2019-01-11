@@ -13,8 +13,6 @@ namespace vozForums_Universal.Connect
 {
     public class ConnectServer
     {
-        private string loginUrl = "https://forums.voz.vn/login.php?do=login";
-
         //private static HttpClient client;
         private CookieContainer cookies;
         private HttpClientHandler handler;
@@ -49,8 +47,8 @@ namespace vozForums_Universal.Connect
             }
             catch (Exception ex)
             {
-                outContent = Resource.STR_ERROR;
-                DialogResult.DialogOnlyOk(Resource.STR_ERROR_NETWORK);
+                outContent = Resource.DIALOG_ERROR;
+                DialogResult.DialogOnlyOk(Resource.DIALOG_ERROR_NETWORK);
             }
         }
 
@@ -73,15 +71,15 @@ namespace vozForums_Universal.Connect
                 HttpClient client = new HttpClient(handler);
                 client.DefaultRequestHeaders.Add(Resource.USER_AGENT, Resource.USER_AGENT_VALUE);
 
-                using (HttpResponseMessage response = client.PostAsync(loginUrl, new StringContent(postData, Encoding.UTF8, applicationEncoded)).Result)
+                using (HttpResponseMessage response = client.PostAsync(Resource.URL_LOGIN, new StringContent(postData, Encoding.UTF8, applicationEncoded)).Result)
                 {
-                    using (HttpResponseMessage responseMessage = client.GetAsync("https://forums.voz.vn/").Result)
+                    using (HttpResponseMessage responseMessage = client.GetAsync(Resource.URL_HOMEPAGE).Result)
                     {
                         using (HttpContent content = responseMessage.Content)
                         {
                             contentHtml = content.ReadAsStringAsync().Result;
 
-                            IEnumerable<Cookie> responseCookies = cookies.GetCookies(new Uri("https://forums.voz.vn/")).Cast<Cookie>();
+                            IEnumerable<Cookie> responseCookies = cookies.GetCookies(new Uri(Resource.URL_HOMEPAGE)).Cast<Cookie>();
                             var listName = responseCookies.Select(n => n.Name).ToList();
                             if (listName.Contains(Resource.COOKIES_VFPASSWORD))
                             {
@@ -92,7 +90,7 @@ namespace vozForums_Universal.Connect
                             }
                             else
                             {
-                                contentHtml = Resource.STR_ERROR;
+                                contentHtml = Resource.DIALOG_ERROR;
                             }
                             //foreach (Cookie cookie in responseCookies)
                             //{
@@ -111,7 +109,7 @@ namespace vozForums_Universal.Connect
             }
             catch (Exception ex)
             {
-                contentHtml = Resource.STR_ERROR;
+                contentHtml = Resource.DIALOG_ERROR;
             }
         }
 

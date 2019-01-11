@@ -87,7 +87,7 @@ namespace vozForums_Universal.Views.Account
             try
             {
                 await Task.Run(() => messageController.GetContent(url, ref contentHtml));
-                if (!string.IsNullOrEmpty(contentHtml) && contentHtml != Resource.STR_ERROR)
+                if (!string.IsNullOrEmpty(contentHtml) && contentHtml != Resource.DIALOG_ERROR)
                 {
                     helper.GetMessagePrivate(contentHtml);
 
@@ -98,15 +98,15 @@ namespace vozForums_Universal.Views.Account
 
                     TblTitleMsg.Text = TitleMessage;
                 }
-                else if (contentHtml == Resource.STR_ERROR)
+                else if (contentHtml == Resource.DIALOG_ERROR)
                 {
-                    TblTitleMsg.Text = Resource.STR_ERROR;
+                    TblTitleMsg.Text = Resource.DIALOG_ERROR;
                 }
             }
             catch (Exception ex)
             {
                 var xxx = ex.ToString();
-                TblTitleMsg.Text = Resource.STR_ERROR;
+                TblTitleMsg.Text = Resource.DIALOG_ERROR;
             }
 
             pgbarLoading.IsIndeterminate = false;

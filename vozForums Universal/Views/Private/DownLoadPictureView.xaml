@@ -1,0 +1,52 @@
+﻿<paging:MtPage
+    x:Class="vozForums_Universal.Views.Private.DownLoadPictureView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:vozForums_Universal.Views.Account"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:paging="using:MyToolkit.Paging"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.RowDefinitions>
+        <RowDefinition Height="50" />
+        <RowDefinition Height="*" />
+        <!--<RowDefinition Height="50" />-->
+    </Grid.RowDefinitions>
+    <RelativePanel Grid.Row="0" Style="{StaticResource rlHome}" Background="{x:Bind appSetting.BackgroundHomeColor}">
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock Style="{StaticResource HomeIcon}" Text="&#xE74E;" />
+            <TextBlock Style="{StaticResource HomeText}" Text="Download Picture" Foreground="{x:Bind appSetting.TextblockHomeColor}"/>
+        </StackPanel>
+    </RelativePanel>
+    <ScrollViewer Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollMode="Enabled" HorizontalAlignment="Stretch">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                    <TextBlock Text="ID Thread" VerticalAlignment="Center"/>
+                    <TextBox  x:Name="tbIdThread" Width="200"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                    <TextBlock Text="From : " VerticalAlignment="Center"/>
+                    <TextBox  x:Name="tbFromPage" Width="50" Margin="23,0,0,0"/>
+                    <TextBlock Text="To : " VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <TextBox  x:Name="tbToPage" Width="50" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                    <TextBox x:Name="tbFolderSave"  Width="160" Margin="78,0,0,0" PlaceholderText="Choose folder save" />
+                    <Button x:Name="btnChooseFolderSave" Margin="10,0,0,0" Content="...." VerticalContentAlignment="Center" Height="40" Width="40" Click="BtnChooseFolderSave_Click"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,20,0,0">
+                    <Button x:Name="btnStart" Margin="78,0,0,0" Content="Start" Height="40" Width="60" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtnStart_Click"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,20,0,0" HorizontalAlignment="Center">
+                    <ProgressBar x:Name="prgProgressBar" Height="30" Margin="10,0,0,0" Width="200" Visibility="Visible"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="10,20,0,0">
+                    <TextBlock Text="Đây là tính năng đang trong giai đoạn thử nghiệm, cho phép bạn tải ảnh trên diễn đàn. " TextWrapping="WrapWholeWords"/>
+                    <TextBlock Text="Hãy nhập ID thread, trang bắt đầu và trang kết thúc, sau đó chọn thư mục lưu. Nhấn Start và chờ đợi..." TextWrapping="WrapWholeWords"/>
+                </StackPanel>
+            </StackPanel>
+    </ScrollViewer>
+    </Grid>
+</paging:MtPage>

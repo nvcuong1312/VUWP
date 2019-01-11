@@ -31,9 +31,9 @@ namespace vozForums_Universal.Helper
             {
                 string contentHtml = string.Empty;
                 Server.Login(userName, passWord, ref contentHtml);
-                if (contentHtml == Resource.STR_ERROR)
+                if (contentHtml == Resource.DIALOG_ERROR)
                 {
-                    DialogResult.DialogOnlyOk(Resource.STR_ERROR);
+                    DialogResult.DialogOnlyOk(Resource.DIALOG_ERROR);
                     return false;
                 }
 
@@ -57,14 +57,14 @@ namespace vozForums_Universal.Helper
                     appSetting.Cookies_Vfuserid = Resource.STR_EMPTY;
                     appSetting.TotalPosts = 0;
 
-                    DialogResult.DialogOnlyOk(Resource.STR_ERROR);
+                    DialogResult.DialogOnlyOk(Resource.DIALOG_ERROR);
                     return false;
                 }
                 return true;
             }
             catch (Exception e)
             {
-                DialogResult.DialogOnlyOk(Resource.STR_ERROR);
+                DialogResult.DialogOnlyOk(Resource.DIALOG_ERROR);
                 return false;
             }
         }

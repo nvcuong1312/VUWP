@@ -201,7 +201,7 @@ namespace vozForums_Universal.Views
 
                 if (appSetting.Cookies_Vfpassword.Length > 10)
                 {
-                    BtnGotoAccount.Visibility = Visibility.Visible;
+                    //BtnGotoAccount.Visibility = Visibility.Visible;
                     BtnGotoMessage.Visibility = Visibility.Visible;
                 }
                 else
@@ -364,6 +364,16 @@ namespace vozForums_Universal.Views
             {
                 frMainFrame.Navigate(typeof(ListMessageView));
             }
+        }
+
+        private void BtnToolForApp_Click(object sender, RoutedEventArgs e)
+        {
+            FlyBtnAccount.Hide();
+            if (ActualWidth < Resource.SIZE_WIDTH_SCREEN_600)
+            {
+                splMainSplitView.IsPaneOpen = !splMainSplitView.IsPaneOpen;
+            }
+            frMainFrame.Navigate(typeof(Private.DownLoadPictureView));
         }
     }
 }

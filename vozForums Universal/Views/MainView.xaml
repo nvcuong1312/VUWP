@@ -82,8 +82,9 @@
                             <Button.Flyout>
                                 <Flyout x:Name="FlyBtnAccount">
                                     <StackPanel Orientation="Vertical" Width="196" VerticalAlignment="Center">
-                                        <Button x:Name="BtnGotoAboutApp" Content="Hỗ trợ" Click="BtnGotoAboutApp_Click" Height="50" Width="196" HorizontalAlignment="Center" HorizontalContentAlignment="Left"/>
-                                        <Button x:Name="BtnGotoAccount" Content="Tài khoản" Click="BtnGotoAccount_Click" Height="50" Width="196" Margin="0,3,0,0" HorizontalAlignment="Center" HorizontalContentAlignment="Left"/>
+                                        <Button x:Name="BtnToolForApp" Content="Download Picture (Beta)" Click="BtnToolForApp_Click" Height="50" Width="196" HorizontalAlignment="Center" HorizontalContentAlignment="Left"/>
+                                        <Button x:Name="BtnGotoAboutApp" Content="Hỗ trợ" Click="BtnGotoAboutApp_Click" Height="50" Width="196" Margin="0,3,0,0" HorizontalAlignment="Center" HorizontalContentAlignment="Left"/>
+                                        <Button x:Name="BtnGotoAccount" Visibility="Collapsed" Content="Tài khoản" Click="BtnGotoAccount_Click" Height="50" Width="196" Margin="0,3,0,0" HorizontalAlignment="Center" HorizontalContentAlignment="Left"/>
                                         <Button x:Name="BtnGotoMessage" Click="BtnGotoMessage_Click" Height="50" Width="196"  Margin="0,3,0,0" HorizontalContentAlignment="Left">
                                             <StackPanel Orientation="Horizontal" Width="196" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                 <TextBlock Text="Tin nhắn" Grid.Column="0" VerticalAlignment="Center" TextAlignment="Left" Padding="10,12,0,0" HorizontalAlignment="Left" Height="50" Width="110"/>
