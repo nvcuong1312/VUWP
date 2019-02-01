@@ -10,6 +10,9 @@
 
     <Frame Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ListBox>
+            <ListBoxItem Content="1.3.91" FontSize="20" />
+            <ListBoxItem Content=" - Update download all image of thread" Margin="20,0,0,0" />
+            
             <ListBoxItem Content="1.3.90" FontSize="20" />
             <ListBoxItem Content=" - Update UI" Margin="20,0,0,0" />
             <ListBoxItem Content=" - Add download all image of thread" Margin="20,0,0,0" />

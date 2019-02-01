@@ -244,7 +244,16 @@
             <AppBarButton Name="refresh" Icon="Refresh" Label="Refresh" Click="refresh_Click"/>
             <AppBarButton Name="openWithBrowser" Icon="Globe" Label="Open In Browser" Click="openWithBrowser_Click" />
             <AppBarButton Name="btnBookmark" Label="Bookmark" Icon="SolidStar" Click="btnBookmark_Click" />
-            <AppBarButton Name="jumpBox" Label="Jump To F=" Icon="NewWindow">
+            <AppBarButton Name="gotoThread" Icon="SetLockScreen" Label="Jump Thread ID">
+                <AppBarButton.Flyout>
+                    <Flyout x:Name="fl_id_Thread">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Name="getIdthread" Width="69" Height="40" InputScope="FormulaNumber" Margin="5,5,5,5" KeyDown="GetIdthread_KeyDown"/>
+                        </StackPanel>
+                    </Flyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <AppBarButton Name="jumpBox" Label="Jump Box ID" Icon="NewWindow">
                 <AppBarButton.Flyout>
                     <Flyout x:Name="fl_JumpBox">
                         <StackPanel Orientation="Horizontal">
@@ -253,6 +262,7 @@
                     </Flyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
+            <AppBarButton Name="btnDownImage" Label="Save Image this page" Icon="Download" Click="BtnDownImage_Click"/>
         </CommandBar>
     </Grid>
 </paging:MtPage>

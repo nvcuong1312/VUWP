@@ -20,6 +20,7 @@ using Windows.Networking.BackgroundTransfer;
 using Windows.Storage;
 using System.Threading.Tasks;
 using System.Net.Http;
+using System.Threading;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -30,15 +31,30 @@ namespace vozForums_Universal.Views.Private
     /// </summary>
     public sealed partial class DownLoadPictureView : MtPage
     {
-        int MaxFile;
+        int TotalPage;
         AppSettingModel appSetting;
+        private CancellationTokenSource cts;
+        private List<DownloadOperation> activeDownloads;
 
         public DownLoadPictureView()
         {
             this.InitializeComponent();
-            MaxFile = 0;
+            TotalPage = 0;
+            cts = new CancellationTokenSource();
             appSetting = new AppSettingModel();
         }
+
+        protected override void OnNavigatedTo(MtNavigationEventArgs e)
+        {
+            if (e.Parameter != null)
+            {
+                var Value = (Dictionary<string, string>)e.Parameter;
+                tbIdThread.Text = Value.Keys.FirstOrDefault();
+                tbToPage.Text = Value.Values.FirstOrDefault();
+                tbFromPage.Text = Value.Values.FirstOrDefault();
+            }
+        }
+
 
         StorageFolder _Folder;
         private async void BtnChooseFolderSave_Click(object sender, RoutedEventArgs e)
@@ -63,14 +79,12 @@ namespace vozForums_Universal.Views.Private
 
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
-            ResetProgressBar();
-
             // Veryfi Input
             var IDThread = tbIdThread.Text;
             var tempFromPage = tbFromPage.Text;
             var tempToPage = tbToPage.Text;
             var FolderSave = tbFolderSave.Text;
-
+            var backgroundFlag = (chbDownLoadBgr.IsChecked == true) ? true : false;
             int FromPage, ToPage;
 
             if (string.IsNullOrEmpty(IDThread)
@@ -81,32 +95,97 @@ namespace vozForums_Universal.Views.Private
                 DialogResult.DialogOnlyOk(Resource.DIALOG_VALUE_INPUT_INVALID);
                 return;
             }
-            //StartDownload(BackgroundTransferPriority.High, "http://farm3.static.flickr.com/2795/5721108811_243df04b90_z.jpg", "cuong");
-            //StartDownload(BackgroundTransferPriority.High, "http://farm3.static.flickr.com/2795/5721108811_243df04b90_z.jpg", "cuong2");
-            //StartDownload(BackgroundTransferPriority.High, "http://farm3.static.flickr.com/2795/5721108811_243df04b90_z.jpg", "cuong3");
-            //StartDownload(BackgroundTransferPriority.High, "http://farm3.static.flickr.com/2795/5721108811_243df04b90_z.jpg", "cuong4");
-            //StartDownload(BackgroundTransferPriority.High, "http://farm3.static.flickr.com/2795/5721108811_243df04b90_z.jpg", "cuong5");
-            
+
             // Get Image
             HtmlHelper helper = new HtmlHelper();
-            var ListImage = helper.DownLoadImage(IDThread, FromPage, ToPage);
+            activeDownloads = new List<DownloadOperation>();
 
-            MaxFile = ListImage.Count();
-            int count = 0;
-            foreach (var ImageURL in ListImage)
+            // Set status disable for control UI
+            SetStatusControlWhenStartRun();
+
+            Task.Run(()=>
             {
-                var FileName = IDThread + "_" + count.ToString() + "_" + DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss");
-                StartDownload(BackgroundTransferPriority.High, ImageURL, FileName);
-                count++;
-            }
+                Run(helper, IDThread, FromPage, ToPage, backgroundFlag);
+            });
         }
 
-        private async void StartDownload(BackgroundTransferPriority priority, string URL, string FileToSave)
+        private void SetStatusControlWhenStartRun()
+        {
+            btnChooseFolderSave.IsEnabled = false;
+            btnStart.IsEnabled = false;
+
+            tbIdThread.IsEnabled = false;
+            tbFromPage.IsEnabled = false;
+            tbToPage.IsEnabled = false;
+            tbFolderSave.IsEnabled = false;
+            prgProgressBar.Visibility = Visibility.Visible;
+        }
+
+        private async void SetStatusControlWhenDone()
+        {
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => 
+            {
+                btnChooseFolderSave.IsEnabled = true;
+                btnStart.IsEnabled = true;
+
+                tbIdThread.IsEnabled = true;
+                tbFromPage.IsEnabled = true;
+                tbToPage.IsEnabled = true;
+                tbFolderSave.IsEnabled = true;
+            });
+        }
+
+        private async void Run(HtmlHelper helper, string IDThread, int FromPage, int ToPage, bool backgroundFlag)
+        {
+            ResetProgressBar();
+            TotalPage = ToPage - FromPage + 1;
+            bool WaitNextPageFlag = false;
+            for (int i = FromPage; i <= ToPage; i++)
+            {
+                while (WaitNextPageFlag && !backgroundFlag)
+                {
+                    continue;
+                }
+
+                WaitNextPageFlag = true;
+                List<string> ListImage = null;
+                ListImage = helper.DownLoadImage(IDThread, i);
+                if (ListImage != null)
+                {
+                    int count = 0;
+                    foreach (var ImageURL in ListImage)
+                    {
+                        var FileName = IDThread + "_Page_" + i.ToString() + "_" + count.ToString() + "_" + DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss");
+                        if (backgroundFlag)
+                        {
+                            await StartDownload(BackgroundTransferPriority.High, ImageURL, FileName);
+                        }
+                        else
+                        {
+                            var checkTaskDone = StartDownload(BackgroundTransferPriority.High, ImageURL, FileName);
+                            while (!checkTaskDone.Result)
+                            {
+                                // Continue wait for task done
+                                continue;
+                            }
+                            WaitNextPageFlag = false;
+                        }
+                        count++;
+                    }
+                    UpdateProgressBar();
+                }
+            }
+
+            SetStatusControlWhenDone();
+            DialogResult.DialogOnlyOk(Resource.DIALOG_DONE);
+        }
+
+        private async Task<bool> StartDownload(BackgroundTransferPriority priority, string URL, string FileToSave)
         {
             Uri source;
             if (!Uri.TryCreate(URL, UriKind.Absolute, out source))
             {
-                return;
+                return true;
             }
 
             string destination;
@@ -124,9 +203,9 @@ namespace vozForums_Universal.Views.Private
             {                
                 destinationFile = await _Folder.CreateFileAsync(destination, CreationCollisionOption.GenerateUniqueName);
             }
-            catch (FileNotFoundException ex)
+            catch (Exception ex)
             {
-                return;
+                return true;
             }
 
             BackgroundDownloader downloader = new BackgroundDownloader();
@@ -136,26 +215,26 @@ namespace vozForums_Universal.Views.Private
 
             try
             {
-                await download.StartAsync();
-                ResponseInformation response = download.GetResponseInformation();
-                // GetResponseInformation() returns null for non-HTTP transfers (e.g., FTP).
-                string statusCode = response != null ? response.StatusCode.ToString() : String.Empty;
-                UpdateProgressBar();
+                activeDownloads.Add(download);
+                await download.StartAsync().AsTask(cts.Token);
             }
             catch (Exception)
             {
-                
-            }
 
-            //HandleDownloadAsync(download, true);
+            }
+            finally
+            {
+                activeDownloads.Remove(download);                
+            }
+            return true;
         }
 
         private async void UpdateProgressBar()
         {
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => {
-                var curr = prgProgressBar.Value;
+                var curr = (prgProgressBar.Value * (double)TotalPage) / 100;
                 curr++;
-                prgProgressBar.Value = ((double)curr / (double)MaxFile) * 100;
+                prgProgressBar.Value = ((double)curr / (double)TotalPage) * 100;
             });
         }
 
@@ -164,6 +243,14 @@ namespace vozForums_Universal.Views.Private
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => {
                 prgProgressBar.Value = 0;
             });
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            cts.Cancel();
+            cts.Dispose();
+            cts = new CancellationTokenSource();
+            activeDownloads = new List<DownloadOperation>();
         }
 
         //private async void HandleDownloadAsync(DownloadOperation download, bool start)

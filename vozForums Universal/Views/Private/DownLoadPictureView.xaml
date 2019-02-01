@@ -36,11 +36,15 @@
                     <TextBox x:Name="tbFolderSave"  Width="160" Margin="78,0,0,0" PlaceholderText="Choose folder save" />
                     <Button x:Name="btnChooseFolderSave" Margin="10,0,0,0" Content="...." VerticalContentAlignment="Center" Height="40" Width="40" Click="BtnChooseFolderSave_Click"/>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                    <CheckBox x:Name="chbDownLoadBgr" Content="Background mode?" Margin="78,0,0,0"/>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10,20,0,0">
                     <Button x:Name="btnStart" Margin="78,0,0,0" Content="Start" Height="40" Width="60" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtnStart_Click"/>
+                    <Button x:Name="btnCancel" Content="Cancel (Test)" Margin="10,0,0,0" Height="40" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtnCancel_Click"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10,20,0,0" HorizontalAlignment="Center">
-                    <ProgressBar x:Name="prgProgressBar" Height="30" Margin="10,0,0,0" Width="200" Visibility="Visible"/>
+                    <ProgressBar x:Name="prgProgressBar" Height="30" Margin="10,0,0,0" Width="200" Visibility="Collapsed"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="10,20,0,0">
                     <TextBlock Text="Đây là tính năng đang trong giai đoạn thử nghiệm, cho phép bạn tải ảnh trên diễn đàn. " TextWrapping="WrapWholeWords"/>

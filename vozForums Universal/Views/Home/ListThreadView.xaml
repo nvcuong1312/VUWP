@@ -247,7 +247,7 @@
             <AppBarButton Name="next_btn" Icon="Forward" Label="Next" Click="Next_btn_Click" />
             <AppBarButton Name="openWithBrowser" Icon="Globe" Label="Open with browser" Click="openWithBrowser_Click" />
             <AppBarButton Name="new_thread" Icon="Add" Label="New Thread" Click="New_thread_Click"/>
-            <AppBarButton Name="gotoThread" Icon="SetLockScreen" Label="Go to thread width ID">
+            <AppBarButton Name="gotoThread" Icon="SetLockScreen" Label="Jump Thread ID">
                 <AppBarButton.Flyout>
                     <Flyout x:Name="fl_id_Thread">
                         <StackPanel Orientation="Horizontal">
@@ -256,7 +256,7 @@
                     </Flyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
-            <AppBarButton Name="jumpBox" Label="Jump To F=" Icon="NewWindow">
+            <AppBarButton Name="jumpBox" Label="Jump Box ID" Icon="NewWindow">
                 <AppBarButton.Flyout>
                     <Flyout x:Name="fl_JumpBox">
                         <StackPanel Orientation="Horizontal">

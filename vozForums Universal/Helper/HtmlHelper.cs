@@ -287,13 +287,13 @@ namespace vozForums_Universal.Helper
             {
                 html = ListThreadHTML
                     .Replace("{rpBody}", tempbody)
-                    .Replace("{rpMarginRight}", "1px");                    
+                    .Replace("{rpMarginRight}", "1px");
             }
             else
             {
                 html = ListThreadHTML
                     .Replace("{rpBody}", tempbody)
-                    .Replace("{rpMarginRight}", "8px");                    
+                    .Replace("{rpMarginRight}", "8px");
             }
             return html
                     .Replace("{rpColorBody}", appSetting.BodyListThreadColor)
@@ -534,36 +534,33 @@ namespace vozForums_Universal.Helper
             return true;
         }
 
-        public List<string> DownLoadImage(string IDThread, int FromPage, int ToPage)
+        public List<string> DownLoadImage(string IDThread, int Page)
         {
             ListAll = new List<string>();
-            for (int page = FromPage; page <= ToPage; page++)
+            var url = Resource.URL_THREAD.Replace("{rpIdThread}", IDThread).Replace("{rpIDPage}", Page.ToString());
+            string contentHtml = string.Empty;
+            try
             {
-                var url = Resource.URL_THREAD.Replace("{rpIdThread}", IDThread).Replace("{rpIDPage}", page.ToString());
-                string contentHtml = string.Empty;
-                try
+                Server.Get(url, ref contentHtml);
+                if (!string.IsNullOrEmpty(contentHtml) && contentHtml != Resource.DIALOG_ERROR)
                 {
-                    Server.Get(url, ref contentHtml);
-                    if (!string.IsNullOrEmpty(contentHtml) && contentHtml != Resource.DIALOG_ERROR)
-                    {
-                        HtmlDocument doc = new HtmlDocument();
-                        doc.LoadHtml(contentHtml);                        
-                        FindImageNode(doc.DocumentNode);
-                    }
-                    else if (contentHtml == Resource.DIALOG_ERROR)
-                    {
-                        
-                    }
+                    HtmlDocument doc = new HtmlDocument();
+                    doc.LoadHtml(contentHtml);
+                    FindImageNode(doc.DocumentNode);
                 }
-                catch (Exception)
+                else if (contentHtml == Resource.DIALOG_ERROR)
                 {
-                    continue;
+
                 }
+            }
+            catch (Exception)
+            {
+
             }
 
             return ListAll;
         }
-        
+
         List<string> ListAll = null;
         private void FindImageNode(HtmlNode nodeFind)
         {
@@ -592,5 +589,28 @@ namespace vozForums_Universal.Helper
                 }
             }
         }
-    }    
+
+        /// <summary>
+        /// Get ID and Current page of Thread
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<string, string> GetInforOfCurrentPage(string url)
+        {
+            try
+            {
+                var stringQueryValue = url.Split('?').LastOrDefault().Split('&');
+
+                var ID = stringQueryValue[0].Replace("t=", Resource.STR_EMPTY);
+                var Page = stringQueryValue[1].Replace("page=", Resource.STR_EMPTY);
+
+                Dictionary<string, string> result = new Dictionary<string, string>();
+                result.Add(ID, Page);
+                return result;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+    }
 }

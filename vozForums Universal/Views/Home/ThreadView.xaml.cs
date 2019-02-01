@@ -68,6 +68,7 @@ namespace vozForums_Universal.Views
                 fl_Page.AllowFocusOnInteraction = true;
                 tbMessage.AllowFocusOnInteraction = true;
                 jumpTextBox.AllowFocusOnInteraction = true;
+                getIdthread.AllowFocusOnInteraction = true;
             }
 
             _instance = this;
@@ -625,6 +626,32 @@ namespace vozForums_Universal.Views
             //{
             //    brush.Color = Colors.Blue;
             //}
+        }
+
+        private void BtnDownImage_Click(object sender, RoutedEventArgs e)
+        {
+            var Infor = helper.GetInforOfCurrentPage(url);
+            if (Infor != null)
+            {
+                Frame.NavigateAsync(typeof(Private.DownLoadPictureView), Infor);
+            }
+        }
+
+        private void GetIdthread_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                int InThreadInput = 0;
+                bool isNumber = int.TryParse(getIdthread.Text, out InThreadInput);
+                if (!isNumber)
+                {
+                    //DialogResult.DialogOnlyOk(Resource.STR_ERROR_INPUT);
+                    return;
+                }
+                Frame.NavigateAsync(typeof(ThreadView), InThreadInput.ToString());
+                fl_id_Thread.Hide();
+                getIdthread.Text = Resource.STR_SPACE;
+            }
         }
     }
 }
